@@ -5,19 +5,20 @@
 plugins {
     id 'groovy'
     id 'application'
+    id 'org.springframework.boot' version '2.7.4'
+    //id 'io.spring.dependency-management' version '1.0.14.RELEASE'
 }
-
 repositories {
-    // Use Maven Central for resolving dependencies.
-    maven { url = "https://repo.maven.apache.org/maven2" }
+    mavenCentral()
 }
-
 dependencies {
     constraints {
         // Define dependency versions as constraints
         implementation 'org.codehaus.groovy:groovy-all:3.0.15'
     }
     implementation 'org.codehaus.groovy:groovy-all:3.0.15'
+    implementation 'org.springframework.boot:spring-boot-starter:2.7.12'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.12'
     implementation project(':mytool-backend')
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'

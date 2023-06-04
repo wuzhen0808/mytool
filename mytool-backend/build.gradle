@@ -5,12 +5,9 @@
 plugins {
     id 'groovy'
 }
-
 repositories {
-    // Use Maven Central for resolving dependencies.
-    maven { url = "https://repo.maven.apache.org/maven2" }
+    mavenCentral()
 }
-
 dependencies {
     implementation 'org.codehaus.groovy:groovy-all:3.0.15'
 
