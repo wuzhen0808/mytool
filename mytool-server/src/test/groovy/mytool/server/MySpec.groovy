@@ -1,4 +1,4 @@
-package mytool.app
+package mytool.server
 
 import spock.lang.Specification
 

@@ -10,9 +10,7 @@ repositories {
 }
 dependencies {
     implementation 'org.codehaus.groovy:groovy-all:3.0.15'
-    implementation 'org.springframework.boot:spring-boot-starter:2.7.12'
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.12'
-    implementation project(':mytool-collector')
+
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
 }
 

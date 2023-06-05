@@ -1,0 +1,1464 @@
+{
+  "data": {
+    "quote_name": "平安银行",
+    "currency_name": "人民币",
+    "org_type": 2,
+    "last_report_name": "2023一季报",
+    "statuses": null,
+    "currency": "CNY",
+    "list": [
+      {
+        "report_date": 1672416000000,
+        "report_name": "2022年报",
+        "ctime": 1678270337000,
+        "net_profit": [
+          4.5516E10,
+          0.25264200792602376
+        ],
+        "net_profit_atsopc": [
+          4.5516E10,
+          0.25264200792602376
+        ],
+        "total_revenue": [
+          1.79895E11,
+          0.06206053736207293
+        ],
+        "op": [
+          5.7475E10,
+          0.24986408611503752
+        ],
+        "income_from_chg_in_fv": [
+          1.24E9,
+          -0.40384615384615385
+        ],
+        "invest_incomes_from_rr": [
+          null,
+          null
+        ],
+        "invest_income": [
+          1.3243E10,
+          0.08167932696234582
+        ],
+        "exchg_gain": [
+          4.548E9,
+          2.4454545454545453
+        ],
+        "operating_taxes_and_surcharge": [
+          1.727E9,
+          0.05048661800486618
+        ],
+        "asset_impairment_loss": [
+          -3.5E7,
+          -1.0292153589315527
+        ],
+        "non_operating_income": [
+          6.4E7,
+          -0.5949367088607594
+        ],
+        "non_operating_payout": [
+          2.86E8,
+          0.08333333333333333
+        ],
+        "profit_total_amt": [
+          5.7253E10,
+          0.24791298851326315
+        ],
+        "minority_gal": [
+          null,
+          null
+        ],
+        "basic_eps": [
+          2.2,
+          0.2716763005780348
+        ],
+        "dlt_earnings_per_share": [
+          2.2,
+          0.2716763005780348
+        ],
+        "othr_compre_income_atoopc": [
+          9.9E8,
+          -0.25170068027210885
+        ],
+        "othr_compre_income_atms": [
+          null,
+          null
+        ],
+        "total_compre_income": [
+          4.6506E10,
+          0.23492392256831035
+        ],
+        "total_compre_income_atsopc": [
+          null,
+          null
+        ],
+        "total_compre_income_atms": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          9.9E8,
+          -0.25170068027210885
+        ],
+        "net_profit_after_nrgal_atsolc": [
+          4.5407E10,
+          0.2532983715153188
+        ],
+        "income_tax_expenses": [
+          1.1737E10,
+          0.229906737923085
+        ],
+        "credit_impairment_loss": [
+          7.1341E10,
+          -0.017598700064721355
+        ],
+        "interest_net_income": [
+          1.3013E11,
+          0.08138877808802021
+        ],
+        "interest_income": [
+          2.28878E11,
+          0.07184736999850143
+        ],
+        "interest_payout": [
+          9.8748E10,
+          0.05952789699570815
+        ],
+        "commi_net_income": [
+          3.0208E10,
+          -0.08632266650535358
+        ],
+        "fee_and_commi_income": [
+          3.7754E10,
+          -0.06061209256033839
+        ],
+        "charge_and_commi_expenses": [
+          7.546E9,
+          0.05864197530864197
+        ],
+        "othr_income": [
+          1.31E8,
+          0.24761904761904763
+        ],
+        "operating_payout": [
+          1.2242E11,
+          -0.007925574158414236
+        ],
+        "business_and_manage_fee": [
+          4.9387E10,
+          0.030248033877797943
+        ],
+        "othr_business_costs": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1640880000000,
+        "report_name": "2021年报",
+        "ctime": 1678270161000,
+        "net_profit": [
+          3.6336E10,
+          0.2560840707964602
+        ],
+        "net_profit_atsopc": [
+          3.6336E10,
+          0.2560840707964602
+        ],
+        "total_revenue": [
+          1.69383E11,
+          0.10317046801526618
+        ],
+        "op": [
+          4.5985E10,
+          0.24590208350266873
+        ],
+        "income_from_chg_in_fv": [
+          2.08E9,
+          4.387622149837133
+        ],
+        "invest_incomes_from_rr": [
+          null,
+          null
+        ],
+        "invest_income": [
+          1.2243E10,
+          0.2340489869972785
+        ],
+        "exchg_gain": [
+          1.32E9,
+          0.7322834645669292
+        ],
+        "operating_taxes_and_surcharge": [
+          1.644E9,
+          0.0780327868852459
+        ],
+        "asset_impairment_loss": [
+          1.198E9,
+          0.48451053283767037
+        ],
+        "non_operating_income": [
+          1.58E8,
+          1.051948051948052
+        ],
+        "non_operating_payout": [
+          2.64E8,
+          0.13793103448275862
+        ],
+        "profit_total_amt": [
+          4.5879E10,
+          0.2482722968928552
+        ],
+        "minority_gal": [
+          null,
+          null
+        ],
+        "basic_eps": [
+          1.73,
+          0.2357142857142858
+        ],
+        "dlt_earnings_per_share": [
+          1.73,
+          0.2357142857142858
+        ],
+        "othr_compre_income_atoopc": [
+          1.323E9,
+          1.7143628509719222
+        ],
+        "othr_compre_income_atms": [
+          null,
+          null
+        ],
+        "total_compre_income": [
+          3.7659E10,
+          0.39086275668488696
+        ],
+        "total_compre_income_atsopc": [
+          null,
+          null
+        ],
+        "total_compre_income_atms": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          1.323E9,
+          1.7143628509719222
+        ],
+        "net_profit_after_nrgal_atsolc": [
+          3.623E10,
+          0.25624133148404993
+        ],
+        "income_tax_expenses": [
+          9.543E9,
+          0.21939688218757986
+        ],
+        "credit_impairment_loss": [
+          7.2619E10,
+          0.04321156139115944
+        ],
+        "interest_net_income": [
+          1.20336E11,
+          0.06050938574072442
+        ],
+        "interest_income": [
+          2.13536E11,
+          0.06233116259632749
+        ],
+        "interest_payout": [
+          9.32E10,
+          0.06469264425328718
+        ],
+        "commi_net_income": [
+          3.3062E10,
+          0.11466235123562928
+        ],
+        "fee_and_commi_income": [
+          4.019E10,
+          0.018086938899584556
+        ],
+        "charge_and_commi_expenses": [
+          7.128E9,
+          -0.27376464595007644
+        ],
+        "othr_income": [
+          1.05E8,
+          -0.05405405405405406
+        ],
+        "operating_payout": [
+          1.23398E11,
+          0.05800245213618787
+        ],
+        "business_and_manage_fee": [
+          4.7937E10,
+          0.07265607518460505
+        ],
+        "othr_business_costs": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1609344000000,
+        "report_name": "2020年报",
+        "ctime": 1646820968000,
+        "net_profit": [
+          2.8928E10,
+          0.0259975172902997
+        ],
+        "net_profit_atsopc": [
+          2.8928E10,
+          0.0259975172902997
+        ],
+        "total_revenue": [
+          1.53542E11,
+          0.11296191594543267
+        ],
+        "op": [
+          3.6909E10,
+          0.017085067100223207
+        ],
+        "income_from_chg_in_fv": [
+          -6.14E8,
+          -13.53061224489796
+        ],
+        "invest_incomes_from_rr": [
+          null,
+          null
+        ],
+        "invest_income": [
+          9.921E9,
+          0.02173017507723996
+        ],
+        "exchg_gain": [
+          7.62E8,
+          -0.362876254180602
+        ],
+        "operating_taxes_and_surcharge": [
+          1.525E9,
+          0.1821705426356589
+        ],
+        "asset_impairment_loss": [
+          8.07E8,
+          -0.23579545454545456
+        ],
+        "non_operating_income": [
+          7.7E7,
+          -0.2222222222222222
+        ],
+        "non_operating_payout": [
+          2.32E8,
+          0.5675675675675675
+        ],
+        "profit_total_amt": [
+          3.6754E10,
+          0.014183222958057394
+        ],
+        "minority_gal": [
+          null,
+          null
+        ],
+        "basic_eps": [
+          1.4,
+          -0.09090909090909098
+        ],
+        "dlt_earnings_per_share": [
+          1.4,
+          -0.03448275862068969
+        ],
+        "othr_compre_income_atoopc": [
+          -1.852E9,
+          -2.212041884816754
+        ],
+        "othr_compre_income_atms": [
+          null,
+          null
+        ],
+        "total_compre_income": [
+          2.7076E10,
+          -0.08905561349796454
+        ],
+        "total_compre_income_atsopc": [
+          null,
+          null
+        ],
+        "total_compre_income_atms": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          -1.852E9,
+          -2.212041884816754
+        ],
+        "net_profit_after_nrgal_atsolc": [
+          2.884E10,
+          0.02684611550238553
+        ],
+        "income_tax_expenses": [
+          7.826E9,
+          -0.027221876942200126
+        ],
+        "credit_impairment_loss": [
+          6.9611E10,
+          0.1905217971302013
+        ],
+        "interest_net_income": [
+          1.1347E11,
+          0.2613243516634986
+        ],
+        "interest_income": [
+          2.01007E11,
+          0.13212127356391756
+        ],
+        "interest_payout": [
+          8.7537E10,
+          -5.822715440471297E-4
+        ],
+        "commi_net_income": [
+          2.9661E10,
+          -0.19274419617342078
+        ],
+        "fee_and_commi_income": [
+          3.9476E10,
+          -0.14001263533973815
+        ],
+        "charge_and_commi_expenses": [
+          9.815E9,
+          0.07150655021834061
+        ],
+        "othr_income": [
+          1.11E8,
+          0.00909090909090909
+        ],
+        "operating_payout": [
+          1.16633E11,
+          0.14718350726376772
+        ],
+        "business_and_manage_fee": [
+          4.469E10,
+          0.09394888867130129
+        ],
+        "othr_business_costs": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1577721600000,
+        "report_name": "2019年报",
+        "ctime": 1612178682000,
+        "net_profit": [
+          2.8195E10,
+          0.136070593923765
+        ],
+        "net_profit_atsopc": [
+          2.8195E10,
+          0.136070593923765
+        ],
+        "total_revenue": [
+          1.37958E11,
+          0.18199732684464856
+        ],
+        "op": [
+          3.6289E10,
+          0.12332456276118248
+        ],
+        "income_from_chg_in_fv": [
+          4.9E7,
+          -0.945067264573991
+        ],
+        "invest_incomes_from_rr": [
+          null,
+          null
+        ],
+        "invest_income": [
+          9.71E9,
+          0.05704332680165469
+        ],
+        "exchg_gain": [
+          1.196E9,
+          4.722488038277512
+        ],
+        "operating_taxes_and_surcharge": [
+          1.29E9,
+          0.1227154046997389
+        ],
+        "asset_impairment_loss": [
+          1.056E9,
+          17.526315789473685
+        ],
+        "non_operating_income": [
+          9.9E7,
+          2.5357142857142856
+        ],
+        "non_operating_payout": [
+          1.48E8,
+          0.45098039215686275
+        ],
+        "profit_total_amt": [
+          3.624E10,
+          0.12438335763705749
+        ],
+        "minority_gal": [
+          null,
+          null
+        ],
+        "basic_eps": [
+          1.54,
+          0.10791366906474831
+        ],
+        "dlt_earnings_per_share": [
+          1.45,
+          0.043165467625899324
+        ],
+        "othr_compre_income_atoopc": [
+          1.528E9,
+          0.6754385964912281
+        ],
+        "othr_compre_income_atms": [
+          null,
+          null
+        ],
+        "total_compre_income": [
+          2.9723E10,
+          0.1551884959191605
+        ],
+        "total_compre_income_atsopc": [
+          null,
+          null
+        ],
+        "total_compre_income_atms": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          1.528E9,
+          0.6754385964912281
+        ],
+        "net_profit_after_nrgal_atsolc": [
+          2.8086E10,
+          0.13708502024291497
+        ],
+        "income_tax_expenses": [
+          8.045E9,
+          0.08525563199784163
+        ],
+        "credit_impairment_loss": [
+          5.8471E10,
+          0.22288451081273267
+        ],
+        "interest_net_income": [
+          8.9961E10,
+          0.2035721452939996
+        ],
+        "interest_income": [
+          1.77549E11,
+          0.09000663032267571
+        ],
+        "interest_payout": [
+          8.7588E10,
+          -0.006296586229195739
+        ],
+        "commi_net_income": [
+          3.6743E10,
+          0.17401028852605682
+        ],
+        "fee_and_commi_income": [
+          4.5903E10,
+          0.1661754992124384
+        ],
+        "charge_and_commi_expenses": [
+          9.16E9,
+          0.13577185368877867
+        ],
+        "othr_income": [
+          1.1E8,
+          -0.35294117647058826
+        ],
+        "operating_payout": [
+          1.01669E11,
+          0.2044520263946642
+        ],
+        "business_and_manage_fee": [
+          4.0852E10,
+          0.1543047667486084
+        ],
+        "othr_business_costs": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1546185600000,
+        "report_name": "2018年报",
+        "ctime": 1581593185000,
+        "net_profit": [
+          2.4818E10,
+          0.07024882487386261
+        ],
+        "net_profit_atsopc": [
+          2.4818E10,
+          0.07024882487386261
+        ],
+        "total_revenue": [
+          1.16716E11,
+          0.10332180061633865
+        ],
+        "op": [
+          3.2305E10,
+          0.06888793303113523
+        ],
+        "income_from_chg_in_fv": [
+          8.92E8,
+          15.62295081967213
+        ],
+        "invest_incomes_from_rr": [
+          null,
+          null
+        ],
+        "invest_income": [
+          9.186E9,
+          13.534810126582279
+        ],
+        "exchg_gain": [
+          2.09E8,
+          0.25903614457831325
+        ],
+        "operating_taxes_and_surcharge": [
+          1.149E9,
+          0.12426614481409001
+        ],
+        "asset_impairment_loss": [
+          5.7E7,
+          -0.9986721025043681
+        ],
+        "non_operating_income": [
+          2.8E7,
+          -0.2631578947368421
+        ],
+        "non_operating_payout": [
+          1.02E8,
+          -0.019230769230769232
+        ],
+        "profit_total_amt": [
+          3.2231E10,
+          0.06877341910667507
+        ],
+        "minority_gal": [
+          null,
+          null
+        ],
+        "basic_eps": [
+          1.39,
+          0.06923076923076912
+        ],
+        "dlt_earnings_per_share": [
+          1.39,
+          0.06923076923076912
+        ],
+        "othr_compre_income_atoopc": [
+          9.12E8,
+          2.2455516014234878
+        ],
+        "othr_compre_income_atms": [
+          null,
+          null
+        ],
+        "total_compre_income": [
+          2.573E10,
+          0.09629314017895185
+        ],
+        "total_compre_income_atsopc": [
+          null,
+          null
+        ],
+        "total_compre_income_atms": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          9.12E8,
+          2.2455516014234878
+        ],
+        "net_profit_after_nrgal_atsolc": [
+          2.47E10,
+          0.06640186512390986
+        ],
+        "income_tax_expenses": [
+          7.413E9,
+          0.0638633754305396
+        ],
+        "credit_impairment_loss": [
+          4.7814E10,
+          null
+        ],
+        "interest_net_income": [
+          7.4745E10,
+          0.009944736450972179
+        ],
+        "interest_income": [
+          1.62888E11,
+          0.10008914822919199
+        ],
+        "interest_payout": [
+          8.8143E10,
+          0.1901727001444794
+        ],
+        "commi_net_income": [
+          3.1297E10,
+          0.020310360565951622
+        ],
+        "fee_and_commi_income": [
+          3.9362E10,
+          0.10180545836249125
+        ],
+        "charge_and_commi_expenses": [
+          8.065E9,
+          0.5967135220748366
+        ],
+        "othr_income": [
+          1.7E8,
+          -0.08602150537634409
+        ],
+        "operating_payout": [
+          8.4411E10,
+          0.11709434511599592
+        ],
+        "business_and_manage_fee": [
+          3.5391E10,
+          0.11940156882591094
+        ],
+        "othr_business_costs": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1514649600000,
+        "report_name": "2017年报",
+        "ctime": 1551868630000,
+        "net_profit": [
+          2.3189E10,
+          0.026107349882738173
+        ],
+        "net_profit_atsopc": [
+          2.3189E10,
+          0.026107349882738173
+        ],
+        "total_revenue": [
+          1.05786E11,
+          -0.017908369307895838
+        ],
+        "op": [
+          3.0223E10,
+          0.014909835790322038
+        ],
+        "income_from_chg_in_fv": [
+          -6.1E7,
+          -2.2448979591836733
+        ],
+        "invest_incomes_from_rr": [
+          null,
+          null
+        ],
+        "invest_income": [
+          6.32E8,
+          -0.7331081081081081
+        ],
+        "exchg_gain": [
+          1.66E8,
+          -0.8117913832199547
+        ],
+        "operating_taxes_and_surcharge": [
+          1.022E9,
+          -0.7033381712626996
+        ],
+        "asset_impairment_loss": [
+          4.2925E10,
+          -0.07723891826819726
+        ],
+        "non_operating_income": [
+          3.8E7,
+          -0.8280542986425339
+        ],
+        "non_operating_payout": [
+          1.04E8,
+          0.6
+        ],
+        "profit_total_amt": [
+          3.0157E10,
+          0.007416068147653249
+        ],
+        "minority_gal": [
+          null,
+          null
+        ],
+        "basic_eps": [
+          1.3,
+          -0.015151515151515164
+        ],
+        "dlt_earnings_per_share": [
+          1.3,
+          -0.015151515151515164
+        ],
+        "othr_compre_income_atoopc": [
+          2.81E8,
+          -0.08766233766233766
+        ],
+        "othr_compre_income_atms": [
+          null,
+          null
+        ],
+        "total_compre_income": [
+          2.347E10,
+          0.024577640022700485
+        ],
+        "total_compre_income_atsopc": [
+          null,
+          null
+        ],
+        "total_compre_income_atms": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          2.81E8,
+          -0.08766233766233766
+        ],
+        "net_profit_after_nrgal_atsolc": [
+          2.3162E10,
+          0.02459524020171636
+        ],
+        "income_tax_expenses": [
+          6.968E9,
+          -0.05016357688113413
+        ],
+        "credit_impairment_loss": [
+          null,
+          null
+        ],
+        "interest_net_income": [
+          7.4009E10,
+          -0.03143526455615029
+        ],
+        "interest_income": [
+          1.48068E11,
+          0.1292642561337411
+        ],
+        "interest_payout": [
+          7.4059E10,
+          0.35371426482415735
+        ],
+        "commi_net_income": [
+          3.0674E10,
+          0.10104454574823217
+        ],
+        "fee_and_commi_income": [
+          3.5725E10,
+          0.141045705707624
+        ],
+        "charge_and_commi_expenses": [
+          5.051E9,
+          0.46405797101449275
+        ],
+        "othr_income": [
+          1.86E8,
+          0.273972602739726
+        ],
+        "operating_payout": [
+          7.5563E10,
+          -0.03044805994662287
+        ],
+        "business_and_manage_fee": [
+          3.1616E10,
+          0.13023272441282666
+        ],
+        "othr_business_costs": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1483113600000,
+        "report_name": "2016年报",
+        "ctime": 1521019421000,
+        "net_profit": [
+          2.2599E10,
+          0.03356963183169449
+        ],
+        "net_profit_atsopc": [
+          2.2599E10,
+          0.03356963183169449
+        ],
+        "total_revenue": [
+          1.07715E11,
+          0.12012936368457723
+        ],
+        "op": [
+          2.9779E10,
+          0.030593528292092057
+        ],
+        "income_from_chg_in_fv": [
+          4.9E7,
+          -0.5420560747663551
+        ],
+        "invest_incomes_from_rr": [
+          -1.41E8,
+          -4.065217391304348
+        ],
+        "invest_income": [
+          2.368E9,
+          -0.3965341488277268
+        ],
+        "exchg_gain": [
+          8.82E8,
+          2.5392670157068062
+        ],
+        "operating_taxes_and_surcharge": [
+          3.445E9,
+          -0.4835856693149453
+        ],
+        "asset_impairment_loss": [
+          4.6518E10,
+          0.5259307856322781
+        ],
+        "non_operating_income": [
+          2.21E8,
+          4.525
+        ],
+        "non_operating_payout": [
+          6.5E7,
+          -0.2696629213483146
+        ],
+        "profit_total_amt": [
+          2.9935E10,
+          0.037752201345073844
+        ],
+        "minority_gal": [
+          null,
+          null
+        ],
+        "basic_eps": [
+          1.32,
+          0.015384615384615398
+        ],
+        "dlt_earnings_per_share": [
+          1.32,
+          0.015384615384615398
+        ],
+        "othr_compre_income_atoopc": [
+          3.08E8,
+          -0.5803814713896458
+        ],
+        "othr_compre_income_atms": [
+          null,
+          null
+        ],
+        "total_compre_income": [
+          2.2907E10,
+          0.013628921633700606
+        ],
+        "total_compre_income_atsopc": [
+          null,
+          null
+        ],
+        "total_compre_income_atms": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          3.08E8,
+          -0.5803814713896458
+        ],
+        "net_profit_after_nrgal_atsolc": [
+          2.2606E10,
+          0.03214318327093416
+        ],
+        "income_tax_expenses": [
+          7.336E9,
+          0.05085231342214582
+        ],
+        "credit_impairment_loss": [
+          null,
+          null
+        ],
+        "interest_net_income": [
+          7.6411E10,
+          0.11612450884445158
+        ],
+        "interest_income": [
+          1.31119E11,
+          -0.022615968334662662
+        ],
+        "interest_payout": [
+          5.4708E10,
+          -0.16720453023199172
+        ],
+        "commi_net_income": [
+          2.7859E10,
+          0.15679109745463604
+        ],
+        "fee_and_commi_income": [
+          3.1309E10,
+          0.1734567669877441
+        ],
+        "charge_and_commi_expenses": [
+          3.45E9,
+          0.3279445727482679
+        ],
+        "othr_income": [
+          1.46E8,
+          -0.09316770186335403
+        ],
+        "operating_payout": [
+          7.7936E10,
+          0.158589522506987
+        ],
+        "business_and_manage_fee": [
+          2.7973E10,
+          -0.07103480340063761
+        ],
+        "othr_business_costs": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1451491200000,
+        "report_name": "2015年报",
+        "ctime": 1489658586000,
+        "net_profit": [
+          2.1865E10,
+          0.10418139581860418
+        ],
+        "net_profit_atsopc": [
+          2.1865E10,
+          0.10418139581860418
+        ],
+        "total_revenue": [
+          9.6163E10,
+          0.30999768414456386
+        ],
+        "op": [
+          2.8895E10,
+          0.10092966547283395
+        ],
+        "income_from_chg_in_fv": [
+          1.07E8,
+          11.7
+        ],
+        "invest_incomes_from_rr": [
+          4.6E7,
+          0.6428571428571429
+        ],
+        "invest_income": [
+          3.924E9,
+          0.23863636363636365
+        ],
+        "exchg_gain": [
+          -5.73E8,
+          -0.47680412371134023
+        ],
+        "operating_taxes_and_surcharge": [
+          6.671E9,
+          0.21689164538489603
+        ],
+        "asset_impairment_loss": [
+          3.0485E10,
+          1.0308440476983545
+        ],
+        "non_operating_income": [
+          4.0E7,
+          0.0
+        ],
+        "non_operating_payout": [
+          8.9E7,
+          -0.03260869565217391
+        ],
+        "profit_total_amt": [
+          2.8846E10,
+          0.1012445598228602
+        ],
+        "minority_gal": [
+          null,
+          null
+        ],
+        "basic_eps": [
+          1.3,
+          -0.09722222222222215
+        ],
+        "dlt_earnings_per_share": [
+          1.3,
+          -0.09722222222222215
+        ],
+        "othr_compre_income_atoopc": [
+          7.34E8,
+          0.2525597269624573
+        ],
+        "othr_compre_income_atms": [
+          null,
+          null
+        ],
+        "total_compre_income": [
+          2.2599E10,
+          0.10844614479105356
+        ],
+        "total_compre_income_atsopc": [
+          null,
+          null
+        ],
+        "total_compre_income_atms": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          7.34E8,
+          0.2525597269624573
+        ],
+        "net_profit_after_nrgal_atsolc": [
+          2.1902E10,
+          0.10387581271105287
+        ],
+        "income_tax_expenses": [
+          6.981E9,
+          0.09214643304130163
+        ],
+        "credit_impairment_loss": [
+          null,
+          null
+        ],
+        "interest_net_income": [
+          6.8461E10,
+          0.29059684047807566
+        ],
+        "interest_income": [
+          1.34153E11,
+          0.12542574789013608
+        ],
+        "interest_payout": [
+          6.5692E10,
+          -0.007013725134530503
+        ],
+        "commi_net_income": [
+          2.4083E10,
+          0.38583266198641963
+        ],
+        "fee_and_commi_income": [
+          2.6681E10,
+          0.35395311072769714
+        ],
+        "charge_and_commi_expenses": [
+          2.598E9,
+          0.11597938144329897
+        ],
+        "othr_income": [
+          1.61E8,
+          -0.24413145539906103
+        ],
+        "operating_payout": [
+          6.7268E10,
+          0.4263480418142109
+        ],
+        "business_and_manage_fee": [
+          3.0112E10,
+          0.12914354282285886
+        ],
+        "othr_business_costs": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1419955200000,
+        "report_name": "2014年报",
+        "ctime": 1457523531000,
+        "net_profit": [
+          1.9802E10,
+          0.30011161447048784
+        ],
+        "net_profit_atsopc": [
+          1.9802E10,
+          0.30011161447048784
+        ],
+        "total_revenue": [
+          7.3407E10,
+          0.40656076951081643
+        ],
+        "op": [
+          2.6246E10,
+          0.3152593335003758
+        ],
+        "income_from_chg_in_fv": [
+          -1.0E7,
+          0.8780487804878049
+        ],
+        "invest_incomes_from_rr": [
+          2.8E7,
+          -0.7254901960784313
+        ],
+        "invest_income": [
+          3.168E9,
+          1.7789473684210526
+        ],
+        "exchg_gain": [
+          -3.88E8,
+          -1.3803680981595092
+        ],
+        "operating_taxes_and_surcharge": [
+          5.482E9,
+          0.34858548585485855
+        ],
+        "asset_impairment_loss": [
+          1.5011E10,
+          1.1786647314949201
+        ],
+        "non_operating_income": [
+          4.0E7,
+          -0.6396396396396397
+        ],
+        "non_operating_payout": [
+          9.2E7,
+          2.5384615384615383
+        ],
+        "profit_total_amt": [
+          2.6194E10,
+          0.3070858283433134
+        ],
+        "minority_gal": [
+          null,
+          null
+        ],
+        "basic_eps": [
+          1.44,
+          -0.07096774193548393
+        ],
+        "dlt_earnings_per_share": [
+          1.44,
+          -0.07096774193548393
+        ],
+        "othr_compre_income_atoopc": [
+          5.86E8,
+          1.3235781336278298
+        ],
+        "othr_compre_income_atms": [
+          null,
+          null
+        ],
+        "total_compre_income": [
+          2.0388E10,
+          0.5192250372578241
+        ],
+        "total_compre_income_atsopc": [
+          null,
+          null
+        ],
+        "total_compre_income_atms": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          5.86E8,
+          1.3235781336278298
+        ],
+        "net_profit_after_nrgal_atsolc": [
+          1.9841E10,
+          0.3082553079256231
+        ],
+        "income_tax_expenses": [
+          6.392E9,
+          0.3291744645456436
+        ],
+        "credit_impairment_loss": [
+          null,
+          null
+        ],
+        "interest_net_income": [
+          5.3046E10,
+          0.303725914274479
+        ],
+        "interest_income": [
+          1.19202E11,
+          0.2803376941419089
+        ],
+        "interest_payout": [
+          6.6156E10,
+          0.2621818598084481
+        ],
+        "commi_net_income": [
+          1.7378E10,
+          0.6620122417750574
+        ],
+        "fee_and_commi_income": [
+          1.9706E10,
+          0.6670332459182811
+        ],
+        "charge_and_commi_expenses": [
+          2.328E9,
+          0.7054945054945055
+        ],
+        "othr_income": [
+          2.13E8,
+          0.42
+        ],
+        "operating_payout": [
+          4.7161E10,
+          0.46308245951479804
+        ],
+        "business_and_manage_fee": [
+          2.6668E10,
+          0.25325438225480523
+        ],
+        "othr_business_costs": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1388419200000,
+        "report_name": "2013年报",
+        "ctime": 1426150931000,
+        "net_profit": [
+          1.5231E10,
+          0.1272202486678508
+        ],
+        "net_profit_atsopc": [
+          1.5231E10,
+          0.13638737596060582
+        ],
+        "total_revenue": [
+          5.2189E10,
+          0.3129638481471232
+        ],
+        "op": [
+          1.9955E10,
+          0.13749073704611525
+        ],
+        "income_from_chg_in_fv": [
+          -8.2E7,
+          -1.8275862068965518
+        ],
+        "invest_incomes_from_rr": [
+          1.02E8,
+          1.372093023255814
+        ],
+        "invest_income": [
+          1.14E9,
+          0.8298555377207063
+        ],
+        "exchg_gain": [
+          -1.63E8,
+          -1.6707818930041152
+        ],
+        "operating_taxes_and_surcharge": [
+          4.065E9,
+          0.19138335287221572
+        ],
+        "asset_impairment_loss": [
+          6.89E9,
+          1.2012779552715656
+        ],
+        "non_operating_income": [
+          1.11E8,
+          0.1326530612244898
+        ],
+        "non_operating_payout": [
+          2.6E7,
+          -0.7078651685393258
+        ],
+        "profit_total_amt": [
+          2.004E10,
+          0.14175022789425706
+        ],
+        "minority_gal": [
+          null,
+          null
+        ],
+        "basic_eps": [
+          1.55,
+          -0.05487804878048772
+        ],
+        "dlt_earnings_per_share": [
+          1.55,
+          -0.05487804878048772
+        ],
+        "othr_compre_income_atoopc": [
+          -1.811E9,
+          null
+        ],
+        "othr_compre_income_atms": [
+          null,
+          null
+        ],
+        "total_compre_income": [
+          1.342E10,
+          0.06322294406591665
+        ],
+        "total_compre_income_atsopc": [
+          null,
+          null
+        ],
+        "total_compre_income_atms": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          -1.811E9,
+          -1.0348314606741573
+        ],
+        "net_profit_after_nrgal_atsolc": [
+          1.5166E10,
+          0.13304077183639865
+        ],
+        "income_tax_expenses": [
+          4.809E9,
+          0.19034653465346535
+        ],
+        "credit_impairment_loss": [
+          null,
+          null
+        ],
+        "interest_net_income": [
+          4.0688E10,
+          0.23162610485530935
+        ],
+        "interest_income": [
+          9.3102E10,
+          0.2477819176025947
+        ],
+        "interest_payout": [
+          5.2414E10,
+          0.26061859637308193
+        ],
+        "commi_net_income": [
+          1.0456E10,
+          0.8273331003145753
+        ],
+        "fee_and_commi_income": [
+          1.1821E10,
+          0.8327131782945737
+        ],
+        "charge_and_commi_expenses": [
+          1.365E9,
+          0.875
+        ],
+        "othr_income": [
+          1.5E8,
+          -0.025974025974025976
+        ],
+        "operating_payout": [
+          3.2234E10,
+          0.45158966045213006
+        ],
+        "business_and_manage_fee": [
+          2.1279E10,
+          0.3584652706843718
+        ],
+        "othr_business_costs": [
+          null,
+          null
+        ]
+      }
+    ]
+  },
+  "error_code": 0,
+  "error_description": ""
+}
