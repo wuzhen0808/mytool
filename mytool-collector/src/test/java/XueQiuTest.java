@@ -41,7 +41,7 @@ public class XueQiuTest {
         dc.pauseInterval(1 * 1000);
         List<String> corpCodeL = getCorpCodeList();
         dc.corpCodes(corpCodeL);
-        dc.execute();
+        dc.run();
     }
 
     public List<String> getCorpCodeList() throws IOException {

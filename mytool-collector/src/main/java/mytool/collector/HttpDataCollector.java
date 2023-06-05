@@ -25,7 +25,7 @@ import java.util.Set;
  *
  * @author wuzhen
  */
-public abstract class HttpDataCollector {
+public abstract class HttpDataCollector implements Runnable,Interruptable {
     private static final Logger LOG = LoggerFactory.getLogger(HttpDataCollector.class);
 
     private File targetDir;
@@ -94,7 +94,9 @@ public abstract class HttpDataCollector {
         return this;
     }
 
-    public void execute() {
+
+    @Override
+    public void run() {
         if (this.types == null || types.length == 0) {
             throw new RuntimeException("no types specified.");
         }
@@ -266,6 +268,7 @@ public abstract class HttpDataCollector {
 
     protected abstract void validateFileBeforeRename(File workFile);
 
+    @Override
     public void interrupt() {
         this.interrupted = true;
     }
