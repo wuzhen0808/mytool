@@ -79,7 +79,7 @@ public abstract class AbstractDataWasher implements Interruptable, Runnable {
         return false;
     }
 
-    private boolean process(File file) throws IOException {
+    boolean process(File file) throws IOException {
         if (this.interrupted) {
             LOG.warn("interrupted.");
             return true;

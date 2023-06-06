@@ -1,5 +1,4 @@
 
-import junit.framework.TestCase;
 import mytool.collector.XueqiuDataCollector;
 import mytool.collector.XueqiuDataWasher;
 import mytool.collector.util.CsvUtil;

@@ -4,7 +4,6 @@ import groovy.transform.CompileStatic
 import mytool.backend.service.ConfigService
 import mytool.backend.service.CorpListService
 import mytool.backend.service.TaskService
-import mytool.collector.XueqiuDataWasher
 import mytool.collector.xueqiu.v5.XQV5DataCollector
 import mytool.collector.xueqiu.v5.XQV5DataWasher
 import org.springframework.beans.factory.annotation.Autowired
