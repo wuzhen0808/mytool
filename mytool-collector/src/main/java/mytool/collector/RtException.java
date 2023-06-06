@@ -22,7 +22,7 @@ public class RtException extends RuntimeException {
 		super(cause);
 	}
 
-	public static RuntimeException toRtException(Exception t) {
+	public static RuntimeException toRtException(Throwable t) {
 
 		if (t instanceof RuntimeException) {
 			return (RuntimeException) t;

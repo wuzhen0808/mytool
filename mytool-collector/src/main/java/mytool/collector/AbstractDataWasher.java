@@ -27,10 +27,31 @@ public abstract class AbstractDataWasher implements Interruptable, Runnable {
     protected int processed;
     protected int max = Integer.MAX_VALUE;
 
+    boolean refresh = false;
+
+    Set<String> codeSet;
+
     public AbstractDataWasher(File sourceDir, Charset sourceCharSet, File targetDir) {
         this.sourceDir = sourceDir;
         this.targetDir = targetDir;
         this.sourceCharSet = sourceCharSet;
+    }
+
+    public AbstractDataWasher code(String... code) {
+        if (code.length != 0) {
+            if (codeSet == null) {
+                codeSet = new HashSet<>();
+            }
+            for (String codeI : code) {
+                codeSet.add(codeI);
+            }
+        }
+        return this;
+    }
+
+    public AbstractDataWasher refresh(boolean refresh) {
+        this.refresh = refresh;
+        return this;
     }
 
     public AbstractDataWasher types(String... types) {
@@ -50,6 +71,13 @@ public abstract class AbstractDataWasher implements Interruptable, Runnable {
     }
 
     protected abstract boolean isAcceptFile(File file);
+
+    boolean isAcceptCode(String code) {
+        if (this.codeSet == null || this.codeSet.contains(code)) {
+            return true;
+        }
+        return false;
+    }
 
     private boolean process(File file) throws IOException {
         if (this.interrupted) {
@@ -80,8 +108,13 @@ public abstract class AbstractDataWasher implements Interruptable, Runnable {
                 return false;
             }
             String code = resolveCodeFromFileName(type, file);
+            if (!this.isAcceptCode(code)) {
+                LOG.info("skip file:{} because code:{}", file.getAbsolutePath(), code);
+                return false;
+            }
             this.doProcess(file, type, code);
             if (this.processed >= max) {
+                LOG.info("stop process because max:{}", max);
                 return true;
             }
             return false;
@@ -118,6 +151,12 @@ public abstract class AbstractDataWasher implements Interruptable, Runnable {
         File areaDir = new File(typeDir, code.substring(0, 4));
 
         File output = new File(areaDir, code + "." + type + ".csv");
+
+        if (this.refresh && output.exists()) {
+            LOG.info("delete file because refresh:{}", output.getAbsolutePath());
+            output.delete();
+        }
+
         if (output.exists()) {
             LOG.info("skip of file for it's already exists:" + output.getAbsolutePath());
             return;
@@ -131,10 +170,17 @@ public abstract class AbstractDataWasher implements Interruptable, Runnable {
 
         CSVWriter w = new CSVWriter(new OutputStreamWriter(new FileOutputStream(output), Charset.forName("UTF-8")), ',',
                 CSVWriter.NO_QUOTE_CHARACTER);
+        try {
+            this.process(file, type, code, fr, w);
+            w.close();
+        } catch (Throwable e) {
+            if (output.exists()) {
+                LOG.warn("delete output file:{} because error:{}", output.getAbsolutePath(), e.getMessage());
+                output.delete();
+            }
+            throw RtException.toRtException(e);
+        }
 
-        this.process(file, type, code, fr, w);
-
-        w.close();
         this.processed++;
 
     }

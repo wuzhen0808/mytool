@@ -35,15 +35,19 @@ class XQV5DataWasher extends AbstractDataWasher {
 
         return (json["data"]["list"] as List<Map>).collect({
             Object value = it.get(name)
-            if (name == "report_date") {
-                long report_date = value as long
-                return new SimpleDateFormat("yyyyMMdd").format(new Date(report_date))
-            } else if (name == "ctime") {
-                throw new RtException("not support")
-            } else if (name == "report_name") {
-                throw new RtException("not support")
+            if (value) {
+                if (name == "report_date") {
+                    long report_date = value as long
+                    return new SimpleDateFormat("yyyyMMdd").format(new Date(report_date))
+                } else if (name == "ctime") {
+                    throw new RtException("not support")
+                } else if (name == "report_name") {
+                    throw new RtException("not support")
+                } else {
+                    return (((value as List<String>).get(0)) as BigDecimal) as String
+                }
             } else {
-                return (((value as List<String>).get(0)) as BigDecimal) as String
+                return null
             }
         })
 
