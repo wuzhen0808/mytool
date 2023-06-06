@@ -1,6 +1,5 @@
 package mytool.collector;
 
-import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +14,7 @@ import java.util.Set;
  *
  * @author wu
  */
-public abstract class AbstractDataWasher implements Interruptable {
+public abstract class AbstractDataWasher implements Interruptable, Runnable {
     private static final Logger LOG = LoggerFactory.getLogger(AbstractDataWasher.class);
 
     private File sourceDir;
@@ -41,7 +40,8 @@ public abstract class AbstractDataWasher implements Interruptable {
         return this;
     }
 
-    public void execute() {
+    @Override
+    public void run() {
         try {
             this.process(this.sourceDir);
         } catch (IOException e) {
@@ -49,14 +49,15 @@ public abstract class AbstractDataWasher implements Interruptable {
         } //
     }
 
+    protected abstract boolean isAcceptFile(File file);
+
     private boolean process(File file) throws IOException {
         if (this.interrupted) {
             LOG.warn("interrupted.");
             return true;
         }
         if (file.isFile()) {
-            String name = file.getName();
-            if (!name.endsWith(".csv")) {
+            if (!isAcceptFile(file)) {
                 // ignore
                 if (LOG.isInfoEnabled()) {
                     LOG.info("ignore file:" + file.getAbsolutePath());
@@ -64,7 +65,7 @@ public abstract class AbstractDataWasher implements Interruptable {
                 return false;
             }
             String type = null;
-
+            String name = file.getName();
             for (String typeI : types) {
                 if (name.startsWith(typeI)) {
                     type = typeI;
@@ -78,7 +79,7 @@ public abstract class AbstractDataWasher implements Interruptable {
                 }
                 return false;
             }
-            String code = name.substring(type.length(), name.length() - ".csv".length());
+            String code = resolveCodeFromFileName(type, file);
             this.doProcess(file, type, code);
             if (this.processed >= max) {
                 return true;
@@ -95,6 +96,8 @@ public abstract class AbstractDataWasher implements Interruptable {
 
         return false;
     }
+
+    protected abstract String resolveCodeFromFileName(String type, File file);
 
     /**
      * <code>
@@ -126,19 +129,17 @@ public abstract class AbstractDataWasher implements Interruptable {
 
         Reader fr = new InputStreamReader(new FileInputStream(file), this.sourceCharSet);
 
-        CSVReader r = new CSVReader(fr);
-
         CSVWriter w = new CSVWriter(new OutputStreamWriter(new FileOutputStream(output), Charset.forName("UTF-8")), ',',
                 CSVWriter.NO_QUOTE_CHARACTER);
 
-        this.process(file, type, code, r, w);
+        this.process(file, type, code, fr, w);
 
         w.close();
         this.processed++;
 
     }
 
-    protected abstract void process(File file, String type, String code, CSVReader r, CSVWriter w) throws IOException;
+    protected abstract void process(File file, String type, String code, Reader r, CSVWriter w) throws IOException;
 
     @Override
     public void interrupt() {

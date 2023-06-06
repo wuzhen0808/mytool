@@ -8,12 +8,12 @@ import mytool.collector.RtException
  * https://github.com/uname-yang/pysnowball/blob/master/pysnowball/api_ref.py
  *
  */
-class XueqiuV5DataCollector extends HttpDataCollector {
+class XQV5DataCollector extends HttpDataCollector {
     public static String balance = "balance"
     public static String cash_flow = "cash_flow"
     public static String income = "income"
 
-    XueqiuV5DataCollector(File dir) {
+    XQV5DataCollector(File dir) {
         super(dir, "stock.xueqiu.com")
     }
 

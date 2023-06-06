@@ -1,7 +1,7 @@
-package mytool.backend.impl
+package mytool.backend.service.impl
 
 import groovy.transform.CompileStatic
-import mytool.backend.CorpListService
+import mytool.backend.service.CorpListService
 import mytool.collector.util.CsvUtil
 import org.springframework.stereotype.Component
 

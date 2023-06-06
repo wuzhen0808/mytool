@@ -18,8 +18,8 @@ public class XueQiuTest {
 
     @Test
     public void test() throws IOException {
-        this.doCollect();
-        //this.doWash();
+        //this.doCollect();
+        this.doWash();
 
     }
 
@@ -30,7 +30,7 @@ public class XueQiuTest {
         w.types("incstatement");
         w.types("cfstatement");
 
-        w.execute();
+        w.run();
     }
 
     private void doCollect() throws IOException {

@@ -1,7 +1,7 @@
-package mytool.backend.impl
+package mytool.backend.service.impl
 
 import groovy.transform.CompileStatic
-import mytool.backend.TaskService
+import mytool.backend.service.TaskService
 import mytool.collector.Interruptable
 import mytool.collector.RtException
 import org.springframework.stereotype.Component
