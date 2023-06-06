@@ -4,8 +4,13 @@ import groovy.transform.CompileStatic
 import mytool.backend.service.ConfigService
 import mytool.backend.service.CorpListService
 import mytool.backend.service.TaskService
+import mytool.collector.database.DataBaseService
+import mytool.collector.database.Tables
+import mytool.collector.util.EnvUtil
+import mytool.collector.wash.WashedFileLoader
 import mytool.collector.xueqiu.v5.XQV5DataCollector
 import mytool.collector.xueqiu.v5.XQV5DataWasher
+import mytool.util.jdbc.JdbcAccessTemplate
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 
@@ -16,6 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 import java.nio.charset.Charset
+import java.sql.Connection
 
 @RestController
 @CompileStatic
@@ -67,5 +73,30 @@ class MyRestController {
 
         return taskService.addTask("wash", w)
     }
+    @GetMapping("load")
+    TaskService.TaskInfo load() {
+
+        File folder = configService.getDataFolder("xueqiuv5", "washed")
+
+        DataBaseService dbs = DataBaseService.getInstance(EnvUtil.getDataDir(), EnvUtil.getDbName());
+        dbs.execute(new JdbcAccessTemplate.JdbcOperation<Object>() {
+
+            @Override
+            public Object execute(Connection con, JdbcAccessTemplate t) {
+                String sql = "select * from " + Tables.TN_ALIAS_INFO;
+                List<Object[]> rst = t.executeQuery(con, sql);
+                for (Object[] row : rst) {
+                    System.out.println(Arrays.asList(row));
+                }
+                return rst;
+            }
+        }, false);
+        WashedFileLoader.WashedFileLoadContext flc = new WashedFileLoader.WashedFileLoadContext(dbs);
+
+        return taskService.addTask("load", {
+            new WashedFileLoader().load(folder, flc);
+        })
+    }
+
 
 }

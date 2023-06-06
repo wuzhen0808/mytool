@@ -9,6 +9,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
+    implementation 'org.slf4j:slf4j-api:1.7.21'
     implementation 'org.codehaus.groovy:groovy-all:3.0.15'
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'

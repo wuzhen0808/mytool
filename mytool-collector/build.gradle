@@ -15,7 +15,8 @@ dependencies {
     implementation 'net.sf.opencsv:opencsv:2.3'
     implementation 'org.springframework.boot:spring-boot-starter:2.7.12'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.7.12'
-
+    implementation 'com.h2database:h2:1.4.192'
+    implementation project(':mytool-util')
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
     testImplementation('org.spockframework:spock-core:2.0-groovy-3.0') {
         exclude group: 'org.codehaus.groovy'
