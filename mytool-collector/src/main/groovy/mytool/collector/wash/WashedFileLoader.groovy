@@ -1,7 +1,7 @@
 package mytool.collector.wash
 
 import groovy.transform.CompileStatic
-import mytool.collector.database.DataBaseService
+import mytool.collector.database.ReportDataAccessor
 import mytool.util.Attributes
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -21,10 +21,10 @@ public class WashedFileLoader {
             typeMap.put("LIXI", 5);
         }
 
-        DataBaseService dbs;
+        ReportDataAccessor dbs;
         int reportType;
 
-        public WashedDataTypeContext(String type, DataBaseService dbs) {
+        public WashedDataTypeContext(String type, ReportDataAccessor dbs) {
             this.reportType = typeMap.get(type);
             this.dbs = dbs;
         }
@@ -48,11 +48,11 @@ public class WashedFileLoader {
     public static class WashedFileLoadContext {
         protected Map<String, WashedDataTypeContext> nextRowMap = new HashMap<>();
 
-        public DataBaseService dbs;
+        public ReportDataAccessor dbs;
 
         public Attributes attributes = new Attributes();
 
-        public WashedFileLoadContext(DataBaseService dbs) {
+        public WashedFileLoadContext(ReportDataAccessor dbs) {
             this.dbs = dbs;
         }
 

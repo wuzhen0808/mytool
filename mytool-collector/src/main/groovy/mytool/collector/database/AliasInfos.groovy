@@ -43,7 +43,7 @@ public class AliasInfos {
 
     }
 
-    public List<Integer> getOrCreateColumnIndexByAliasList(DataBaseService dbs, final int reportType,
+    public List<Integer> getOrCreateColumnIndexByAliasList(ReportDataAccessor dbs, final int reportType,
                                                            List<String> aliasList) {
         Map<String, Integer> aliasMap = reportAliasColumnMap.get(reportType);
         List<Integer> rt = new ArrayList<>();

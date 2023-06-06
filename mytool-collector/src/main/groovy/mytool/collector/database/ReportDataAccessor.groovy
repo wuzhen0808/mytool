@@ -13,13 +13,13 @@ import java.sql.ResultSet
 import java.sql.SQLException
 
 @CompileStatic
-public class DataBaseService extends JdbcAccessTemplate {
+class ReportDataAccessor extends JdbcAccessTemplate {
 
-    private static final Logger LOG = LoggerFactory.getLogger(DataBaseService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ReportDataAccessor.class);
 
     ConnectionProvider pool;
 
-    private static Map<String, DataBaseService> MAP = new HashMap<>();
+    private static Map<String, ReportDataAccessor> MAP = new HashMap<>();
 
     private static List<DBUpgrader> upgraderList = new ArrayList<DBUpgrader>();
 
@@ -35,29 +35,12 @@ public class DataBaseService extends JdbcAccessTemplate {
 
     private AliasInfos aliasInfos = new AliasInfos();
 
-    private DataBaseService(ConnectionProvider pool) {
+    ReportDataAccessor(ConnectionProvider pool) {
         this.pool = pool;
-
     }
 
-    public static DataBaseService getInstance(File dbHome, String dbName) {
-
-        String dbUrl = "jdbc:h2:" + dbHome.getAbsolutePath().replace('\\', '/') + "/" + dbName;
-        LOG.info("dbUrl:" + dbUrl);
-
-        DataBaseService rt = MAP.get(dbUrl);
-        if (rt == null) {
-            ConnectionProvider pool = H2ConnectionPoolWrapper.newInstance(dbUrl, "sa", "sa");
-            rt = new DataBaseService(pool);
-            rt.initialize();
-            MAP.put(dbUrl, rt);
-        }
-
-        return rt;
-    }
-
-    public void mergeReport(final int reportType, final String corpId, final Date reportDate, List<String> aliasList,
-                            final List<BigDecimal> valueList) {
+    void mergeReport(final int reportType, final String corpId, final Date reportDate, List<String> aliasList,
+                     final List<BigDecimal> valueList) {
 
         final List<Integer> columnIndexList = this.aliasInfos.getOrCreateColumnIndexByAliasList(this, reportType, aliasList);
 
@@ -140,11 +123,11 @@ public class DataBaseService extends JdbcAccessTemplate {
         }, false);
     }
 
-    public boolean isReportExist(int reportType, String corpId, Date reportDate) {
+    boolean isReportExist(int reportType, String corpId, Date reportDate) {
         return false;
     }
 
-    private void initialize() {
+    void initialize() {
 
         final String schema = "test";
 
@@ -283,7 +266,7 @@ public class DataBaseService extends JdbcAccessTemplate {
         }
     }
 
-    public Double[] getReport(int reportType, String corpId, Date reportDate, List<String> aliasList) {
+    Double[] getReport(int reportType, String corpId, Date reportDate, List<String> aliasList) {
 
         List<Double[]> rt = this.queryReport(reportType, corpId, reportDate, aliasList,
                 new DoubleArrayListReportResultProcessor());
