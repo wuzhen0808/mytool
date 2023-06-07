@@ -2,6 +2,7 @@ package mytool.collector.wash
 
 import au.com.bytecode.opencsv.CSVReader
 import groovy.transform.CompileStatic
+import mytool.collector.ReportType
 import mytool.util.csv.CsvHeaderRowMap
 import mytool.util.csv.CsvRow
 import mytool.util.csv.CsvRowMap
@@ -13,9 +14,9 @@ public class DefaultWashedFileHandler implements WashedFileHandler {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultWashedFileHandler.class);
 
-    String fileType;
+    ReportType fileType;
 
-    public DefaultWashedFileHandler(String type) {
+    DefaultWashedFileHandler(ReportType type) {
         this.fileType = type;
     }
 

@@ -1,16 +1,18 @@
 package mytool.collector.wash
 
 import groovy.transform.CompileStatic
+import mytool.collector.ReportType
 import mytool.collector.database.ReportDataAccessor
 import mytool.util.Attributes
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 import java.nio.charset.Charset
-@CompileStatic
-public class WashedFileLoader {
 
-    public static class WashedDataTypeContext {
+@CompileStatic
+class WashedFileLoader {
+
+    static class WashedDataTypeContext {
         public static Map<String, Integer> typeMap = new HashMap<>();
 
         static {
@@ -22,14 +24,14 @@ public class WashedFileLoader {
         }
 
         ReportDataAccessor dbs;
-        int reportType;
+        ReportType reportType;
 
-        public WashedDataTypeContext(String type, ReportDataAccessor dbs) {
-            this.reportType = typeMap.get(type);
+        WashedDataTypeContext(ReportType type, ReportDataAccessor dbs) {
+            this.reportType = type
             this.dbs = dbs;
         }
 
-        public void writeRow(String corpId, Date reportDate, String key, BigDecimal value) {
+        void writeRow(String corpId, Date reportDate, String key, BigDecimal value) {
             List<String> kL = new ArrayList<>();
             kL.add(key);
             List<BigDecimal> vL = new ArrayList<>();
@@ -37,7 +39,7 @@ public class WashedFileLoader {
             writeRow(corpId, reportDate, kL, vL);
         }
 
-        public void writeRow(String corpId, Date reportDate, List<String> keyList, List<BigDecimal> valueList) {
+        void writeRow(String corpId, Date reportDate, List<String> keyList, List<BigDecimal> valueList) {
 
             dbs.mergeReport(reportType, corpId, reportDate, keyList, valueList);
 
@@ -45,18 +47,18 @@ public class WashedFileLoader {
 
     }
 
-    public static class WashedFileLoadContext {
-        protected Map<String, WashedDataTypeContext> nextRowMap = new HashMap<>();
+    static class WashedFileLoadContext {
+        protected Map<ReportType, WashedDataTypeContext> nextRowMap = new HashMap<>();
 
         public ReportDataAccessor dbs;
 
         public Attributes attributes = new Attributes();
 
-        public WashedFileLoadContext(ReportDataAccessor dbs) {
+        WashedFileLoadContext(ReportDataAccessor dbs) {
             this.dbs = dbs;
         }
 
-        public WashedDataTypeContext getOrCreateTypeContext(String type) {
+        WashedDataTypeContext getOrCreateTypeContext(ReportType type) {
             WashedDataTypeContext rt = nextRowMap.get(type);
             if (rt == null) {
                 rt = createTypeContext(type);
@@ -65,7 +67,7 @@ public class WashedFileLoader {
             return rt;
         }
 
-        public WashedDataTypeContext createTypeContext(String type) {
+        WashedDataTypeContext createTypeContext(ReportType type) {
 
             return new WashedDataTypeContext(type, this.dbs);
         }
@@ -82,22 +84,22 @@ public class WashedFileLoader {
 
     private boolean interrupted;
 
-    public WashedFileLoader() {
+    WashedFileLoader() {
 
-        processMap.put("zcfzb", new DefaultWashedFileHandler("ZCFZB"));
-        processMap.put("lrb", new DefaultWashedFileHandler("LRB"));
-        processMap.put("xjllb", new DefaultWashedFileHandler("XJLLB"));
+        processMap.put("zcfzb", new DefaultWashedFileHandler(ReportType.ZCFZB))
+        processMap.put("lrb", new DefaultWashedFileHandler(ReportType.LRB))
+        processMap.put("xjllb", new DefaultWashedFileHandler(ReportType.XJLLB))
 
-        processMap.put("balsheet", new DefaultWashedFileHandler("ZCFZB"));
-        processMap.put("incstatement", new DefaultWashedFileHandler("LRB"));
-        processMap.put("cfstatement", new DefaultWashedFileHandler("XJLLB"));
+        processMap.put("balsheet", new DefaultWashedFileHandler(ReportType.ZCFZB))
+        processMap.put("incstatement", new DefaultWashedFileHandler(ReportType.LRB))
+        processMap.put("cfstatement", new DefaultWashedFileHandler(ReportType.XJLLB))
 
-        processMap.put("balance", new DefaultWashedFileHandler("ZCFZB"));
-        processMap.put("income", new DefaultWashedFileHandler("LRB"));
-        processMap.put("cash_flow", new DefaultWashedFileHandler("XJLLB"));
+        processMap.put("balance", new DefaultWashedFileHandler(ReportType.ZCFZB))
+        processMap.put("income", new DefaultWashedFileHandler(ReportType.LRB))
+        processMap.put("cash_flow", new DefaultWashedFileHandler(ReportType.XJLLB))
     }
 
-    public void load(File dir, WashedFileLoadContext xContext) {
+    void load(File dir, WashedFileLoadContext xContext) {
 
         if (dir.isFile()) {
             File f = dir;

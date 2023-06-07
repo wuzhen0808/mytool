@@ -1,6 +1,7 @@
 package mytool.collector.database
 
 import groovy.transform.CompileStatic
+import mytool.collector.ReportType
 import mytool.collector.RtException
 import mytool.util.jdbc.ConnectionProvider
 import mytool.util.jdbc.JdbcAccessTemplate
@@ -39,7 +40,7 @@ class ReportDataAccessor extends JdbcAccessTemplate {
         this.pool = pool;
     }
 
-    void mergeReport(final int reportType, final String corpId, final Date reportDate, List<String> aliasList,
+    void mergeReport(final ReportType reportType, final String corpId, final Date reportDate, List<String> aliasList,
                      final List<BigDecimal> valueList) {
 
         final List<Integer> columnIndexList = this.aliasInfos.getOrCreateColumnIndexByAliasList(this, reportType, aliasList);
@@ -47,7 +48,7 @@ class ReportDataAccessor extends JdbcAccessTemplate {
         this.execute(new JdbcOperation<Object>() {
 
             @Override
-            public Object execute(Connection con, JdbcAccessTemplate t) {
+            Object execute(Connection con, JdbcAccessTemplate t) {
                 StringBuffer sb = new StringBuffer();
                 sb.append("merge into ");
                 sb.append(Tables.getReportTable(reportType));
@@ -81,41 +82,60 @@ class ReportDataAccessor extends JdbcAccessTemplate {
 
     }
 
-    public <T> T queryReport(final int reportType, final String corpId, final Date reportDate, final List<String> aliasList,
-                             final ReportResultProcessor<T> rrp) {
+    List<ReportRecord> queryReport(final ReportType reportType, final String corpId, final Date[] reportDateList, final List<String> aliasList) {
         final List<Integer> columnIndexList = this.aliasInfos.getOrCreateColumnIndexByAliasList(this, reportType, aliasList);
-        return this.execute(new JdbcOperation<T>() {
+        return this.execute(new JdbcOperation<List<ReportRecord>>() {
 
             @Override
-            public T execute(Connection con, JdbcAccessTemplate t) {
-                StringBuffer sb = new StringBuffer();
-                sb.append("select ");
+            List<ReportRecord> execute(Connection con, JdbcAccessTemplate t) {
+                StringBuffer sql = new StringBuffer();
+                sql.append("select corpId, reportDate");
+
                 for (int i = 0; i < columnIndexList.size(); i++) {
+                    sql.append(",")
                     Integer cIdx = columnIndexList.get(i);
-                    sb.append(Tables.getReportColumn(cIdx));
-                    if (i < columnIndexList.size() - 1) {
-                        sb.append(",");
-                    }
+                    sql.append(Tables.getReportColumn(cIdx))
+                    sql.append(" as ").append(aliasList.get(i))
                 }
 
-                sb.append(" from ");
-                sb.append(Tables.getReportTable(reportType));
-                sb.append(" where 1=1");
+                sql.append(" from ");
+                sql.append(Tables.getReportTable(reportType));
+                sql.append(" where 1=1");
 
-                List<Object> ps = new ArrayList<Object>();
+                List<Object> args = new ArrayList<Object>();
                 if (corpId != null) {
-                    sb.append(" and corpId=?");
-                    ps.add(corpId);
+                    sql.append(" and corpId=?");
+                    args.add(corpId);
                 }
-                if (reportDate != null) {
-                    sb.append(" and reportDate=?");
-                    ps.add(reportDate);
+
+                if (reportDateList != null && reportDateList.length > 0) {
+                    sql.append(" and reportDate in(")
+                    for (int i = 0; i < reportDateList.length; i++) {
+                        if (i > 0) {
+                            sql.append(",")
+                        }
+                        sql.append("?")
+                        args.add(reportDateList[i])
+                    }
+                    sql.append(")")
+
                 }
-                return t.executeQuery(con, sb.toString(), ps, new ResultSetProcessor<T>() {
+                return t.executeQuery(con, sql.toString(), args, new ResultSetProcessor<List<ReportRecord>>() {
 
                     @Override
-                    public T process(ResultSet rs) throws SQLException {
-                        return rrp.process(reportType, aliasList, rs);
+                    List<ReportRecord> process(ResultSet rs) throws SQLException {
+                        List<ReportRecord> list = []
+
+                        while (rs.next()) {
+                            String corpIdI = rs.getString("corpId")
+                            Date dateI = rs.getDate("reportDate")
+                            aliasList.each {
+                                BigDecimal value = rs.getBigDecimal(it)
+                                ReportRecord record = new ReportRecord(corpId: corpId, date: dateI, key: it, value: value)
+                                list.add(record)
+                            }
+                        }
+                        return list
                     }
                 });
 
@@ -134,12 +154,12 @@ class ReportDataAccessor extends JdbcAccessTemplate {
         this.execute(new JdbcOperation<Object>() {
 
             @Override
-            public Object execute(Connection con, JdbcAccessTemplate t) {
+            Object execute(Connection con, JdbcAccessTemplate t) {
                 final List<String> schemaList = new ArrayList<String>();
                 t.executeQuery(con, "show schemas", new ResultSetProcessor<Object>() {
 
                     @Override
-                    public Object process(ResultSet rs) throws SQLException {
+                    Object process(ResultSet rs) throws SQLException {
                         while (rs.next()) {
                             String name = rs.getString(1);
                             schemaList.add(name);
@@ -266,18 +286,12 @@ class ReportDataAccessor extends JdbcAccessTemplate {
         }
     }
 
-    Double[] getReport(int reportType, String corpId, Date reportDate, List<String> aliasList) {
+    List<ReportRecord> getReport(ReportType reportType, String corpId, Date[] reportDateList, String... aliasList) {
+        return getReport(reportType, corpId, reportDateList, aliasList as List<String>)
+    }
 
-        List<Double[]> rt = this.queryReport(reportType, corpId, reportDate, aliasList,
-                new DoubleArrayListReportResultProcessor());
-
-        if (rt.isEmpty()) {
-            return null;
-        } else if (rt.size() == 1) {
-            return rt.get(0);
-        } else {
-            throw RtException.toRtException("");
-        }
-
+    List<ReportRecord> getReport(ReportType reportType, String corpId, Date[] reportDateList, List<String> aliasList) {
+        List<ReportRecord> list = this.queryReport(reportType, corpId, reportDateList, aliasList)
+        return list
     }
 }

@@ -1,6 +1,7 @@
 package mytool.collector.database
 
 import groovy.transform.CompileStatic
+import mytool.collector.ReportType
 import mytool.util.jdbc.JdbcAccessTemplate
 import mytool.util.jdbc.ResultSetProcessor
 
@@ -43,9 +44,9 @@ public class AliasInfos {
 
     }
 
-    public List<Integer> getOrCreateColumnIndexByAliasList(ReportDataAccessor dbs, final int reportType,
+    public List<Integer> getOrCreateColumnIndexByAliasList(ReportDataAccessor dbs, final ReportType reportType,
                                                            List<String> aliasList) {
-        Map<String, Integer> aliasMap = reportAliasColumnMap.get(reportType);
+        Map<String, Integer> aliasMap = reportAliasColumnMap.get(reportType.type);
         List<Integer> rt = new ArrayList<>();
         for (final String alias : aliasList) {
             Integer columnIndex = null;
@@ -79,13 +80,13 @@ public class AliasInfos {
 
     }
 
-    protected int getMaxColumIndex(Connection con, JdbcAccessTemplate t, int reportType) {
+    protected int getMaxColumIndex(Connection con, JdbcAccessTemplate t, ReportType reportType) {
         String sql = "select max(columnIndex) from " + Tables.TN_ALIAS_INFO + " where reportType=?";
 
-        return t.executeQuery(con, sql, reportType, new ResultSetProcessor<Integer>() {
+        return t.executeQuery(con, sql, reportType.type, new ResultSetProcessor<Integer>() {
 
             @Override
-            public Integer process(ResultSet rs) throws SQLException {
+            Integer process(ResultSet rs) throws SQLException {
                 while (rs.next()) {
                     return rs.getInt(1);
                 }

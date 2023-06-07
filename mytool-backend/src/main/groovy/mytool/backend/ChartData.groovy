@@ -1,6 +1,10 @@
 package mytool.backend
 
 import groovy.transform.CompileStatic
+import mytool.backend.service.DataService
+import mytool.collector.database.ReportRecord
+
+import java.text.SimpleDateFormat
 
 @CompileStatic
 class ChartData {
@@ -11,6 +15,26 @@ class ChartData {
 
         Builder type(String type) {
             this.type = type
+            return this
+        }
+
+        Builder data(List<ReportRecord> report) {
+
+            Date[] dates = ReportRecord.collectDates(report)
+            data = new Data()
+            data.labels = dates.collect({new SimpleDateFormat("yyyyMMdd").format(it)})
+            data.datasets = []
+            Map<String,Map<String,BigDecimal[]>> map = ReportRecord.groupValueByCorpIdAndKey(report, dates)
+
+            map.each {
+                String corpId = it.key
+                it.value.each {
+                    DataSet ds = new DataSet()
+                    ds.label = "${corpId}:${it.key}"
+                    ds.data = it.value as List<BigDecimal>
+                    data.datasets.add(ds)
+                }
+            }
             return this
         }
 

@@ -14,7 +14,8 @@ html(lang:'en') {
         }
         script {
             yieldUnescaped '''
-                loadChart('/json/chart.json','myChart')
+                //loadChart('/json/chart.json','myChart')
+                loadChart('/v1/chart/chart','myChart')
             '''
         }
 
