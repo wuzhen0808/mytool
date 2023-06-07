@@ -4,10 +4,12 @@ import groovy.transform.CompileStatic
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
 
 @CompileStatic
 @Controller
-class MyController {
+@RequestMapping("/ui")
+class HomeUiController {
 
     @GetMapping("home")
     String home(Model model) {
