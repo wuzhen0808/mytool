@@ -8,14 +8,16 @@ layout 'ui/layout.tpl',
     },
     bodyContents: contents {
         h2 ("CorpId: $corpId")
-        charts.each { chart ->
 
-            div {
-                canvas(id: "myChart_${chart.metricType.name}"){}
+        charts.each { chart ->
+            def canvasId = "myChart_${chart.metricType.name}"
+            div(style: "width: 1000px;") {
+                canvas(id: "$canvasId"){}
             }
             script {
-                yieldUnescaped "loadChart('/v1/chart/chart?corpId=$corpId&metricType=${chart.metricType}','myChart_${chart.metricType.name}')"
+                yieldUnescaped "loadChart('/v1/chart/chart?corpId=$corpId&metricType=${chart.metricType}','$canvasId')"
             }
         }
+
     }
 
