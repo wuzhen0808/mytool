@@ -41,20 +41,6 @@ class DataServiceImpl implements DataService {
 
     @Override
     ReportDataAccessor getReportDataAccessor() {
-
-
-        reportDataAccessor.execute(new JdbcAccessTemplate.JdbcOperation<Object>() {
-
-            @Override
-            Object execute(Connection con, JdbcAccessTemplate t) {
-                String sql = "select * from " + Tables.TN_ALIAS_INFO;
-                List<Object[]> rst = t.executeQuery(con, sql);
-                for (Object[] row : rst) {
-                    System.out.println(Arrays.asList(row));
-                }
-                return rst;
-            }
-        }, false);
         return reportDataAccessor
     }
 

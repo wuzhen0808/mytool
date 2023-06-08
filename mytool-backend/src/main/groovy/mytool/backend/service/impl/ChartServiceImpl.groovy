@@ -2,6 +2,9 @@ package mytool.backend.service.impl
 
 import groovy.transform.CompileStatic
 import mytool.backend.ChartData
+import mytool.backend.metrics.DefaultMetricsContext
+import mytool.backend.metrics.MetricTypes
+import mytool.backend.metrics.MetricsContext
 import mytool.backend.service.ChartService
 import mytool.backend.service.DataService
 import mytool.collector.ReportType
@@ -11,6 +14,8 @@ import mytool.collector.util.EnvUtil
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
+import javax.annotation.PostConstruct
+
 @CompileStatic
 @Component
 class ChartServiceImpl implements ChartService {
@@ -18,12 +23,18 @@ class ChartServiceImpl implements ChartService {
     @Autowired
     DataService dataService
 
+    MetricsContext metricsContext
+
+    @PostConstruct
+    void init() {
+        metricsContext = new DefaultMetricsContext(reportDataAccessor: dataService.getReportDataAccessor())
+    }
+
     @Override
     ChartData getChartData() {
-        ReportDataAccessor reportDataAccessor = dataService.getReportDataAccessor()
         String corpId = "000001"
-        Date[] reportDate = EnvUtil.newDateOfYearsLastDay(2022..2013);
-        List<ReportRecord> report = reportDataAccessor.getReport(ReportType.ZCFZB, corpId, reportDate, "total_assets")
+        Date[] dates = EnvUtil.newDateOfYearsLastDay(2022..2013);
+        ReportRecord[] report = metricsContext.resolveMetrics(MetricTypes.ROE, corpId, dates)
 
         return new ChartData.Builder()
                 .type("bar")

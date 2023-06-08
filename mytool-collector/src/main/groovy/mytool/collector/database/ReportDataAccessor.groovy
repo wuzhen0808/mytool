@@ -1,6 +1,7 @@
 package mytool.collector.database
 
 import groovy.transform.CompileStatic
+import mytool.collector.MetricType
 import mytool.collector.ReportType
 import mytool.collector.RtException
 import mytool.util.jdbc.ConnectionProvider
@@ -131,7 +132,8 @@ class ReportDataAccessor extends JdbcAccessTemplate {
                             Date dateI = rs.getDate("reportDate")
                             aliasList.each {
                                 BigDecimal value = rs.getBigDecimal(it)
-                                ReportRecord record = new ReportRecord(corpId: corpId, date: dateI, key: it, value: value)
+                                MetricType metricType = MetricType.valueOf(reportType, it)
+                                ReportRecord record = new ReportRecord(corpId: corpId, date: dateI, key: metricType, value: value)
                                 list.add(record)
                             }
                         }

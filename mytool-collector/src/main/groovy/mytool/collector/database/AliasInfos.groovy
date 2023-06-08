@@ -64,7 +64,7 @@ public class AliasInfos {
                         int tmpIndex = getMaxColumIndex(con, t, reportType) + 1;
 
                         String sql = "insert into " + Tables.TN_ALIAS_INFO + "(reportType,aliasName,columnIndex) values(?,?,?)";
-                        t.executeUpdate(con, sql, new Object[]{reportType, alias, tmpIndex});
+                        t.executeUpdate(con, sql, new Object[]{reportType.type, alias, tmpIndex});
 
                         updateCache(con, t);
 

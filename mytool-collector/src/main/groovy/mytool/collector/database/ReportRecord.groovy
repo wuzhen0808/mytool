@@ -1,18 +1,27 @@
 package mytool.collector.database
 
 import groovy.transform.CompileStatic
+import mytool.collector.MetricType
 
 @CompileStatic
 class ReportRecord {
     String corpId
     Date date
-    String key
+    MetricType key
     BigDecimal value
 
-    static Map<String, Map<String, Map<Date, ReportRecord>>> groupByCorpIdAndKeyAndDate(List<ReportRecord> records) {
-        Map<String, Map<String, Map<Date, ReportRecord>>> map = [:]
+    static List<ReportRecord> asList(MetricType metricType, String corpId, Date[] dates, BigDecimal[] values) {
+        List<ReportRecord> rtList = []
+        for (int i = 0; i < dates.length; i++) {
+            rtList.add(new ReportRecord(key: metricType, corpId: corpId, date: dates[i], value: values[i]))
+        }
+        return rtList
+    }
+
+    static Map<String, Map<MetricType, Map<Date, ReportRecord>>> groupByCorpIdAndKeyAndDate(List<ReportRecord> records) {
+        Map<String, Map<MetricType, Map<Date, ReportRecord>>> map = [:]
         records.each {
-            Map<String, Map<Date, ReportRecord>> map2 = map.get(it.corpId)
+            Map<MetricType, Map<Date, ReportRecord>> map2 = map.get(it.corpId)
             if (map2 == null) {
                 map2 = [:]
                 map.put(it.corpId, map2)
@@ -32,23 +41,23 @@ class ReportRecord {
         return (records.collect { it.date } as Set<Date> as Date[]).sort()
     }
 
-    static Map<String, Map<String, BigDecimal[]>> groupValueByCorpIdAndKey(List<ReportRecord> records) {
+    static Map<String, Map<MetricType, BigDecimal[]>> groupValueByCorpIdAndKey(List<ReportRecord> records) {
         Date[] dates = collectDates(records)
-        Map<String, Map<String, Map<Date, ReportRecord>>> map = groupByCorpIdAndKeyAndDate(records)
+        Map<String, Map<MetricType, Map<Date, ReportRecord>>> map = groupByCorpIdAndKeyAndDate(records)
         return groupValueByCorpIdAndKey(map, dates)
     }
 
-    static Map<String, Map<String, BigDecimal[]>> groupValueByCorpIdAndKey(List<ReportRecord> records, Date[] dates) {
-        Map<String, Map<String, Map<Date, ReportRecord>>> map = groupByCorpIdAndKeyAndDate(records)
+    static Map<String, Map<MetricType, BigDecimal[]>> groupValueByCorpIdAndKey(List<ReportRecord> records, Date[] dates) {
+        Map<String, Map<MetricType, Map<Date, ReportRecord>>> map = groupByCorpIdAndKeyAndDate(records)
         return groupValueByCorpIdAndKey(map, dates)
     }
 
-    static Map<String, Map<String, BigDecimal[]>> groupValueByCorpIdAndKey(Map<String, Map<String, Map<Date, ReportRecord>>> map, Date[] dates) {
-        Map<String, Map<String, BigDecimal[]>> rtMap = [:]
+    static Map<String, Map<MetricType, BigDecimal[]>> groupValueByCorpIdAndKey(Map<String, Map<MetricType, Map<Date, ReportRecord>>> map, Date[] dates) {
+        Map<String, Map<MetricType, BigDecimal[]>> rtMap = [:]
 
         map.each {
-            Map<String, BigDecimal[]> map2 = [:]
-            it.value.each { Map.Entry<String, Map<Date, ReportRecord>> it2 ->
+            Map<MetricType, BigDecimal[]> map2 = [:]
+            it.value.each { Map.Entry<MetricType, Map<Date, ReportRecord>> it2 ->
                 Map<Date, ReportRecord> map3 = it2.value
                 BigDecimal[] values = dates.collect({ Date date ->
                     map3.get(date)?.value
