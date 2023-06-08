@@ -1,6 +1,9 @@
-package mytool.backend.metrics
+package mytool.collector.metrics
 
 import groovy.transform.CompileStatic
+import mytool.collector.MetricProvider
+import mytool.collector.MetricTypes
+import mytool.collector.MetricsContext
 
 import java.math.RoundingMode
 

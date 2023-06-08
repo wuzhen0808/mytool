@@ -1,15 +1,12 @@
-package mytool.collector;
+package mytool.collector.xueqiu;
 
 import au.com.bytecode.opencsv.CSVReader;
-import au.com.bytecode.opencsv.CSVWriter;
+import au.com.bytecode.opencsv.CSVWriter
+import mytool.collector.AbstractDataWasher;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.LoggerFactory
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.charset.Charset;
-import java.util.*;
+import java.nio.charset.Charset
 
 /**
  * Convert original file format to the target format acceptable.

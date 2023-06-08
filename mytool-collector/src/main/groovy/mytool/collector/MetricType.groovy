@@ -11,6 +11,17 @@ class MetricType {
         return new MetricType(reportType: reportType, name: name)
     }
 
+    static MetricType parse(String string) {
+        String[] comps = string.split(":")
+        if (comps.length == 1) {
+            return MetricType.valueOf(ReportType.NULL, comps[0])
+        } else if (comps.length == 2) {
+            return MetricType.valueOf(ReportType.valueOf(comps[0]), comps[1])
+        } else {
+            throw new RtException("cannot parse as metric type:${string}")
+        }
+    }
+
     @Override
     String toString() {
         return "${reportType}:${name}"

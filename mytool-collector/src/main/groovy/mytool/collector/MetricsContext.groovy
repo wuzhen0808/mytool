@@ -1,7 +1,6 @@
-package mytool.backend.metrics
+package mytool.collector
 
 import groovy.transform.CompileStatic
-import mytool.collector.MetricType
 import mytool.collector.database.ReportRecord
 
 @CompileStatic

@@ -3,6 +3,7 @@ package mytool.backend.controller
 import groovy.transform.CompileStatic
 import mytool.backend.ChartData
 import mytool.backend.service.ChartService
+import mytool.collector.MetricType
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -22,8 +23,9 @@ class ChartRestController {
     ChartService chartService
 
     @GetMapping("chart")
-    ChartData chart(@RequestParam(name = "corpId", required = false) String corpId, @RequestParam(name = "charType", required = false) String chartType) {
-        return chartService.getChartData()
+    ChartData chart(@RequestParam(name = "corpId", required = false) String corpId, @RequestParam(name = "metricType", required = false) String metricTypeS) {
+        MetricType metricType = MetricType.parse(metricTypeS)
+        return chartService.getChartData(corpId, metricType)
     }
 
 

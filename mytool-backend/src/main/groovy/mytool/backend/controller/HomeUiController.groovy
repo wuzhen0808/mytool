@@ -15,6 +15,6 @@ class HomeUiController {
     String home(Model model) {
         model.addAttribute("msg", "Hello")
         model.addAttribute("time", new Date())
-        return "home"
+        return null
     }
 }

@@ -4,17 +4,17 @@ layout 'ui/layout.tpl',
         script(src: "/js/lib/jquery.min.js"){}
         script(src: "/js/lib/chart.js"){}
         script(src: "/js/my-lib.js"){}
-        title("$title")
+        title('$title')
     },
     bodyContents: contents {
-        h2 ("CorpId: $corpId")
-        charts.each { chart ->
+        h2 ('CorpId: $corpId')
+        charts.each {
 
             div {
-                canvas(id: "myChart_${chart.metricType.name}"){}
+                canvas(id: 'myChart_$it.metricType.name'){}
             }
             script {
-                yieldUnescaped "loadChart('/v1/chart/chart?corpId=$corpId&metricType=${chart.metricType}','myChart_${chart.metricType.name}')"
+                loadChart('/v1/chart/chart?corpId=$corpId&metricType=$it.metricType','myChart_$it.metricType.name')
             }
         }
     }

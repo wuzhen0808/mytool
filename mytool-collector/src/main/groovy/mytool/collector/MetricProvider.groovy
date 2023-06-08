@@ -1,4 +1,4 @@
-package mytool.backend.metrics
+package mytool.collector
 
 import groovy.transform.CompileStatic
 

@@ -1,13 +1,10 @@
 
-import mytool.collector.XueqiuDataCollector;
-import mytool.collector.XueqiuDataWasher;
+import mytool.collector.xueqiu.XueqiuDataCollector;
+import mytool.collector.xueqiu.XueqiuDataWasher;
 import mytool.collector.util.CsvUtil;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test
 
-import java.io.*;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
+import java.nio.charset.Charset
 
 public class XueQiuTest {
     private static String shCsv = "d:\\openstock\\sse\\sse.corplist.csv";

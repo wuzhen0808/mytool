@@ -2,13 +2,12 @@ package mytool.backend.service.impl
 
 import groovy.transform.CompileStatic
 import mytool.backend.ChartData
-import mytool.backend.metrics.DefaultMetricsContext
-import mytool.backend.metrics.MetricTypes
-import mytool.backend.metrics.MetricsContext
+import mytool.collector.MetricType
+import mytool.collector.metrics.DefaultMetricsContext
+import mytool.collector.MetricTypes
+import mytool.collector.MetricsContext
 import mytool.backend.service.ChartService
 import mytool.backend.service.DataService
-import mytool.collector.ReportType
-import mytool.collector.database.ReportDataAccessor
 import mytool.collector.database.ReportRecord
 import mytool.collector.util.EnvUtil
 import org.springframework.beans.factory.annotation.Autowired
@@ -31,10 +30,10 @@ class ChartServiceImpl implements ChartService {
     }
 
     @Override
-    ChartData getChartData() {
-        String corpId = "000001"
+    ChartData getChartData(String corpId, MetricType metricType) {
+
         Date[] dates = EnvUtil.newDateOfYearsLastDay(2022..2013);
-        ReportRecord[] report = metricsContext.resolveMetrics(MetricTypes.ROE, corpId, dates)
+        ReportRecord[] report = metricsContext.resolveMetrics(metricType, corpId, dates)
 
         return new ChartData.Builder()
                 .type("bar")

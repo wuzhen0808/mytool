@@ -1,4 +1,6 @@
-package mytool.collector;
+package mytool.collector.xueqiu
+
+import mytool.collector.HttpDataCollector;
 
 import java.io.File;
 
