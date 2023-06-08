@@ -12,10 +12,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    constraints {
-        // Define dependency versions as constraints
-        implementation 'org.codehaus.groovy:groovy-all:3.0.15'
-    }
+
     implementation 'org.codehaus.groovy:groovy-all:3.0.15'
     implementation 'org.springframework.boot:spring-boot-starter:2.7.12'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.7.12'

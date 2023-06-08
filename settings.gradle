@@ -1,3 +1,3 @@
 
 rootProject.name = 'mytool'
-include('mytool-util', 'mytool-collector', 'mytool-server', 'mytool-backend')
+include('mytool-util', 'mytool-parser', 'mytool-collector', 'mytool-server', 'mytool-backend')

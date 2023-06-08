@@ -7,6 +7,10 @@ class MetricType {
     ReportType reportType
     String name
 
+    static MetricType valueOf(String name) {
+        return valueOf(ReportType.NULL, name)
+    }
+
     static MetricType valueOf(ReportType reportType, String name) {
         return new MetricType(reportType: reportType, name: name)
     }

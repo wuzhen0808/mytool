@@ -1,0 +1,26 @@
+plugins {
+    id 'groovy'
+    id("cup.gradle.cup-gradle-plugin") version "2.0"
+    id("org.xbib.gradle.plugin.jflex") version "1.5.0"
+}
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:3.0.15'
+
+    testImplementation('org.spockframework:spock-core:2.0-groovy-3.0') {
+        exclude group: 'org.codehaus.groovy'
+    }
+}
+repositories {
+    mavenCentral()
+}
+
+cup {
+    //TODO fix: -destdir does not work.
+    args = ["-parser", "formula_parser", "-symbols", "formula_sym"]
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}
+
