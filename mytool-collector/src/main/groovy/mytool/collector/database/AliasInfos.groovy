@@ -44,8 +44,8 @@ public class AliasInfos {
 
     }
 
-    public List<Integer> getOrCreateColumnIndexByAliasList(ReportDataAccessor dbs, final ReportType reportType,
-                                                           List<String> aliasList) {
+    List<Integer> getColumnIndexByAliasList(final ReportType reportType,
+                                            List<String> aliasList) {
         Map<String, Integer> aliasMap = reportAliasColumnMap.get(reportType.type);
         List<Integer> rt = new ArrayList<>();
         for (final String alias : aliasList) {
@@ -53,9 +53,20 @@ public class AliasInfos {
             if (aliasMap != null) {
                 columnIndex = aliasMap.get(alias);
             }
+            rt.add(columnIndex)
+        }
+        return rt
+    }
+
+    public List<Integer> getOrCreateColumnIndexByAliasList(ReportDataAccessor dbs, final ReportType reportType,
+                                                           List<String> aliasList) {
+
+        List<Integer> rt = getColumnIndexByAliasList(reportType, aliasList)
+        for (int i = 0; i < rt.size(); i++) {
+            Integer columnIndex = rt.get(i)
 
             if (columnIndex == null) {
-
+                String alias = aliasList.get(i)
                 columnIndex = dbs.execute(new JdbcAccessTemplate.JdbcOperation<Integer>() {
 
                     @Override
@@ -71,10 +82,9 @@ public class AliasInfos {
                         return tmpIndex;
                     }
                 }, true);
-
+                rt.set(i, columnIndex);
             }
 
-            rt.add(columnIndex);
         }
         return rt;
 

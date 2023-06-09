@@ -52,7 +52,7 @@ class ChartData {
         }
 
         ChartData build() {
-            ChartData chartData = new ChartData(type: 'bar', data: data, options: options)
+            ChartData chartData = new ChartData(type: type, data: data, options: options)
             return chartData
         }
     }

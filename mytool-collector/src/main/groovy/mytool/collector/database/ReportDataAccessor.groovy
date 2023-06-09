@@ -85,7 +85,7 @@ class ReportDataAccessor extends JdbcAccessTemplate {
     }
 
     List<MetricRecord> queryReport(final ReportType reportType, final String corpId, final Date[] reportDateList, final List<String> aliasList) {
-        final List<Integer> columnIndexList = this.aliasInfos.getOrCreateColumnIndexByAliasList(this, reportType, aliasList);
+        final List<Integer> columnIndexList = this.aliasInfos.getColumnIndexByAliasList(reportType, aliasList);
         return this.execute(new JdbcOperation<List<MetricRecord>>() {
 
             @Override
@@ -96,6 +96,10 @@ class ReportDataAccessor extends JdbcAccessTemplate {
                 for (int i = 0; i < columnIndexList.size(); i++) {
                     sql.append(",")
                     Integer cIdx = columnIndexList.get(i);
+                    if (cIdx == null) {
+                        String alias = aliasList.get(i)
+                        throw new RtException("no index for the report metric:${alias}")
+                    }
                     sql.append(Tables.getReportColumn(cIdx))
                     sql.append(" as ").append(aliasList.get(i))
                 }
@@ -294,9 +298,12 @@ class ReportDataAccessor extends JdbcAccessTemplate {
             [it.date, it.value]
         })
         //sort by dates array
-        return dates.collect {
+
+        BigDecimal[] rt = dates.collect {
             dateMap.get(it)
         } as BigDecimal[]
+
+        return rt
     }
 
     List<MetricRecord> getReport(ReportType reportType, String corpId, Date[] dates, String... aliasList) {
@@ -317,6 +324,9 @@ class ReportDataAccessor extends JdbcAccessTemplate {
             return
         }
         BigDecimal decimal = MetricTypes.getDefaultValue(record.key)
+        if (decimal == null) {
+            decimal = 0
+        }
         record.setValue(decimal)
     }
 }

@@ -52,31 +52,35 @@ class DefaultMetricProvider extends MetricProvider {
     }
 
     BigDecimal add(BigDecimal it1, BigDecimal it2) {
-        if (it1 && it2) {
-            return it1.add(it2)
+        if (it1 == null || it2 == null) {
+            return null
         }
-        return null
+        return it1.add(it2)
     }
 
     BigDecimal minus(BigDecimal it1, BigDecimal it2) {
-        if (it1 && it2) {
-            return it1.minus(it2)
+        if (it1 == null || it2 == null) {
+            return null
         }
-        return null
+
+        return it1.minus(it2)
+
     }
 
     BigDecimal multiply(BigDecimal it1, BigDecimal it2) {
-        if (it1 && it2) {
-            return it1.multiply(it2)
+        if (it1 == null || it2 == null) {
+            return null
         }
-        return null
+        return it1.multiply(it2)
+
     }
 
     BigDecimal divide(BigDecimal it1, BigDecimal it2) {
-        if (it1 && it2) {
-            return it1.divide(it2, 4, RoundingMode.HALF_EVEN)
+        if (it1 == null || it2 == null) {
+            return null
         }
-        return null
+        return it1.divide(it2, 4, RoundingMode.HALF_EVEN)
+
     }
 
     BigDecimal[] evaluateExpr(CupExpr expr, MetricsContext metricsContext, String corpId, Date[] dates) {
@@ -90,7 +94,7 @@ class DefaultMetricProvider extends MetricProvider {
 
                 switch (exprBin.oper) {
                     case CupExpr.PLUS:
-                        rtValue = CollectUtil.collect(left, right, { BigDecimal it1, BigDecimal it2 -> add(it2, it2) })
+                        rtValue = CollectUtil.collect(left, right, { BigDecimal it1, BigDecimal it2 -> add(it1, it2) })
                         break
                     case CupExpr.MINUS:
 
