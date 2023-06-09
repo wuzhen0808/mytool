@@ -2,6 +2,7 @@ package mytool.collector.database
 
 import groovy.transform.CompileStatic
 import mytool.collector.MetricType
+import mytool.collector.MetricTypes
 import mytool.collector.ReportType
 import mytool.collector.RtException
 import mytool.util.jdbc.ConnectionProvider
@@ -83,12 +84,12 @@ class ReportDataAccessor extends JdbcAccessTemplate {
 
     }
 
-    List<ReportRecord> queryReport(final ReportType reportType, final String corpId, final Date[] reportDateList, final List<String> aliasList) {
+    List<MetricRecord> queryReport(final ReportType reportType, final String corpId, final Date[] reportDateList, final List<String> aliasList) {
         final List<Integer> columnIndexList = this.aliasInfos.getOrCreateColumnIndexByAliasList(this, reportType, aliasList);
-        return this.execute(new JdbcOperation<List<ReportRecord>>() {
+        return this.execute(new JdbcOperation<List<MetricRecord>>() {
 
             @Override
-            List<ReportRecord> execute(Connection con, JdbcAccessTemplate t) {
+            List<MetricRecord> execute(Connection con, JdbcAccessTemplate t) {
                 StringBuffer sql = new StringBuffer();
                 sql.append("select corpId, reportDate");
 
@@ -121,11 +122,11 @@ class ReportDataAccessor extends JdbcAccessTemplate {
                     sql.append(")")
 
                 }
-                return t.executeQuery(con, sql.toString(), args, new ResultSetProcessor<List<ReportRecord>>() {
+                return t.executeQuery(con, sql.toString(), args, new ResultSetProcessor<List<MetricRecord>>() {
 
                     @Override
-                    List<ReportRecord> process(ResultSet rs) throws SQLException {
-                        List<ReportRecord> list = []
+                    List<MetricRecord> process(ResultSet rs) throws SQLException {
+                        List<MetricRecord> list = []
 
                         while (rs.next()) {
                             String corpIdI = rs.getString("corpId")
@@ -133,7 +134,7 @@ class ReportDataAccessor extends JdbcAccessTemplate {
                             aliasList.each {
                                 BigDecimal value = rs.getBigDecimal(it)
                                 MetricType metricType = MetricType.valueOf(reportType, it)
-                                ReportRecord record = new ReportRecord(corpId: corpId, date: dateI, key: metricType, value: value)
+                                MetricRecord record = new MetricRecord(corpId: corpId, date: dateI, key: metricType as String, value: value)
                                 list.add(record)
                             }
                         }
@@ -288,12 +289,34 @@ class ReportDataAccessor extends JdbcAccessTemplate {
         }
     }
 
-    List<ReportRecord> getReport(ReportType reportType, String corpId, Date[] reportDateList, String... aliasList) {
-        return getReport(reportType, corpId, reportDateList, aliasList as List<String>)
+    BigDecimal[] getReportValues(ReportType reportType, String corpId, Date[] dates, String alias) {
+        Map<Date, BigDecimal> dateMap = getReport(reportType, corpId, dates, alias).collectEntries({
+            [it.date, it.value]
+        })
+        //sort by dates array
+        return dates.collect {
+            dateMap.get(it)
+        } as BigDecimal[]
     }
 
-    List<ReportRecord> getReport(ReportType reportType, String corpId, Date[] reportDateList, List<String> aliasList) {
-        List<ReportRecord> list = this.queryReport(reportType, corpId, reportDateList, aliasList)
+    List<MetricRecord> getReport(ReportType reportType, String corpId, Date[] dates, String... aliasList) {
+        return getReport(reportType, corpId, dates, aliasList as List<String>)
+    }
+
+    List<MetricRecord> getReport(ReportType reportType, String corpId, Date[] dates, List<String> aliases) {
+        List<MetricRecord> list = this.queryReport(reportType, corpId, dates, aliases)
+        //fill default values
+        list.each {
+            resolveDefaultValue(it)
+        }
         return list
+    }
+
+    void resolveDefaultValue(MetricRecord record) {
+        if (record.value) {
+            return
+        }
+        BigDecimal decimal = MetricTypes.getDefaultValue(record.key)
+        record.setValue(decimal)
     }
 }

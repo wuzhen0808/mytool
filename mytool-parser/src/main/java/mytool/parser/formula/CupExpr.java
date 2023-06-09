@@ -1,5 +1,8 @@
-package mytool.parser.formula.cup;
+package mytool.parser.formula;
 
+
+import java.math.BigDecimal;
+import java.util.Map;
 
 /**
  * Expression recognized by CUP parser.
@@ -7,15 +10,15 @@ package mytool.parser.formula.cup;
  * @author wuzhen
  */
 public abstract class CupExpr {
-    static final int PLUS = 1;
-    static final int MINUS = 2;
-    static final int TIMES = 3;
-    static final int DIV = 4;
+    public static final int PLUS = 1;
+    public static final int MINUS = 2;
+    public static final int TIMES = 3;
+    public static final int DIV = 4;
 
-    static class CupExprBinary extends CupExpr {
-        int oper;
-        CupExpr exprLeft;
-        CupExpr exprRight;
+    public static class CupExprBinary extends CupExpr {
+        public int oper;
+        public CupExpr exprLeft;
+        public CupExpr exprRight;
 
         CupExprBinary(int pLUS, CupExpr e1, CupExpr e2) {
             this.oper = pLUS;
@@ -23,11 +26,10 @@ public abstract class CupExpr {
             this.exprRight = e2;
         }
 
-
     }
 
-    static class CupExprNumber extends CupExpr {
-        Integer value;
+    public static class CupExprNumber extends CupExpr {
+        public Integer value;
 
         CupExprNumber(Integer value) {
             this.value = value;
@@ -40,11 +42,11 @@ public abstract class CupExpr {
      *
      * @author wuzhen
      */
-    static class CupExprMetric extends CupExpr {
+    public static class CupExprMetric extends CupExpr {
 
-        String identifier;
+        public String identifier;
 
-        String tx;//T0/T1
+        public String tx;//T0/T1
 
         CupExprMetric(String tx, String metric) {
             this.identifier = metric;
@@ -53,8 +55,8 @@ public abstract class CupExpr {
 
     }
 
-    static class CupExprParen extends CupExpr {
-        CupExpr expr;
+    public static class CupExprParen extends CupExpr {
+        public CupExpr expr;
 
         CupExprParen(CupExpr e) {
 

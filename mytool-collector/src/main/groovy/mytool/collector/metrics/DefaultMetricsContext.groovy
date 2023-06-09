@@ -2,31 +2,31 @@ package mytool.collector.metrics
 
 import groovy.transform.CompileStatic
 import mytool.collector.MetricProvider
-import mytool.collector.MetricType
-import mytool.collector.MetricTypes
 import mytool.collector.MetricsContext
 import mytool.collector.database.ReportDataAccessor
-import mytool.collector.database.ReportRecord
+import mytool.collector.database.MetricRecord
 
 @CompileStatic
 class DefaultMetricsContext extends MetricsContext {
 
-    private ReportDataAccessor reportDataAccessor
-    private Map<MetricType, MetricProvider> metricProviderMap = [:]
+    private Map<String, MetricProvider> providerMap = [:]
+    private MetricProvider defaultProvider
 
-    DefaultMetricsContext() {
-        metricProviderMap.put(MetricTypes.ROE, new ROEMetricProvider())
+    DefaultMetricsContext(ReportDataAccessor reportDataAccessor) {
+        this.defaultProvider = new DefaultMetricProvider(reportDataAccessor: reportDataAccessor)
     }
 
     @Override
-    ReportRecord[] resolveMetrics(MetricType metricType, String corpId, Date[] dates) {
-        MetricProvider provider = metricProviderMap.get(metricType)
-        if (provider) {
-            BigDecimal[] values = provider.calculate(this, corpId, dates)
-            return ReportRecord.asList(MetricTypes.ROE, corpId, dates, values) as ReportRecord[]
-        } else {
-            return reportDataAccessor.getReport(metricType.reportType, corpId, dates, metricType.name) as ReportRecord[]
+    MetricRecord[] resolveMetrics(String metric, String corpId, Date[] dates) {
+        MetricProvider provider = providerMap.get(metric)
+        if (!provider) {
+            provider = defaultProvider
         }
+
+        BigDecimal[] values = provider.calculate(this, metric, corpId, dates)
+        return MetricRecord.asList(metric, corpId, dates, values) as MetricRecord[]
+
+
     }
 
 

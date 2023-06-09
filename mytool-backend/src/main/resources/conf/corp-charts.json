@@ -1,0 +1,45 @@
+{
+  "charts": [
+    {
+      "enabled": false,
+      "metric": "净利润"
+    },
+    {
+      "enabled": false,
+      "metric": "总资产"
+    },
+    {
+      "enabled": false,
+      "metric": "总负债"
+    },
+    {
+      "enabled": false,
+      "metric": "ROE"
+    },
+    {
+      "enabled": false,
+      "metric": "无息流动负债"
+    },
+    {
+      "enabled": false,
+      "metric": "租赁负债"
+    },
+    {
+      "enabled": false,
+      "metric": "有息非流动负债"
+    },
+    {
+      "enabled": false,
+      "metric": "无息非流动负债"
+    },
+    {
+      "enabled": true,
+      "metric": "TEST"
+    },
+    {
+      "enabled": false,
+      "metric": "有息负债率"
+    }
+
+  ]
+}

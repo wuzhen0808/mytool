@@ -1,15 +1,17 @@
-import java_cup.runtime.Symbol
-import mytool.parser.formula.cup.CupExpr
+import mytool.parser.formula.FormulaParser
 import spock.lang.Specification
 
 class FormulaParserSpec extends Specification {
 
-    def "test"() {
-        Reader r = new java.io.StringReader("T0.负债合计/T0.资产总计");
-        Symbol result = new formula_parser(new formula_scanner(r)).parse();
-        CupExpr expr = (CupExpr) result.value;
-        System.out.println(expr);
+    def "test1"() {
+        def formula = FormulaParser.parse(formulaString)
+        System.out.println(formula);
         expect:
         1 == 1
+        where:
+        formulaString            | ok
+        "有息负债率=(T0.有息负债/T0.总资产)" | true
+        "有息负债率 = ( T0.有息负债 / T0.总资产 )" | true
     }
+
 }

@@ -23,9 +23,8 @@ class ChartRestController {
     ChartService chartService
 
     @GetMapping("chart")
-    ChartData chart(@RequestParam(name = "corpId", required = false) String corpId, @RequestParam(name = "metricType", required = false) String metricTypeS) {
-        MetricType metricType = MetricType.parse(metricTypeS)
-        return chartService.getChartData(corpId, metricType)
+    ChartData chart(@RequestParam(name = "corpId", required = false) String corpId, @RequestParam(name = "metric", required = false) String metric) {
+        return chartService.getChartData(corpId, metric)
     }
 
 

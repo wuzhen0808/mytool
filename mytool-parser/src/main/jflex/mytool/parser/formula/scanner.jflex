@@ -1,8 +1,10 @@
+package mytool.parser.formula;
+
 import java_cup.runtime.*;
 %%
 
 %public
-%class formula_scanner
+%class scanner
 %unicode
 %cup
 %line
@@ -10,8 +12,7 @@ import java_cup.runtime.*;
 
 %{
 	StringBuffer string = new StringBuffer();
-    static class sym extends formula_sym {
-    }
+
 	private Symbol symbol(int type) {
 		return new Symbol(type, yyline, yycolumn);
 	}
@@ -47,7 +48,7 @@ DateLiteral = [1-9][0-9][0-9][0-9][/][0-9][0-9][/][0-9][0-9]
 	")"                            { return symbol(sym.RPAREN); }
     "@"                            { return symbol(sym.AT); }
     "."                            { return symbol(sym.DOT); }
-    "T"                            { return symbol(sym.T); }
+    "="                            { return symbol(sym.EQ); }
     // whitespace
     {WhiteSpace}                   {  }
 }

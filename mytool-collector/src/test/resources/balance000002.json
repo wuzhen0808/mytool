@@ -1,0 +1,3544 @@
+{
+  "data": {
+    "quote_name": "万科A",
+    "currency_name": "人民币",
+    "org_type": 1,
+    "last_report_name": "2023一季报",
+    "statuses": null,
+    "currency": "CNY",
+    "list": [
+      {
+        "report_date": 1672416000000,
+        "report_name": "2022年报",
+        "ctime": null,
+        "total_assets": [
+          1.75780493589604E12,
+          -0.09327846704654873
+        ],
+        "total_liab": [
+          1.35216810593249E12,
+          -0.12530020546039058
+        ],
+        "asset_liab_ratio": [
+          0.7692367215041543,
+          -0.03531595671885927
+        ],
+        "total_quity_atsopc": [
+          2.4332537492233E11,
+          0.031244512748380516
+        ],
+        "tradable_fnncl_assets": [
+          1.814234465E7,
+          -0.11875310090572998
+        ],
+        "interest_receivable": [
+          6.582724693E7,
+          66.50762997851777
+        ],
+        "saleable_finacial_assets": [
+          null,
+          null
+        ],
+        "held_to_maturity_invest": [
+          null,
+          null
+        ],
+        "fixed_asset": [
+          null,
+          null
+        ],
+        "intangible_assets": [
+          1.154754407258E10,
+          0.10553932599411661
+        ],
+        "construction_in_process": [
+          null,
+          null
+        ],
+        "dt_assets": [
+          3.614093253432E10,
+          0.0782570307565033
+        ],
+        "tradable_fnncl_liab": [
+          1.91792E8,
+          0.0
+        ],
+        "payroll_payable": [
+          6.76341221106E9,
+          0.06043248178294998
+        ],
+        "tax_payable": [
+          3.183538391477E10,
+          0.26374766961400875
+        ],
+        "estimated_liab": [
+          4.1229201241E8,
+          0.49835376576440515
+        ],
+        "dt_liab": [
+          1.17550820263E9,
+          -0.08867311902236141
+        ],
+        "bond_payable": [
+          6.881557015564E10,
+          0.2979032082546556
+        ],
+        "shares": [
+          1.1630709471E10,
+          4.581436868098124E-4
+        ],
+        "capital_reserve": [
+          2.286756504346E10,
+          0.1109488997737005
+        ],
+        "earned_surplus": [
+          1.1774367708149E11,
+          0.05897438360594907
+        ],
+        "undstrbtd_profit": [
+          9.801389276393E10,
+          0.05734129320765208
+        ],
+        "minority_equity": [
+          1.6231145504122E11,
+          0.035019928929502196
+        ],
+        "total_holders_equity": [
+          4.0563682996355E11,
+          0.032751896789461464
+        ],
+        "total_liab_and_holders_equity": [
+          1.75780493589604E12,
+          -0.09327846704654873
+        ],
+        "lt_equity_invest": [
+          1.2951150193847E11,
+          -0.1034122456621229
+        ],
+        "derivative_fnncl_liab": [
+          1.9344961058E8,
+          -0.731845471422475
+        ],
+        "general_risk_provision": [
+          null,
+          null
+        ],
+        "frgn_currency_convert_diff": [
+          null,
+          null
+        ],
+        "goodwill": [
+          5.40228588135E9,
+          0.41335155435398124
+        ],
+        "invest_property": [
+          9.857239301258E10,
+          0.14681189970375136
+        ],
+        "interest_payable": [
+          5.166120703E7,
+          null
+        ],
+        "treasury_stock": [
+          1.29180029012E9,
+          null
+        ],
+        "othr_compre_income": [
+          -5.63866914743E9,
+          -38.982790625726466
+        ],
+        "othr_equity_instruments": [
+          null,
+          null
+        ],
+        "currency_funds": [
+          1.3720763492527E11,
+          -0.08131644193254092
+        ],
+        "bills_receivable": [
+          6552638.83,
+          -0.7632870081933137
+        ],
+        "account_receivable": [
+          7.50469213325E9,
+          0.5820678053720576
+        ],
+        "pre_payment": [
+          6.04835383635E10,
+          -0.10035346010934977
+        ],
+        "dividend_receivable": [
+          5.860932312E7,
+          2.3958486166392303
+        ],
+        "othr_receivables": [
+          null,
+          null
+        ],
+        "inventory": [
+          9.0705693035778E11,
+          -0.1567101491869464
+        ],
+        "nca_due_within_one_year": [
+          null,
+          null
+        ],
+        "othr_current_assets": [
+          1.941164196588E10,
+          -0.25147181357847853
+        ],
+        "current_assets_si": [
+          null,
+          null
+        ],
+        "total_current_assets": [
+          1.41535637995852E12,
+          -0.11555057766925499
+        ],
+        "lt_receivable": [
+          null,
+          null
+        ],
+        "dev_expenditure": [
+          null,
+          null
+        ],
+        "lt_deferred_expense": [
+          8.87608032401E9,
+          -0.015190492820507983
+        ],
+        "othr_noncurrent_assets": [
+          6.49407028053E9,
+          -0.1709126495693685
+        ],
+        "noncurrent_assets_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_assets": [
+          3.4244855593752E11,
+          0.012054073006208936
+        ],
+        "st_loan": [
+          4.13330622489E9,
+          -0.7132138565095675
+        ],
+        "bill_payable": [
+          2.509743294E7,
+          -0.7999185338639857
+        ],
+        "accounts_payable": [
+          2.8921642764413E11,
+          -0.1246771165865861
+        ],
+        "pre_receivable": [
+          1.26018926584E9,
+          -0.07630147673327052
+        ],
+        "dividend_payable": [
+          5.8917699245E8,
+          -0.6623494259972946
+        ],
+        "othr_payables": [
+          null,
+          null
+        ],
+        "noncurrent_liab_due_in1y": [
+          6.392207334507E10,
+          0.3336010277632222
+        ],
+        "current_liab_si": [
+          null,
+          null
+        ],
+        "total_current_liab": [
+          1.07780157201784E12,
+          -0.1781581643931048
+        ],
+        "lt_loan": [
+          1.8077328062196E11,
+          0.17140105651596887
+        ],
+        "lt_payable": [
+          null,
+          null
+        ],
+        "special_payable": [
+          null,
+          null
+        ],
+        "othr_non_current_liab": [
+          1.12415724717E9,
+          -0.06424897188082057
+        ],
+        "noncurrent_liab_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_liab": [
+          2.7436653391465E11,
+          0.17041139457456064
+        ],
+        "salable_financial_assets": [
+          null,
+          null
+        ],
+        "othr_current_liab": [
+          4.077457173202E10,
+          -0.2691951500173142
+        ],
+        "ar_and_br": [
+          7.51124477208E9,
+          0.5742623871488568
+        ],
+        "contractual_assets": [
+          1.092751513638E10,
+          0.05173373369674145
+        ],
+        "bp_and_ap": [
+          2.8924152507707E11,
+          -0.12493336547861768
+        ],
+        "contract_liabilities": [
+          4.6558095767888E11,
+          -0.26894129950983425
+        ],
+        "to_sale_asset": [
+          null,
+          null
+        ],
+        "other_eq_ins_invest": [
+          1.25429956892E9,
+          -0.31588194287821575
+        ],
+        "other_illiquid_fnncl_assets": [
+          3.87750813397E9,
+          2.7242950093471
+        ],
+        "fixed_asset_sum": [
+          1.642026513496E10,
+          0.280726041638142
+        ],
+        "fixed_assets_disposal": [
+          null,
+          null
+        ],
+        "construction_in_process_sum": [
+          1.84972537399E9,
+          -0.4556636471029759
+        ],
+        "project_goods_and_material": [
+          null,
+          null
+        ],
+        "productive_biological_assets": [
+          3.1939322091E8,
+          null
+        ],
+        "oil_and_gas_asset": [
+          null,
+          null
+        ],
+        "to_sale_debt": [
+          null,
+          null
+        ],
+        "lt_payable_sum": [
+          0.0,
+          null
+        ],
+        "noncurrent_liab_di": [
+          null,
+          null
+        ],
+        "perpetual_bond": [
+          null,
+          null
+        ],
+        "special_reserve": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1640880000000,
+        "report_name": "2021年报",
+        "ctime": null,
+        "total_assets": [
+          1.93863812869908E12,
+          0.037161291413366625
+        ],
+        "total_liab": [
+          1.54586535217399E12,
+          0.017463411994730536
+        ],
+        "asset_liab_ratio": [
+          0.7973975799244908,
+          -0.018992108153007992
+        ],
+        "total_quity_atsopc": [
+          2.3595313421241E11,
+          0.05096491428686606
+        ],
+        "tradable_fnncl_assets": [
+          2.05871302E7,
+          -0.8792400168224966
+        ],
+        "interest_receivable": [
+          975108.25,
+          -0.9632805071317998
+        ],
+        "saleable_finacial_assets": [
+          null,
+          null
+        ],
+        "held_to_maturity_invest": [
+          null,
+          null
+        ],
+        "fixed_asset": [
+          1.282105977478E10,
+          0.019377466099643834
+        ],
+        "intangible_assets": [
+          1.044516807414E10,
+          0.7157594093283982
+        ],
+        "construction_in_process": [
+          3.39812941786E9,
+          0.04982593033965173
+        ],
+        "dt_assets": [
+          3.351791966426E10,
+          0.2172651399359316
+        ],
+        "tradable_fnncl_liab": [
+          1.91792E8,
+          null
+        ],
+        "payroll_payable": [
+          6.37797533294E9,
+          -0.1876164033074325
+        ],
+        "tax_payable": [
+          2.519125034232E10,
+          -0.1324288273270046
+        ],
+        "estimated_liab": [
+          2.7516333047E8,
+          0.27785941798859837
+        ],
+        "dt_liab": [
+          1.28988645805E9,
+          4.572563693043162
+        ],
+        "bond_payable": [
+          5.302057173291E10,
+          0.21673169079521837
+        ],
+        "shares": [
+          1.1625383375E10,
+          6.585772393119392E-4
+        ],
+        "capital_reserve": [
+          2.058381357425E10,
+          0.10937060359357349
+        ],
+        "earned_surplus": [
+          1.1118652056583E11,
+          0.14076857951505317
+        ],
+        "undstrbtd_profit": [
+          9.269844410085E10,
+          -0.05810318508636113
+        ],
+        "minority_equity": [
+          1.5681964231268E11,
+          0.2512186809186675
+        ],
+        "total_holders_equity": [
+          3.9277277652509E11,
+          0.12270682103860084
+        ],
+        "total_liab_and_holders_equity": [
+          1.93863812869908E12,
+          0.037161291413366625
+        ],
+        "lt_equity_invest": [
+          1.4444933171557E11,
+          0.018000197576861252
+        ],
+        "derivative_fnncl_liab": [
+          7.214109402E8,
+          1.1460747287469646
+        ],
+        "general_risk_provision": [
+          null,
+          null
+        ],
+        "frgn_currency_convert_diff": [
+          null,
+          null
+        ],
+        "goodwill": [
+          3.82232280759E9,
+          17.5241319447291
+        ],
+        "invest_property": [
+          8.59534096551E10,
+          0.07503389691569337
+        ],
+        "interest_payable": [
+          null,
+          null
+        ],
+        "treasury_stock": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          -1.4102740352E8,
+          0.9086830696890397
+        ],
+        "othr_equity_instruments": [
+          null,
+          null
+        ],
+        "currency_funds": [
+          1.4935244428876E11,
+          -0.2349951805187956
+        ],
+        "bills_receivable": [
+          2.768178789E7,
+          1.8648877179007302
+        ],
+        "account_receivable": [
+          4.74359702395E9,
+          0.5852025414878442
+        ],
+        "pre_payment": [
+          6.723033511678E10,
+          0.08004869251352136
+        ],
+        "dividend_receivable": [
+          1.72591095E7,
+          -0.10549720304033486
+        ],
+        "othr_receivables": [
+          2.6604288615549E11,
+          0.06650636046862798
+        ],
+        "inventory": [
+          1.07561703663722E12,
+          0.07340259832528398
+        ],
+        "nca_due_within_one_year": [
+          null,
+          null
+        ],
+        "othr_current_assets": [
+          2.593308083518E10,
+          0.14430794083831597
+        ],
+        "current_assets_si": [
+          null,
+          null
+        ],
+        "total_current_assets": [
+          1.6002683072919E12,
+          0.03417454325552845
+        ],
+        "lt_receivable": [
+          null,
+          null
+        ],
+        "dev_expenditure": [
+          null,
+          null
+        ],
+        "lt_deferred_expense": [
+          9.01299211604E9,
+          0.007290265001775911
+        ],
+        "othr_noncurrent_assets": [
+          7.83279382704E9,
+          -0.43404993024972344
+        ],
+        "noncurrent_assets_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_assets": [
+          3.3836982140718E11,
+          0.0515236239406027
+        ],
+        "st_loan": [
+          1.441250324923E10,
+          -0.4260604860686421
+        ],
+        "bill_payable": [
+          1.2543607074E8,
+          -0.7933891937319437
+        ],
+        "accounts_payable": [
+          3.3041113527879E11,
+          0.1174448868673859
+        ],
+        "pre_receivable": [
+          1.3642863273E9,
+          0.4955494659231856
+        ],
+        "dividend_payable": [
+          1.74493111463E9,
+          4.469357961762856
+        ],
+        "othr_payables": [
+          1.9032123810385E11,
+          -0.10411480397504341
+        ],
+        "noncurrent_liab_due_in1y": [
+          4.793193167546E10,
+          -0.207236950453977
+        ],
+        "current_liab_si": [
+          null,
+          null
+        ],
+        "total_current_liab": [
+          1.31144646733873E12,
+          -0.004589187918937782
+        ],
+        "lt_loan": [
+          1.5432227896364E11,
+          0.16878248130706952
+        ],
+        "lt_payable": [
+          null,
+          null
+        ],
+        "special_payable": [
+          null,
+          null
+        ],
+        "othr_non_current_liab": [
+          1.20134225172E9,
+          0.009380807069312712
+        ],
+        "noncurrent_liab_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_liab": [
+          2.3441888483526E11,
+          0.16140984964360025
+        ],
+        "salable_financial_assets": [
+          null,
+          null
+        ],
+        "othr_current_liab": [
+          5.579406285137E10,
+          0.03348634217040512
+        ],
+        "ar_and_br": [
+          4.77127881184E9,
+          0.5893213023682058
+        ],
+        "contractual_assets": [
+          1.039000156244E10,
+          0.6859907184155215
+        ],
+        "bp_and_ap": [
+          3.3053657134953E11,
+          0.11557855307484284
+        ],
+        "contract_liabilities": [
+          6.368585140519E11,
+          0.009688989733605156
+        ],
+        "to_sale_asset": [
+          8.9242253624E8,
+          -0.8591221919992079
+        ],
+        "other_eq_ins_invest": [
+          1.83345484871E9,
+          0.14502391423946226
+        ],
+        "other_illiquid_fnncl_assets": [
+          1.04113882607E9,
+          0.49211709610659193
+        ],
+        "fixed_asset_sum": [
+          1.282105977478E10,
+          0.019377466099643834
+        ],
+        "fixed_assets_disposal": [
+          null,
+          null
+        ],
+        "construction_in_process_sum": [
+          3.39812941786E9,
+          0.04982593033965173
+        ],
+        "project_goods_and_material": [
+          null,
+          null
+        ],
+        "productive_biological_assets": [
+          null,
+          null
+        ],
+        "oil_and_gas_asset": [
+          null,
+          null
+        ],
+        "to_sale_debt": [
+          null,
+          null
+        ],
+        "lt_payable_sum": [
+          0.0,
+          null
+        ],
+        "noncurrent_liab_di": [
+          null,
+          null
+        ],
+        "perpetual_bond": [
+          null,
+          null
+        ],
+        "special_reserve": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1609344000000,
+        "report_name": "2020年报",
+        "ctime": null,
+        "total_assets": [
+          1.86917709400555E12,
+          0.08049324992532138
+        ],
+        "total_liab": [
+          1.51933262066233E12,
+          0.041102046736805106
+        ],
+        "asset_liab_ratio": [
+          0.8128350307388363,
+          -0.03645668604707975
+        ],
+        "total_quity_atsopc": [
+          2.2451095274909E11,
+          0.19383576070134917
+        ],
+        "tradable_fnncl_assets": [
+          1.7047973723E8,
+          -0.9854728690778685
+        ],
+        "interest_receivable": [
+          2.655560232E7,
+          null
+        ],
+        "saleable_finacial_assets": [
+          null,
+          null
+        ],
+        "held_to_maturity_invest": [
+          null,
+          null
+        ],
+        "fixed_asset": [
+          1.257734274217E10,
+          0.014315063718079958
+        ],
+        "intangible_assets": [
+          6.08778131558E9,
+          0.1552540601428122
+        ],
+        "construction_in_process": [
+          3.23685033838E9,
+          -0.22560416260258181
+        ],
+        "dt_assets": [
+          2.753543050286E10,
+          0.17534219689443173
+        ],
+        "tradable_fnncl_liab": [
+          null,
+          null
+        ],
+        "payroll_payable": [
+          7.85094056417E9,
+          0.13843430313243202
+        ],
+        "tax_payable": [
+          2.903652303788E10,
+          0.15638526412811413
+        ],
+        "estimated_liab": [
+          2.1533145712E8,
+          0.43909962831031546
+        ],
+        "dt_liab": [
+          2.3147092238E8,
+          -0.18013574589711287
+        ],
+        "bond_payable": [
+          4.357622320025E10,
+          -0.12225253370904499
+        ],
+        "shares": [
+          1.1617732201E10,
+          0.027922952308431864
+        ],
+        "capital_reserve": [
+          1.855449703424E10,
+          0.49820503334475597
+        ],
+        "earned_surplus": [
+          9.746632451351E10,
+          0.37613270320580505
+        ],
+        "undstrbtd_profit": [
+          9.84167720212E10,
+          0.032141265054667
+        ],
+        "minority_equity": [
+          1.2533352059413E11,
+          0.5188145130037387
+        ],
+        "total_holders_equity": [
+          3.4984447334322E11,
+          0.2929470658120992
+        ],
+        "total_liab_and_holders_equity": [
+          1.86917709400555E12,
+          0.08049324992532138
+        ],
+        "lt_equity_invest": [
+          1.4189519025576E11,
+          0.08752140017228496
+        ],
+        "derivative_fnncl_liab": [
+          3.3615369052E8,
+          null
+        ],
+        "general_risk_provision": [
+          null,
+          null
+        ],
+        "frgn_currency_convert_diff": [
+          null,
+          null
+        ],
+        "goodwill": [
+          2.0634288392E8,
+          -0.06598700426089768
+        ],
+        "invest_property": [
+          7.99541390292E10,
+          0.086855011505487
+        ],
+        "interest_payable": [
+          null,
+          null
+        ],
+        "treasury_stock": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          -1.54437302086E9,
+          0.14506739779682656
+        ],
+        "othr_equity_instruments": [
+          null,
+          null
+        ],
+        "currency_funds": [
+          1.9523072336988E11,
+          0.17471162354314815
+        ],
+        "bills_receivable": [
+          9662433.79,
+          -0.6664681450752027
+        ],
+        "account_receivable": [
+          2.99242330226E9,
+          0.5051857660951503
+        ],
+        "pre_payment": [
+          6.224750382348E10,
+          -0.36349532588248634
+        ],
+        "dividend_receivable": [
+          1.929464006E7,
+          null
+        ],
+        "othr_receivables": [
+          2.4945269528312E11,
+          null
+        ],
+        "inventory": [
+          1.00206300815313E12,
+          0.11710339287530629
+        ],
+        "nca_due_within_one_year": [
+          null,
+          null
+        ],
+        "othr_current_assets": [
+          2.266267663596E10,
+          0.09309260564392008
+        ],
+        "current_assets_si": [
+          null,
+          null
+        ],
+        "total_current_assets": [
+          1.54738706123469E12,
+          0.0753290539215862
+        ],
+        "lt_receivable": [
+          null,
+          null
+        ],
+        "dev_expenditure": [
+          null,
+          null
+        ],
+        "lt_deferred_expense": [
+          8.94776057031E9,
+          0.23669803402142686
+        ],
+        "othr_noncurrent_assets": [
+          1.384007926794E10,
+          0.5196654893583481
+        ],
+        "noncurrent_assets_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_assets": [
+          3.2179003277086E11,
+          0.10603535697843741
+        ],
+        "st_loan": [
+          2.511153684211E10,
+          0.6343090161837904
+        ],
+        "bill_payable": [
+          6.0711282728E8,
+          -0.3550133575691949
+        ],
+        "accounts_payable": [
+          2.9568450235166E11,
+          0.10626887487239402
+        ],
+        "pre_receivable": [
+          9.1223082779E8,
+          0.18351417816619706
+        ],
+        "dividend_payable": [
+          3.1903765064E8,
+          -0.15898387638135544
+        ],
+        "othr_payables": [
+          2.1243931582786E11,
+          -0.15132602787054067
+        ],
+        "noncurrent_liab_due_in1y": [
+          6.046186398686E10,
+          -0.2502827100310447
+        ],
+        "current_liab_si": [
+          null,
+          null
+        ],
+        "total_current_liab": [
+          1.31749268886978E12,
+          0.03526798849812931
+        ],
+        "lt_loan": [
+          1.3203678308992E11,
+          0.15497759770584474
+        ],
+        "lt_payable": [
+          null,
+          null
+        ],
+        "special_payable": [
+          null,
+          null
+        ],
+        "othr_non_current_liab": [
+          1.1901774269E9,
+          0.1170800179312728
+        ],
+        "noncurrent_liab_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_liab": [
+          2.0183993179255E11,
+          0.08086042997162346
+        ],
+        "salable_financial_assets": [
+          null,
+          null
+        ],
+        "othr_current_liab": [
+          5.398626046107E10,
+          0.12813984657528768
+        ],
+        "ar_and_br": [
+          3.00208573605E9,
+          0.4883577545096832
+        ],
+        "contractual_assets": [
+          6.16254968011E9,
+          0.788870985214962
+        ],
+        "bp_and_ap": [
+          2.9629161517894E11,
+          0.10465008386332188
+        ],
+        "contract_liabilities": [
+          6.3074721080194E11,
+          0.09305994569241273
+        ],
+        "to_sale_asset": [
+          6.33472758346E9,
+          0.4895585861255291
+        ],
+        "other_eq_ins_invest": [
+          1.60123716711E9,
+          -0.2883243993809168
+        ],
+        "other_illiquid_fnncl_assets": [
+          6.9775946458E8,
+          0.03527862170682139
+        ],
+        "fixed_asset_sum": [
+          1.257734274217E10,
+          0.014315063718079958
+        ],
+        "fixed_assets_disposal": [
+          null,
+          null
+        ],
+        "construction_in_process_sum": [
+          3.23685033838E9,
+          -0.22560416260258181
+        ],
+        "project_goods_and_material": [
+          null,
+          null
+        ],
+        "productive_biological_assets": [
+          null,
+          null
+        ],
+        "oil_and_gas_asset": [
+          null,
+          null
+        ],
+        "to_sale_debt": [
+          null,
+          null
+        ],
+        "lt_payable_sum": [
+          0.0,
+          null
+        ],
+        "noncurrent_liab_di": [
+          null,
+          null
+        ],
+        "perpetual_bond": [
+          null,
+          null
+        ],
+        "special_reserve": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1577721600000,
+        "report_name": "2019年报",
+        "ctime": null,
+        "total_assets": [
+          1.72992945040123E12,
+          0.13172367733054494
+        ],
+        "total_liab": [
+          1.45935033498827E12,
+          0.12869066736063137
+        ],
+        "asset_liab_ratio": [
+          0.8435895086067219,
+          -0.0026799916186852745
+        ],
+        "total_quity_atsopc": [
+          1.8805849191282E11,
+          0.20732860670929498
+        ],
+        "tradable_fnncl_assets": [
+          1.173526542466E10,
+          -0.013910055667469648
+        ],
+        "interest_receivable": [
+          null,
+          null
+        ],
+        "saleable_finacial_assets": [
+          null,
+          null
+        ],
+        "held_to_maturity_invest": [
+          null,
+          null
+        ],
+        "fixed_asset": [
+          1.239983826728E10,
+          0.07508711077999651
+        ],
+        "intangible_assets": [
+          5.2696471933E9,
+          0.06401953612536866
+        ],
+        "construction_in_process": [
+          4.17983953692E9,
+          1.1849572374446045
+        ],
+        "dt_assets": [
+          2.342758608992E10,
+          0.4875408997217385
+        ],
+        "tradable_fnncl_liab": [
+          null,
+          null
+        ],
+        "payroll_payable": [
+          6.89626142024E9,
+          0.19501619779668428
+        ],
+        "tax_payable": [
+          2.510973110659E10,
+          0.3405540392271123
+        ],
+        "estimated_liab": [
+          1.4962929104E8,
+          0.042510554820203036
+        ],
+        "dt_liab": [
+          2.8232835036E8,
+          -0.4761145963576603
+        ],
+        "bond_payable": [
+          4.964551294507E10,
+          0.05415350386296825
+        ],
+        "shares": [
+          1.1302143001E10,
+          0.023823478467927293
+        ],
+        "capital_reserve": [
+          1.238448451399E10,
+          0.5469723361999367
+        ],
+        "earned_surplus": [
+          7.082625410068E10,
+          0.49443771035962575
+        ],
+        "undstrbtd_profit": [
+          9.535203692877E10,
+          0.039544203685701704
+        ],
+        "minority_equity": [
+          8.252062350014E10,
+          0.033360111732694535
+        ],
+        "total_holders_equity": [
+          2.7057911541296E11,
+          0.1483671891507129
+        ],
+        "total_liab_and_holders_equity": [
+          1.72992945040123E12,
+          0.13172367733054494
+        ],
+        "lt_equity_invest": [
+          1.3047576832353E11,
+          0.007319769244689062
+        ],
+        "derivative_fnncl_liab": [
+          null,
+          null
+        ],
+        "general_risk_provision": [
+          null,
+          null
+        ],
+        "frgn_currency_convert_diff": [
+          null,
+          null
+        ],
+        "goodwill": [
+          2.2092078468E8,
+          0.017555859564780365
+        ],
+        "invest_property": [
+          7.356467806911E10,
+          0.3609029710195567
+        ],
+        "interest_payable": [
+          null,
+          null
+        ],
+        "treasury_stock": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          -1.80642663162E9,
+          0.2469284115551316
+        ],
+        "othr_equity_instruments": [
+          null,
+          null
+        ],
+        "currency_funds": [
+          1.6619459572642E11,
+          -0.11794476298708383
+        ],
+        "bills_receivable": [
+          2.897004783E7,
+          10.323366157048019
+        ],
+        "account_receivable": [
+          1.98807573767E9,
+          0.25337274456107506
+        ],
+        "pre_payment": [
+          9.779583144426E10,
+          0.28761920909327016
+        ],
+        "dividend_receivable": [
+          null,
+          null
+        ],
+        "othr_receivables": [
+          null,
+          null
+        ],
+        "inventory": [
+          8.9701903560952E11,
+          0.19554297533455883
+        ],
+        "nca_due_within_one_year": [
+          null,
+          null
+        ],
+        "othr_current_assets": [
+          2.073262276128E10,
+          0.4212441503495513
+        ],
+        "current_assets_si": [
+          null,
+          null
+        ],
+        "total_current_assets": [
+          1.43898935455298E12,
+          0.11112703713030085
+        ],
+        "lt_receivable": [
+          null,
+          null
+        ],
+        "dev_expenditure": [
+          null,
+          null
+        ],
+        "lt_deferred_expense": [
+          7.23520238907E9,
+          0.43432983868551067
+        ],
+        "othr_noncurrent_assets": [
+          9.10731958109E9,
+          0.1638552027117123
+        ],
+        "noncurrent_assets_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_assets": [
+          2.9094009584825E11,
+          0.24595610685283242
+        ],
+        "st_loan": [
+          1.536523178508E10,
+          0.51955311589773
+        ],
+        "bill_payable": [
+          9.4127969068E8,
+          -0.4300297032623755
+        ],
+        "accounts_payable": [
+          2.6728086550005E11,
+          0.1725625794296565
+        ],
+        "pre_receivable": [
+          7.7078149516E8,
+          2.0349893364516958
+        ],
+        "dividend_payable": [
+          3.7934784088E8,
+          -0.1628704773251224
+        ],
+        "othr_payables": [
+          2.5031911288008E11,
+          0.1094600366596157
+        ],
+        "noncurrent_liab_due_in1y": [
+          8.064621797553E10,
+          0.1449208793480079
+        ],
+        "current_liab_si": [
+          null,
+          null
+        ],
+        "total_current_liab": [
+          1.27261028401069E12,
+          0.13432077299693698
+        ],
+        "lt_loan": [
+          1.1431977845474E11,
+          -0.05465416860029996
+        ],
+        "lt_payable": [
+          null,
+          null
+        ],
+        "special_payable": [
+          null,
+          null
+        ],
+        "othr_non_current_liab": [
+          1.06543614405E9,
+          -0.5443053132349285
+        ],
+        "noncurrent_liab_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_liab": [
+          1.8674005097758E11,
+          0.0917617572007496
+        ],
+        "salable_financial_assets": [
+          null,
+          null
+        ],
+        "othr_current_liab": [
+          4.785422713767E10,
+          -0.13919928465778117
+        ],
+        "ar_and_br": [
+          2.0170457855E9,
+          0.26958898734069825
+        ],
+        "contractual_assets": [
+          3.44493802574E9,
+          1.5253796283416028
+        ],
+        "bp_and_ap": [
+          2.6822214519073E11,
+          0.16822823820715316
+        ],
+        "contract_liabilities": [
+          5.7704722717873E11,
+          0.14332113498723828
+        ],
+        "to_sale_asset": [
+          4.25275490502E9,
+          -0.3580390111015221
+        ],
+        "other_eq_ins_invest": [
+          2.2499537229E9,
+          0.3747867965968684
+        ],
+        "other_illiquid_fnncl_assets": [
+          6.7398229805E8,
+          -0.35953399275008907
+        ],
+        "fixed_asset_sum": [
+          1.239983826728E10,
+          0.07508711077999651
+        ],
+        "fixed_assets_disposal": [
+          null,
+          null
+        ],
+        "construction_in_process_sum": [
+          4.17983953692E9,
+          1.1849572374446045
+        ],
+        "project_goods_and_material": [
+          null,
+          null
+        ],
+        "productive_biological_assets": [
+          null,
+          null
+        ],
+        "oil_and_gas_asset": [
+          null,
+          null
+        ],
+        "to_sale_debt": [
+          null,
+          null
+        ],
+        "lt_payable_sum": [
+          0.0,
+          null
+        ],
+        "noncurrent_liab_di": [
+          null,
+          null
+        ],
+        "perpetual_bond": [
+          null,
+          null
+        ],
+        "special_reserve": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1546185600000,
+        "report_name": "2018年报",
+        "ctime": null,
+        "total_assets": [
+          1.52857935647481E12,
+          0.31169468346350465
+        ],
+        "total_liab": [
+          1.29295862647723E12,
+          0.3211344899556771
+        ],
+        "asset_liab_ratio": [
+          0.845856396660383,
+          0.0071966491983079806
+        ],
+        "total_quity_atsopc": [
+          1.5576413154443E11,
+          0.1740249585995198
+        ],
+        "tradable_fnncl_assets": [
+          1.190080630282E10,
+          null
+        ],
+        "interest_receivable": [
+          null,
+          null
+        ],
+        "saleable_finacial_assets": [
+          null,
+          null
+        ],
+        "held_to_maturity_invest": [
+          null,
+          null
+        ],
+        "fixed_asset": [
+          1.153379865031E10,
+          0.6247514392283507
+        ],
+        "intangible_assets": [
+          4.95258499904E9,
+          2.445264902943007
+        ],
+        "construction_in_process": [
+          1.91300747918E9,
+          0.8710750156378635
+        ],
+        "dt_assets": [
+          1.57492046735E10,
+          0.6318724962750637
+        ],
+        "tradable_fnncl_liab": [
+          null,
+          null
+        ],
+        "payroll_payable": [
+          5.77085183695E9,
+          0.1704599010592915
+        ],
+        "tax_payable": [
+          1.87308608022E10,
+          0.7383780740691678
+        ],
+        "estimated_liab": [
+          1.4352784281E8,
+          -0.10220149654339561
+        ],
+        "dt_liab": [
+          5.3891241939E8,
+          1.0313347018980126
+        ],
+        "bond_payable": [
+          4.709514578583E10,
+          0.4570313336684329
+        ],
+        "shares": [
+          1.1039152001E10,
+          0.0
+        ],
+        "capital_reserve": [
+          8.00562765357E9,
+          -0.03885523028646069
+        ],
+        "earned_surplus": [
+          4.739324604144E10,
+          0.3201434879331644
+        ],
+        "undstrbtd_profit": [
+          9.172485074776E10,
+          0.18857912597509646
+        ],
+        "minority_equity": [
+          7.985659845315E10,
+          0.47886358461385486
+        ],
+        "total_holders_equity": [
+          2.3562072999758E11,
+          0.26220473548686185
+        ],
+        "total_liab_and_holders_equity": [
+          1.52857935647481E12,
+          0.31169468346350465
+        ],
+        "lt_equity_invest": [
+          1.2952765577247E11,
+          0.5946908406266586
+        ],
+        "derivative_fnncl_liab": [
+          6.3122697086E8,
+          -0.38111374243609725
+        ],
+        "general_risk_provision": [
+          null,
+          null
+        ],
+        "frgn_currency_convert_diff": [
+          null,
+          null
+        ],
+        "goodwill": [
+          2.1710924526E8,
+          0.05217704209355806
+        ],
+        "invest_property": [
+          5.40557847515E10,
+          0.8762008005780102
+        ],
+        "interest_payable": [
+          null,
+          null
+        ],
+        "treasury_stock": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          -2.39874489934E9,
+          -11.208391016754078
+        ],
+        "othr_equity_instruments": [
+          null,
+          null
+        ],
+        "currency_funds": [
+          1.8841744683614E11,
+          0.0821063334166327
+        ],
+        "bills_receivable": [
+          2558430.72,
+          null
+        ],
+        "account_receivable": [
+          1.5861807641E9,
+          0.10710065425803181
+        ],
+        "pre_payment": [
+          7.595089507334E10,
+          0.1117657361054077
+        ],
+        "dividend_receivable": [
+          null,
+          null
+        ],
+        "othr_receivables": [
+          null,
+          null
+        ],
+        "inventory": [
+          7.503026274388E11,
+          0.25450277711232455
+        ],
+        "nca_due_within_one_year": [
+          null,
+          null
+        ],
+        "othr_current_assets": [
+          1.458765741001E10,
+          1.6897406692829315
+        ],
+        "current_assets_si": [
+          null,
+          null
+        ],
+        "total_current_assets": [
+          1.29507185629237E12,
+          0.2727318084881748
+        ],
+        "lt_receivable": [
+          null,
+          null
+        ],
+        "dev_expenditure": [
+          null,
+          null
+        ],
+        "lt_deferred_expense": [
+          5.04430863385E9,
+          1.4416105809571045
+        ],
+        "othr_noncurrent_assets": [
+          7.82513113304E9,
+          -0.4760782224697687
+        ],
+        "noncurrent_assets_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_assets": [
+          2.3350750018244E11,
+          0.579951587004289
+        ],
+        "st_loan": [
+          1.011167798238E10,
+          -0.3722908493235987
+        ],
+        "bill_payable": [
+          1.65145393728E9,
+          null
+        ],
+        "accounts_payable": [
+          2.2794592816535E11,
+          null
+        ],
+        "pre_receivable": [
+          2.5396514113E8,
+          -0.9993770874635425
+        ],
+        "dividend_payable": [
+          4.5315310308E8,
+          -0.0434207596376754
+        ],
+        "othr_payables": [
+          2.256224691371E11,
+          0.23687659150579665
+        ],
+        "noncurrent_liab_due_in1y": [
+          7.04382454982E10,
+          0.5258316669352433
+        ],
+        "current_liab_si": [
+          null,
+          null
+        ],
+        "total_current_liab": [
+          1.12191393678561E12,
+          0.3240181123876669
+        ],
+        "lt_loan": [
+          1.209290554394E11,
+          0.2592966614742784
+        ],
+        "lt_payable": [
+          null,
+          null
+        ],
+        "special_payable": [
+          null,
+          null
+        ],
+        "othr_non_current_liab": [
+          2.33804820419E9,
+          -0.07974987863439695
+        ],
+        "noncurrent_liab_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_liab": [
+          1.7104468969162E11,
+          0.30252728057401634
+        ],
+        "salable_financial_assets": [
+          null,
+          null
+        ],
+        "othr_current_liab": [
+          5.559268978842E10,
+          null
+        ],
+        "ar_and_br": [
+          1.58873919482E9,
+          0.10888635257697026
+        ],
+        "contractual_assets": [
+          1.36412679784E9,
+          null
+        ],
+        "bp_and_ap": [
+          2.2959738210263E11,
+          0.29885116182391824
+        ],
+        "contract_liabilities": [
+          5.0471141442266E11,
+          null
+        ],
+        "to_sale_asset": [
+          6.62463136945E9,
+          -0.04132168280167935
+        ],
+        "other_eq_ins_invest": [
+          1.63658374409E9,
+          null
+        ],
+        "other_illiquid_fnncl_assets": [
+          1.0523311002E9,
+          null
+        ],
+        "fixed_asset_sum": [
+          1.153379865031E10,
+          0.6247514392283507
+        ],
+        "fixed_assets_disposal": [
+          null,
+          null
+        ],
+        "construction_in_process_sum": [
+          1.91300747918E9,
+          0.8710750156378635
+        ],
+        "project_goods_and_material": [
+          null,
+          null
+        ],
+        "productive_biological_assets": [
+          null,
+          null
+        ],
+        "oil_and_gas_asset": [
+          null,
+          null
+        ],
+        "to_sale_debt": [
+          null,
+          null
+        ],
+        "lt_payable_sum": [
+          0.0,
+          null
+        ],
+        "noncurrent_liab_di": [
+          null,
+          null
+        ],
+        "perpetual_bond": [
+          null,
+          null
+        ],
+        "special_reserve": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1514649600000,
+        "report_name": "2017年报",
+        "ctime": null,
+        "total_assets": [
+          1.16534691780455E12,
+          0.4028928529024659
+        ],
+        "total_liab": [
+          9.7867297864626E11,
+          0.4628945100308949
+        ],
+        "asset_liab_ratio": [
+          0.8398125602717742,
+          0.042769949967519275
+        ],
+        "total_quity_atsopc": [
+          1.3267531529333E11,
+          0.16951463805902034
+        ],
+        "tradable_fnncl_assets": [
+          null,
+          null
+        ],
+        "interest_receivable": [
+          null,
+          null
+        ],
+        "saleable_finacial_assets": [
+          1.3407494396E9,
+          0.009589576903521002
+        ],
+        "held_to_maturity_invest": [
+          null,
+          null
+        ],
+        "fixed_asset": [
+          7.0988080834E9,
+          0.04228802823818703
+        ],
+        "intangible_assets": [
+          1.43750484754E9,
+          0.14054768634620826
+        ],
+        "construction_in_process": [
+          1.02241089384E9,
+          0.3359389948555358
+        ],
+        "dt_assets": [
+          9.65100196826E9,
+          0.34069011045770475
+        ],
+        "tradable_fnncl_liab": [
+          null,
+          null
+        ],
+        "payroll_payable": [
+          4.93041396098E9,
+          0.2839864973503572
+        ],
+        "tax_payable": [
+          1.077490626556E10,
+          0.12789819068993522
+        ],
+        "estimated_liab": [
+          1.5986643134E8,
+          0.34712413853857443
+        ],
+        "dt_liab": [
+          2.6529966671E8,
+          -0.47366211270350905
+        ],
+        "bond_payable": [
+          3.232267192721E10,
+          0.11042512782080463
+        ],
+        "shares": [
+          1.1039152001E10,
+          0.0
+        ],
+        "capital_reserve": [
+          8.32926308901E9,
+          0.00737703573071021
+        ],
+        "earned_surplus": [
+          3.590007182904E10,
+          0.10323370401736957
+        ],
+        "undstrbtd_profit": [
+          7.717185060987E10,
+          0.26097239207956097
+        ],
+        "minority_equity": [
+          5.399862386496E10,
+          0.11956465986325274
+        ],
+        "total_holders_equity": [
+          1.8667393915829E11,
+          0.1546134215936806
+        ],
+        "total_liab_and_holders_equity": [
+          1.16534691780455E12,
+          0.4028928529024659
+        ],
+        "lt_equity_invest": [
+          8.122430534659E10,
+          0.3163968850949746
+        ],
+        "derivative_fnncl_liab": [
+          1.01994019603E9,
+          null
+        ],
+        "general_risk_provision": [
+          null,
+          null
+        ],
+        "frgn_currency_convert_diff": [
+          null,
+          null
+        ],
+        "goodwill": [
+          2.0634288392E8,
+          0.02307031537580326
+        ],
+        "invest_property": [
+          2.881130033355E10,
+          0.3171226775395096
+        ],
+        "interest_payable": [
+          9.9514433141E8,
+          1.6300484360161809
+        ],
+        "treasury_stock": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          2.3497776441E8,
+          -0.4070849128968122
+        ],
+        "othr_equity_instruments": [
+          null,
+          null
+        ],
+        "currency_funds": [
+          1.7412100919993E11,
+          1.0006523198542931
+        ],
+        "bills_receivable": [
+          null,
+          null
+        ],
+        "account_receivable": [
+          1.43273401384E9,
+          -0.30961122622720666
+        ],
+        "pre_payment": [
+          6.831555660224E10,
+          0.35917436281104836
+        ],
+        "dividend_receivable": [
+          null,
+          null
+        ],
+        "othr_receivables": [
+          null,
+          null
+        ],
+        "inventory": [
+          5.9808765761833E11,
+          0.2797114595876602
+        ],
+        "nca_due_within_one_year": [
+          null,
+          null
+        ],
+        "othr_current_assets": [
+          5.42344381992E9,
+          -0.37449468659016205
+        ],
+        "current_assets_si": [
+          null,
+          null
+        ],
+        "total_current_assets": [
+          1.0175528321483E12,
+          0.4107296301277571
+        ],
+        "lt_receivable": [
+          null,
+          null
+        ],
+        "dev_expenditure": [
+          null,
+          null
+        ],
+        "lt_deferred_expense": [
+          2.06597590672E9,
+          1.1515510682681644
+        ],
+        "othr_noncurrent_assets": [
+          1.493568595283E10,
+          1.052326740213743
+        ],
+        "noncurrent_assets_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_assets": [
+          1.4779408565625E11,
+          0.35121343877873185
+        ],
+        "st_loan": [
+          1.610885865131E10,
+          -0.02821633240466892
+        ],
+        "bill_payable": [
+          null,
+          null
+        ],
+        "accounts_payable": [
+          null,
+          null
+        ],
+        "pre_receivable": [
+          4.0770593986483E11,
+          0.4844803900492829
+        ],
+        "dividend_payable": [
+          4.7372249361E8,
+          null
+        ],
+        "othr_payables": [
+          1.8241308040475E11,
+          0.711509102747935
+        ],
+        "noncurrent_liab_due_in1y": [
+          4.616383774475E10,
+          0.7242492461530537
+        ],
+        "current_liab_si": [
+          null,
+          null
+        ],
+        "total_current_liab": [
+          8.4735542987581E11,
+          0.46096145268255784
+        ],
+        "lt_loan": [
+          9.602904473504E10,
+          0.7024596745468342
+        ],
+        "lt_payable": [
+          null,
+          null
+        ],
+        "special_payable": [
+          null,
+          null
+        ],
+        "othr_non_current_liab": [
+          2.54066601015E9,
+          -0.11227587277075868
+        ],
+        "noncurrent_liab_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_liab": [
+          1.3131754877045E11,
+          0.4754920488152279
+        ],
+        "salable_financial_assets": [
+          null,
+          null
+        ],
+        "othr_current_liab": [
+          null,
+          null
+        ],
+        "ar_and_br": [
+          1.43273401384E9,
+          -0.30961122622720666
+        ],
+        "contractual_assets": [
+          null,
+          null
+        ],
+        "bp_and_ap": [
+          1.7676958596258E11,
+          0.24791978059129607
+        ],
+        "contract_liabilities": [
+          null,
+          null
+        ],
+        "to_sale_asset": [
+          6.91017127498E9,
+          null
+        ],
+        "other_eq_ins_invest": [
+          null,
+          null
+        ],
+        "other_illiquid_fnncl_assets": [
+          null,
+          null
+        ],
+        "fixed_asset_sum": [
+          7.0988080834E9,
+          0.04228802823818703
+        ],
+        "fixed_assets_disposal": [
+          null,
+          null
+        ],
+        "construction_in_process_sum": [
+          1.02241089384E9,
+          0.3359389948555358
+        ],
+        "project_goods_and_material": [
+          null,
+          null
+        ],
+        "productive_biological_assets": [
+          null,
+          null
+        ],
+        "oil_and_gas_asset": [
+          null,
+          null
+        ],
+        "to_sale_debt": [
+          null,
+          null
+        ],
+        "lt_payable_sum": [
+          0.0,
+          null
+        ],
+        "noncurrent_liab_di": [
+          null,
+          null
+        ],
+        "perpetual_bond": [
+          null,
+          null
+        ],
+        "special_reserve": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1483113600000,
+        "report_name": "2016年报",
+        "ctime": null,
+        "total_assets": [
+          8.3067421392414E11,
+          0.35887491719284964
+        ],
+        "total_liab": [
+          6.6899764264314E11,
+          0.4084577493806864
+        ],
+        "asset_liab_ratio": [
+          0.8053670517624075,
+          0.03648815027822025
+        ],
+        "total_quity_atsopc": [
+          1.1344476672265E11,
+          0.13236956725594418
+        ],
+        "tradable_fnncl_assets": [
+          null,
+          null
+        ],
+        "interest_receivable": [
+          null,
+          null
+        ],
+        "saleable_finacial_assets": [
+          1.32801434392E9,
+          0.1661393582659779
+        ],
+        "held_to_maturity_invest": [
+          null,
+          null
+        ],
+        "fixed_asset": [
+          6.81079307358E9,
+          0.38501717053767537
+        ],
+        "intangible_assets": [
+          1.26036365226E9,
+          0.20609990498446626
+        ],
+        "construction_in_process": [
+          7.6531256126E8,
+          0.2790192537277657
+        ],
+        "dt_assets": [
+          7.19853297416E9,
+          0.39329838546629603
+        ],
+        "tradable_fnncl_liab": [
+          null,
+          null
+        ],
+        "payroll_payable": [
+          3.83992664343E9,
+          0.45305516264435847
+        ],
+        "tax_payable": [
+          9.55308409438E9,
+          0.2955125255444488
+        ],
+        "estimated_liab": [
+          1.1867238272E8,
+          -0.1714011980757963
+        ],
+        "dt_liab": [
+          5.0404820385E8,
+          -0.09738468863271117
+        ],
+        "bond_payable": [
+          2.910837580796E10,
+          0.5307458492553904
+        ],
+        "shares": [
+          1.1039152001E10,
+          -0.0011274643610145463
+        ],
+        "capital_reserve": [
+          8.26826778215E9,
+          0.011432087432766393
+        ],
+        "earned_surplus": [
+          3.254076783397E10,
+          0.15932303517559743
+        ],
+        "undstrbtd_profit": [
+          6.120026980337E10,
+          0.1635506971785793
+        ],
+        "minority_equity": [
+          4.823180455835E10,
+          0.3350958234530404
+        ],
+        "total_holders_equity": [
+          1.61676571281E11,
+          0.18609804985541703
+        ],
+        "total_liab_and_holders_equity": [
+          8.3067421392414E11,
+          0.35887491719284964
+        ],
+        "lt_equity_invest": [
+          6.170198840962E10,
+          0.8416621940645294
+        ],
+        "derivative_fnncl_liab": [
+          null,
+          null
+        ],
+        "general_risk_provision": [
+          null,
+          null
+        ],
+        "frgn_currency_convert_diff": [
+          null,
+          null
+        ],
+        "goodwill": [
+          2.016898358E8,
+          0.0
+        ],
+        "invest_property": [
+          2.18744243227E10,
+          1.031985180792311
+        ],
+        "interest_payable": [
+          3.7837490663E8,
+          0.633913251099151
+        ],
+        "treasury_stock": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          3.9630930216E8,
+          -0.12055403740498376
+        ],
+        "othr_equity_instruments": [
+          null,
+          null
+        ],
+        "currency_funds": [
+          8.703211821063E10,
+          0.6365455934565203
+        ],
+        "bills_receivable": [
+          null,
+          null
+        ],
+        "account_receivable": [
+          2.07525682379E9,
+          -0.1734195842092273
+        ],
+        "pre_payment": [
+          5.02625406066E10,
+          0.26775229036580545
+        ],
+        "dividend_receivable": [
+          null,
+          null
+        ],
+        "othr_receivables": [
+          1.0543500489459E11,
+          0.3967557373624309
+        ],
+        "inventory": [
+          4.6736133613357E11,
+          0.26958297616731214
+        ],
+        "nca_due_within_one_year": [
+          null,
+          null
+        ],
+        "othr_current_assets": [
+          8.6705E9,
+          0.08972425407837518
+        ],
+        "current_assets_si": [
+          null,
+          null
+        ],
+        "total_current_assets": [
+          7.2129542785328E11,
+          0.3185800481211488
+        ],
+        "lt_receivable": [
+          null,
+          null
+        ],
+        "dev_expenditure": [
+          null,
+          null
+        ],
+        "lt_deferred_expense": [
+          9.6022629311E8,
+          1.1439201130566747
+        ],
+        "othr_noncurrent_assets": [
+          7.27744060445E9,
+          0.12185664565149526
+        ],
+        "noncurrent_assets_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_assets": [
+          1.0937878607086E11,
+          0.7018322356954171
+        ],
+        "st_loan": [
+          1.657658920238E10,
+          7.724116726797677
+        ],
+        "bill_payable": [
+          3.60383908985E9,
+          -0.7847777501230714
+        ],
+        "accounts_payable": [
+          1.3804756247606E11,
+          0.5095998780084756
+        ],
+        "pre_receivable": [
+          2.7464555449688E11,
+          0.2916855639523397
+        ],
+        "dividend_payable": [
+          null,
+          null
+        ],
+        "othr_payables": [
+          1.0658025721971E11,
+          0.709380492875889
+        ],
+        "noncurrent_liab_due_in1y": [
+          2.677329733375E10,
+          0.08190657810782451
+        ],
+        "current_liab_si": [
+          null,
+          null
+        ],
+        "total_current_liab": [
+          5.7999848546307E11,
+          0.3807455197016951
+        ],
+        "lt_loan": [
+          5.640606128342E10,
+          0.6674082754292308
+        ],
+        "lt_payable": [
+          null,
+          null
+        ],
+        "special_payable": [
+          null,
+          null
+        ],
+        "othr_non_current_liab": [
+          2.86199950212E9,
+          1.0768088518888606
+        ],
+        "noncurrent_liab_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_liab": [
+          8.899915718007E10,
+          0.6204019568927149
+        ],
+        "salable_financial_assets": [
+          null,
+          null
+        ],
+        "othr_current_liab": [
+          null,
+          null
+        ],
+        "ar_and_br": [
+          2.07525682379E9,
+          -0.1734195842092273
+        ],
+        "contractual_assets": [
+          null,
+          null
+        ],
+        "bp_and_ap": [
+          1.4165140156591E11,
+          0.30926926515556663
+        ],
+        "contract_liabilities": [
+          null,
+          null
+        ],
+        "to_sale_asset": [
+          null,
+          null
+        ],
+        "other_eq_ins_invest": [
+          null,
+          null
+        ],
+        "other_illiquid_fnncl_assets": [
+          null,
+          null
+        ],
+        "fixed_asset_sum": [
+          6.81079307358E9,
+          0.38501717053767537
+        ],
+        "fixed_assets_disposal": [
+          null,
+          null
+        ],
+        "construction_in_process_sum": [
+          7.6531256126E8,
+          0.2790192537277657
+        ],
+        "project_goods_and_material": [
+          null,
+          null
+        ],
+        "productive_biological_assets": [
+          null,
+          null
+        ],
+        "oil_and_gas_asset": [
+          null,
+          null
+        ],
+        "to_sale_debt": [
+          null,
+          null
+        ],
+        "lt_payable_sum": [
+          null,
+          null
+        ],
+        "noncurrent_liab_di": [
+          null,
+          null
+        ],
+        "perpetual_bond": [
+          null,
+          null
+        ],
+        "special_reserve": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1451491200000,
+        "report_name": "2015年报",
+        "ctime": null,
+        "total_assets": [
+          6.1129556768929E11,
+          0.20237026049939838
+        ],
+        "total_liab": [
+          4.7498595036827E11,
+          0.21010861438022652
+        ],
+        "asset_liab_ratio": [
+          0.7770152042222829,
+          0.006435915902988206
+        ],
+        "total_quity_atsopc": [
+          1.0018351782233E11,
+          0.1363240123026491
+        ],
+        "tradable_fnncl_assets": [
+          null,
+          null
+        ],
+        "interest_receivable": [
+          null,
+          null
+        ],
+        "saleable_finacial_assets": [
+          1.13881272809E9,
+          7.550929029058416
+        ],
+        "held_to_maturity_invest": [
+          null,
+          null
+        ],
+        "fixed_asset": [
+          4.91747916088E9,
+          1.1302989658916025
+        ],
+        "intangible_assets": [
+          1.04499108826E9,
+          0.19080859932196942
+        ],
+        "construction_in_process": [
+          5.9835890588E8,
+          -0.6736486304863422
+        ],
+        "dt_assets": [
+          5.16654081369E9,
+          0.28642508059158583
+        ],
+        "tradable_fnncl_liab": [
+          null,
+          null
+        ],
+        "payroll_payable": [
+          2.64265716963E9,
+          0.44342030045561204
+        ],
+        "tax_payable": [
+          7.37398049499E9,
+          0.4390577164714501
+        ],
+        "estimated_liab": [
+          1.4322055794E8,
+          1.680888539776157
+        ],
+        "dt_liab": [
+          5.5843081488E8,
+          -0.05398702961427098
+        ],
+        "bond_payable": [
+          1.901581233888E10,
+          0.637567403607464
+        ],
+        "shares": [
+          1.10516123E10,
+          0.0012779206111256112
+        ],
+        "capital_reserve": [
+          8.17481260965E9,
+          -0.037536310045138375
+        ],
+        "earned_surplus": [
+          2.806876672561E10,
+          0.07630691531342552
+        ],
+        "undstrbtd_profit": [
+          5.259785409589E10,
+          0.2525433977273991
+        ],
+        "minority_equity": [
+          3.612609949869E10,
+          0.3028251380169683
+        ],
+        "total_holders_equity": [
+          1.3630961732102E11,
+          0.17616156043475814
+        ],
+        "total_liab_and_holders_equity": [
+          6.1129556768929E11,
+          0.20237026049939838
+        ],
+        "lt_equity_invest": [
+          3.350342348802E10,
+          0.7419164158391242
+        ],
+        "derivative_fnncl_liab": [
+          null,
+          null
+        ],
+        "general_risk_provision": [
+          null,
+          null
+        ],
+        "frgn_currency_convert_diff": [
+          null,
+          null
+        ],
+        "goodwill": [
+          2.016898358E8,
+          0.0
+        ],
+        "invest_property": [
+          1.076505110838E10,
+          0.34885521750687176
+        ],
+        "interest_payable": [
+          2.3157588469E8,
+          -0.3118301949860172
+        ],
+        "treasury_stock": [
+          1.6016310304E8,
+          null
+        ],
+        "othr_compre_income": [
+          4.5063519422E8,
+          -0.19789394035238148
+        ],
+        "othr_equity_instruments": [
+          null,
+          null
+        ],
+        "currency_funds": [
+          5.318038101634E10,
+          -0.1520343432632603
+        ],
+        "bills_receivable": [
+          null,
+          null
+        ],
+        "account_receivable": [
+          2.51065326996E9,
+          0.3255322572926883
+        ],
+        "pre_payment": [
+          3.964697282629E10,
+          0.3470187767510819
+        ],
+        "dividend_receivable": [
+          null,
+          null
+        ],
+        "othr_receivables": [
+          7.548564296123E10,
+          0.5429017971268665
+        ],
+        "inventory": [
+          3.6812193051333E11,
+          0.15861305658054065
+        ],
+        "nca_due_within_one_year": [
+          null,
+          null
+        ],
+        "othr_current_assets": [
+          7.9566E9,
+          0.9520608439646713
+        ],
+        "current_assets_si": [
+          null,
+          null
+        ],
+        "total_current_assets": [
+          5.4702437586634E11,
+          0.17688827581861116
+        ],
+        "lt_receivable": [
+          null,
+          null
+        ],
+        "dev_expenditure": [
+          null,
+          null
+        ],
+        "lt_deferred_expense": [
+          4.4788342964E8,
+          0.32119378635176304
+        ],
+        "othr_noncurrent_assets": [
+          6.48696126431E9,
+          -0.028763094896381756
+        ],
+        "noncurrent_assets_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_assets": [
+          6.427119182295E10,
+          0.4740065221634102
+        ],
+        "st_loan": [
+          1.90008796552E9,
+          -0.20267209901060587
+        ],
+        "bill_payable": [
+          1.674473290708E10,
+          -0.21356301077129508
+        ],
+        "accounts_payable": [
+          9.144645842061E10,
+          0.36391167329497726
+        ],
+        "pre_receivable": [
+          2.126257056373E11,
+          0.16988435358977055
+        ],
+        "dividend_payable": [
+          null,
+          null
+        ],
+        "othr_payables": [
+          6.235022434379E10,
+          0.37209179188377034
+        ],
+        "noncurrent_liab_due_in1y": [
+          2.474640405697E10,
+          0.21013522459973213
+        ],
+        "current_liab_si": [
+          null,
+          null
+        ],
+        "total_current_liab": [
+          4.2006182688058E11,
+          0.2152666806742519
+        ],
+        "lt_loan": [
+          3.382858422536E10,
+          -0.020503628362890308
+        ],
+        "lt_payable": [
+          null,
+          null
+        ],
+        "special_payable": [
+          null,
+          null
+        ],
+        "othr_non_current_liab": [
+          1.37807555063E9,
+          19.135106033813454
+        ],
+        "noncurrent_liab_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_liab": [
+          5.492412348769E10,
+          0.17206200172528213
+        ],
+        "salable_financial_assets": [
+          null,
+          null
+        ],
+        "othr_current_liab": [
+          null,
+          null
+        ],
+        "ar_and_br": [
+          2.51065326996E9,
+          0.3255322572926883
+        ],
+        "contractual_assets": [
+          null,
+          null
+        ],
+        "bp_and_ap": [
+          1.0819119132769E11,
+          0.22472607405243578
+        ],
+        "contract_liabilities": [
+          null,
+          null
+        ],
+        "to_sale_asset": [
+          null,
+          null
+        ],
+        "other_eq_ins_invest": [
+          null,
+          null
+        ],
+        "other_illiquid_fnncl_assets": [
+          null,
+          null
+        ],
+        "fixed_asset_sum": [
+          4.91747916088E9,
+          1.1302989658916025
+        ],
+        "fixed_assets_disposal": [
+          null,
+          null
+        ],
+        "construction_in_process_sum": [
+          5.9835890588E8,
+          -0.6736486304863422
+        ],
+        "project_goods_and_material": [
+          null,
+          null
+        ],
+        "productive_biological_assets": [
+          null,
+          null
+        ],
+        "oil_and_gas_asset": [
+          null,
+          null
+        ],
+        "to_sale_debt": [
+          null,
+          null
+        ],
+        "lt_payable_sum": [
+          null,
+          null
+        ],
+        "noncurrent_liab_di": [
+          null,
+          null
+        ],
+        "perpetual_bond": [
+          null,
+          null
+        ],
+        "special_reserve": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1419955200000,
+        "report_name": "2014年报",
+        "ctime": null,
+        "total_assets": [
+          5.0840875541565E11,
+          0.060941376260997555
+        ],
+        "total_liab": [
+          3.9251513849568E11,
+          0.05016305232542491
+        ],
+        "asset_liab_ratio": [
+          0.772046378656046,
+          -0.010159207828766054
+        ],
+        "total_quity_atsopc": [
+          8.816456990935E10,
+          0.1465432403649651
+        ],
+        "tradable_fnncl_assets": [
+          null,
+          null
+        ],
+        "interest_receivable": [
+          null,
+          null
+        ],
+        "saleable_finacial_assets": [
+          1.3318E8,
+          -0.9482242340592519
+        ],
+        "held_to_maturity_invest": [
+          null,
+          null
+        ],
+        "fixed_asset": [
+          2.30835166313E9,
+          0.08385129799463678
+        ],
+        "intangible_assets": [
+          8.7754748232E8,
+          1.0404560812131922
+        ],
+        "construction_in_process": [
+          1.83348060335E9,
+          1.0067278895370484
+        ],
+        "dt_assets": [
+          4.01620031484E9,
+          0.13926291312682348
+        ],
+        "tradable_fnncl_liab": [
+          null,
+          null
+        ],
+        "payroll_payable": [
+          1.8308299868E9,
+          -0.25323282757850024
+        ],
+        "tax_payable": [
+          5.12417286019E9,
+          0.11925363734117242
+        ],
+        "estimated_liab": [
+          5.342279465E7,
+          0.1396420094070308
+        ],
+        "dt_liab": [
+          5.9029932185E8,
+          -0.12251292355561547
+        ],
+        "bond_payable": [
+          1.161223183668E10,
+          0.5695615942859603
+        ],
+        "shares": [
+          1.1037507242E10,
+          0.0020461540260111924
+        ],
+        "capital_reserve": [
+          8.49363222215E9,
+          -0.006492051784912099
+        ],
+        "earned_surplus": [
+          2.607877578993E10,
+          0.2951698600756934
+        ],
+        "undstrbtd_profit": [
+          4.19928396823E10,
+          0.14400432675711278
+        ],
+        "minority_equity": [
+          2.772904701062E10,
+          -0.028531706291485114
+        ],
+        "total_holders_equity": [
+          1.1589361691997E11,
+          0.09914881155804793
+        ],
+        "total_liab_and_holders_equity": [
+          5.0840875541565E11,
+          0.060941376260997555
+        ],
+        "lt_equity_invest": [
+          1.923365735771E10,
+          0.8263108804421956
+        ],
+        "derivative_fnncl_liab": [
+          null,
+          null
+        ],
+        "general_risk_provision": [
+          null,
+          null
+        ],
+        "frgn_currency_convert_diff": [
+          null,
+          null
+        ],
+        "goodwill": [
+          2.016898358E8,
+          0.0
+        ],
+        "invest_property": [
+          7.98087961455E9,
+          -0.3184837729230701
+        ],
+        "interest_payable": [
+          3.365098018E8,
+          0.15542400223454483
+        ],
+        "treasury_stock": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          5.6181497297E8,
+          0.14753963206170834
+        ],
+        "othr_equity_instruments": [
+          null,
+          null
+        ],
+        "currency_funds": [
+          6.271525337594E10,
+          0.41360698944074453
+        ],
+        "bills_receivable": [
+          null,
+          null
+        ],
+        "account_receivable": [
+          1.89407180108E9,
+          -0.3848358588835435
+        ],
+        "pre_payment": [
+          2.943312558858E10,
+          0.027202819715339027
+        ],
+        "dividend_receivable": [
+          null,
+          null
+        ],
+        "othr_receivables": [
+          4.892446369678E10,
+          0.40525686891022517
+        ],
+        "inventory": [
+          3.1772637846822E11,
+          -0.04048776706248632
+        ],
+        "nca_due_within_one_year": [
+          null,
+          null
+        ],
+        "othr_current_assets": [
+          4.076E9,
+          null
+        ],
+        "current_assets_si": [
+          null,
+          null
+        ],
+        "total_current_assets": [
+          4.6480569745318E11,
+          0.05148577777903868
+        ],
+        "lt_receivable": [
+          null,
+          null
+        ],
+        "dev_expenditure": [
+          null,
+          null
+        ],
+        "lt_deferred_expense": [
+          3.3899904334E8,
+          4.3376845644525455
+        ],
+        "othr_noncurrent_assets": [
+          6.67907204743E9,
+          0.3146177200727785
+        ],
+        "noncurrent_assets_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_assets": [
+          4.360305796247E10,
+          0.17342676226208092
+        ],
+        "st_loan": [
+          2.38306970465E9,
+          -0.5329617106619494
+        ],
+        "bill_payable": [
+          2.129189386616E10,
+          0.4402081956316239
+        ],
+        "accounts_payable": [
+          6.704719976455E10,
+          0.04829291804963458
+        ],
+        "pre_receivable": [
+          1.8174933700486E11,
+          0.16867020871748553
+        ],
+        "dividend_payable": [
+          null,
+          null
+        ],
+        "othr_payables": [
+          4.544172970978E10,
+          -0.1693204748748434
+        ],
+        "noncurrent_liab_due_in1y": [
+          2.044928827285E10,
+          -0.25697830314161124
+        ],
+        "current_liab_si": [
+          null,
+          null
+        ],
+        "total_current_liab": [
+          3.4565403097164E11,
+          0.05086983326494861
+        ],
+        "lt_loan": [
+          3.453671213587E10,
+          -0.05851235640619656
+        ],
+        "lt_payable": [
+          null,
+          null
+        ],
+        "special_payable": [
+          null,
+          null
+        ],
+        "othr_non_current_liab": [
+          6.844143499E7,
+          0.5933279424772993
+        ],
+        "noncurrent_liab_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_liab": [
+          4.686110752404E10,
+          0.044978962375981826
+        ],
+        "salable_financial_assets": [
+          null,
+          null
+        ],
+        "othr_current_liab": [
+          null,
+          null
+        ],
+        "ar_and_br": [
+          1.89407180108E9,
+          -0.3848358588835435
+        ],
+        "contractual_assets": [
+          null,
+          null
+        ],
+        "bp_and_ap": [
+          8.833909363071E10,
+          0.12187512105374373
+        ],
+        "contract_liabilities": [
+          null,
+          null
+        ],
+        "to_sale_asset": [
+          null,
+          null
+        ],
+        "other_eq_ins_invest": [
+          null,
+          null
+        ],
+        "other_illiquid_fnncl_assets": [
+          null,
+          null
+        ],
+        "fixed_asset_sum": [
+          2.30835166313E9,
+          0.08385129799463678
+        ],
+        "fixed_assets_disposal": [
+          null,
+          null
+        ],
+        "construction_in_process_sum": [
+          1.83348060335E9,
+          1.0067278895370484
+        ],
+        "project_goods_and_material": [
+          null,
+          null
+        ],
+        "productive_biological_assets": [
+          null,
+          null
+        ],
+        "oil_and_gas_asset": [
+          null,
+          null
+        ],
+        "to_sale_debt": [
+          null,
+          null
+        ],
+        "lt_payable_sum": [
+          null,
+          null
+        ],
+        "noncurrent_liab_di": [
+          null,
+          null
+        ],
+        "perpetual_bond": [
+          null,
+          null
+        ],
+        "special_reserve": [
+          null,
+          null
+        ]
+      },
+      {
+        "report_date": 1388419200000,
+        "report_name": "2013年报",
+        "ctime": null,
+        "total_assets": [
+          4.7920532349054E11,
+          0.26505617827208233
+        ],
+        "total_liab": [
+          3.7376590009191E11,
+          0.25989884422541404
+        ],
+        "asset_liab_ratio": [
+          0.7799702586135575,
+          -0.004076762862588995
+        ],
+        "total_quity_atsopc": [
+          7.68959833397E10,
+          0.2047836424529481
+        ],
+        "tradable_fnncl_assets": [
+          null,
+          null
+        ],
+        "interest_receivable": [
+          null,
+          null
+        ],
+        "saleable_finacial_assets": [
+          2.57224586793E9,
+          538.9793995990427
+        ],
+        "held_to_maturity_invest": [
+          null,
+          null
+        ],
+        "fixed_asset": [
+          2.12976786336E9,
+          0.3209851755832833
+        ],
+        "intangible_assets": [
+          4.3007418312E8,
+          0.007560752118919418
+        ],
+        "construction_in_process": [
+          9.136667771E8,
+          -0.13076737419138723
+        ],
+        "dt_assets": [
+          3.52526205195E9,
+          0.15398560661344782
+        ],
+        "tradable_fnncl_liab": [
+          null,
+          null
+        ],
+        "payroll_payable": [
+          2.45167443671E9,
+          0.1257837791854579
+        ],
+        "tax_payable": [
+          4.57820523359E9,
+          0.013866700565354514
+        ],
+        "estimated_liab": [
+          4.687682115E7,
+          0.05835226251226113
+        ],
+        "dt_liab": [
+          6.7271568744E8,
+          -0.08325975479176025
+        ],
+        "bond_payable": [
+          7.39839193247E9,
+          null
+        ],
+        "shares": [
+          1.1014968919E10,
+          0.0017657866586280086
+        ],
+        "capital_reserve": [
+          8.54913364046E9,
+          -0.015514646366824031
+        ],
+        "earned_surplus": [
+          2.013540972024E10,
+          0.18324904049340876
+        ],
+        "undstrbtd_profit": [
+          3.670688886408E10,
+          0.3754029262236254
+        ],
+        "minority_equity": [
+          2.854344005893E10,
+          0.558674139958582
+        ],
+        "total_holders_equity": [
+          1.0543942339863E11,
+          0.28368322939049034
+        ],
+        "total_liab_and_holders_equity": [
+          4.7920532349054E11,
+          0.26505617827208233
+        ],
+        "lt_equity_invest": [
+          1.053142570834E10,
+          0.4958760334877087
+        ],
+        "derivative_fnncl_liab": [
+          1.168698602E7,
+          null
+        ],
+        "general_risk_provision": [
+          null,
+          null
+        ],
+        "frgn_currency_convert_diff": [
+          null,
+          null
+        ],
+        "goodwill": [
+          2.016898358E8,
+          0.0
+        ],
+        "invest_property": [
+          1.17104762843E10,
+          3.9302528136942434
+        ],
+        "interest_payable": [
+          2.912435618E8,
+          -0.5517177641240568
+        ],
+        "treasury_stock": [
+          null,
+          null
+        ],
+        "othr_compre_income": [
+          4.8958219592E8,
+          null
+        ],
+        "othr_equity_instruments": [
+          null,
+          null
+        ],
+        "currency_funds": [
+          4.436540979523E10,
+          -0.15157579885192626
+        ],
+        "bills_receivable": [
+          null,
+          null
+        ],
+        "account_receivable": [
+          3.07896978137E9,
+          0.6320649816491829
+        ],
+        "pre_payment": [
+          2.865366510261E10,
+          -0.14142750990367703
+        ],
+        "dividend_receivable": [
+          null,
+          null
+        ],
+        "othr_receivables": [
+          3.481531724141E10,
+          0.7357390025574244
+        ],
+        "inventory": [
+          3.3113322327899E11,
+          0.2977264686839604
+        ],
+        "nca_due_within_one_year": [
+          null,
+          null
+        ],
+        "othr_current_assets": [
+          null,
+          null
+        ],
+        "current_assets_si": [
+          null,
+          null
+        ],
+        "total_current_assets": [
+          4.4204658519961E11,
+          0.21851870658143968
+        ],
+        "lt_receivable": [
+          null,
+          null
+        ],
+        "dev_expenditure": [
+          null,
+          null
+        ],
+        "lt_deferred_expense": [
+          6.351050521E7,
+          0.5008395551938942
+        ],
+        "othr_noncurrent_assets": [
+          5.08061921382E9,
+          22.253113220712883
+        ],
+        "noncurrent_assets_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_assets": [
+          3.715873829093E10,
+          1.3183816905587402
+        ],
+        "st_loan": [
+          5.10251463114E9,
+          -0.48627577346972295
+        ],
+        "bill_payable": [
+          1.478389994637E10,
+          1.9703655888517881
+        ],
+        "accounts_payable": [
+          6.395845913878E10,
+          0.4257030660285995
+        ],
+        "pre_receivable": [
+          1.5551807143635E11,
+          0.18694359893033824
+        ],
+        "dividend_payable": [
+          null,
+          null
+        ],
+        "othr_payables": [
+          5.470428526926E10,
+          0.5176531014439969
+        ],
+        "noncurrent_liab_due_in1y": [
+          2.75217915699E10,
+          0.07402284431176324
+        ],
+        "current_liab_si": [
+          null,
+          null
+        ],
+        "total_current_liab": [
+          3.2892183220992E11,
+          0.26589430447086737
+        ],
+        "lt_loan": [
+          3.668312842008E10,
+          0.017955843887624046
+        ],
+        "lt_payable": [
+          null,
+          null
+        ],
+        "special_payable": [
+          null,
+          null
+        ],
+        "othr_non_current_liab": [
+          4.295502085E7,
+          1.7398304492324856
+        ],
+        "noncurrent_liab_si": [
+          null,
+          null
+        ],
+        "total_noncurrent_liab": [
+          4.484406788199E10,
+          0.21760104293527419
+        ],
+        "salable_financial_assets": [
+          null,
+          null
+        ],
+        "othr_current_liab": [
+          null,
+          null
+        ],
+        "ar_and_br": [
+          3.07896978137E9,
+          0.6320649816491829
+        ],
+        "contractual_assets": [
+          null,
+          null
+        ],
+        "bp_and_ap": [
+          7.874235908515E10,
+          0.5799622414521223
+        ],
+        "contract_liabilities": [
+          null,
+          null
+        ],
+        "to_sale_asset": [
+          null,
+          null
+        ],
+        "other_eq_ins_invest": [
+          null,
+          null
+        ],
+        "other_illiquid_fnncl_assets": [
+          null,
+          null
+        ],
+        "fixed_asset_sum": [
+          2.12976786336E9,
+          0.3209851755832833
+        ],
+        "fixed_assets_disposal": [
+          null,
+          null
+        ],
+        "construction_in_process_sum": [
+          9.136667771E8,
+          -0.13076737419138723
+        ],
+        "project_goods_and_material": [
+          null,
+          null
+        ],
+        "productive_biological_assets": [
+          null,
+          null
+        ],
+        "oil_and_gas_asset": [
+          null,
+          null
+        ],
+        "to_sale_debt": [
+          null,
+          null
+        ],
+        "lt_payable_sum": [
+          null,
+          null
+        ],
+        "noncurrent_liab_di": [
+          null,
+          null
+        ],
+        "perpetual_bond": [
+          null,
+          null
+        ],
+        "special_reserve": [
+          null,
+          null
+        ]
+      }
+    ]
+  },
+  "error_code": 0,
+  "error_description": ""
+}

@@ -1,21 +1,21 @@
 package mytool.collector
 
 import groovy.transform.CompileStatic
-import mytool.collector.database.ReportRecord
+import mytool.collector.database.MetricRecord
 
 @CompileStatic
 abstract class MetricsContext {
-    abstract ReportRecord[] resolveMetrics(MetricType metricType, String corpId, Date[] dates)
+    abstract MetricRecord[] resolveMetrics(String metric, String corpId, Date[] dates)
 
-    BigDecimal[] resolveMetricsValue(MetricType metricType, String corpId, Date[] dates) {
-        resolveMetrics(metricType, corpId, dates).collect({
+    BigDecimal[] resolveMetricsValue(String metric, String corpId, Date[] dates) {
+        resolveMetrics(metric, corpId, dates).collect({
             it.value
         }) as BigDecimal[]
     }
 
-    Map<MetricType, BigDecimal[]> resolveMetricsValue(MetricType[] metricType, String corpId, Date[] dates) {
-        Map<MetricType, ReportRecord[]> map = resolveMetrics(metricType, corpId, dates)
-        Map<MetricType, BigDecimal[]> rtMap = [:]
+    Map<String, BigDecimal[]> resolveMetricsValue(String[] metricType, String corpId, Date[] dates) {
+        Map<String, MetricRecord[]> map = resolveMetrics(metricType, corpId, dates)
+        Map<String, BigDecimal[]> rtMap = [:]
         map.each {
             rtMap.put(it.key, it.value.collect {
                 it.value
@@ -25,10 +25,10 @@ abstract class MetricsContext {
 
     }
 
-    Map<MetricType, ReportRecord[]> resolveMetrics(MetricType[] metricType, String corpId, Date[] dates) {
-        Map<MetricType, ReportRecord[]> rtMap = [:]
+    Map<String, MetricRecord[]> resolveMetrics(String[] metricType, String corpId, Date[] dates) {
+        Map<String, MetricRecord[]> rtMap = [:]
         metricType.each {
-            ReportRecord[] records = resolveMetrics(it, corpId, dates)
+            MetricRecord[] records = resolveMetrics(it, corpId, dates)
             rtMap.put(it, records)
         }
         return rtMap

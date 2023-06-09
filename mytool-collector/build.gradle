@@ -17,6 +17,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.7.12'
     implementation 'com.h2database:h2:1.4.192'
     implementation project(':mytool-util')
+    implementation project(':mytool-parser')
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
     testImplementation('org.spockframework:spock-core:2.0-groovy-3.0') {
         exclude group: 'org.codehaus.groovy'
@@ -31,3 +32,4 @@ tasks.named('test') {
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
+

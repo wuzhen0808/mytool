@@ -1,6 +1,6 @@
 import mytool.collector.xueqiu.v5.XQV5DataCollector
 import mytool.collector.xueqiu.v5.XQV5DataWasher
-import org.junit.Ignore
+import spock.lang.Ignore
 import spock.lang.Specification
 
 import java.nio.charset.Charset
@@ -9,6 +9,7 @@ import java.nio.charset.Charset
 class XuequitV5Spec extends Specification {
 
     def "testXQV5Collecter"() {
+
         File folder = new File("d:\\openstock\\xueqiuv5\\raw")
         XQV5DataCollector dc = new XQV5DataCollector(folder)
         dc.cookie("xq_a_token=0f82d04ce8d5080cc888fa50c97b841494e931dd;")
@@ -18,6 +19,7 @@ class XuequitV5Spec extends Specification {
         List<String> corpCodeL = ["000001"]
         dc.corpCodes(corpCodeL)
         dc.run()
+
         expect:
         1 == 1
     }

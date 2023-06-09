@@ -16,7 +16,7 @@ repositories {
 
 cup {
     //TODO fix: -destdir does not work.
-    args = ["-parser", "formula_parser", "-symbols", "formula_sym"]
+    args = ["-parser", "parser", "-symbols", "sym"]
 }
 
 tasks.named('test') {
@@ -24,3 +24,27 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+def moveCupFile = { String fileName ->
+    String destPath = "build/generated-src/cup/mytool/parser/formula"
+    File destFolder = file(destPath)
+    File sourceFile = file("build/generated-src/cup/${fileName}")
+    File destFile = file("${destPath}/${fileName}")
+    if (!sourceFile.exists()) {
+        throw new RuntimeException("source file does not exists:${sourceFile}")
+    }
+
+    destFolder.mkdirs()
+    if (destFile.exists()) {
+        if (!destFile.delete()) {
+            throw new RuntimeException("cannot delete dest file:${destFile}")
+        }
+    }
+    if (!sourceFile.renameTo(destFile)) {
+        throw new RuntimeException("failed rename file from ${sourceFile} to ${destFile}")
+    }
+}
+
+tasks.getByName('cupCompile').doLast {
+//    moveCupFile("parser.java")
+//    moveCupFile("sym.java")
+}

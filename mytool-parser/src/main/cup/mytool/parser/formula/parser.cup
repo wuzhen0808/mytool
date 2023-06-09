@@ -1,11 +1,12 @@
 /* Simple +/-/* expression language; parser evaluates constant expressions on the fly*/
+package mytool.parser.formula;
+
 import java_cup.runtime.*;
-import mytool.parser.formula.cup.CupExpr;
 
 parser code {:
     // Connect this parser to a scanner!
-    protected formula_scanner s;
-    public formula_parser(formula_scanner s){ this.s=s; }
+    protected scanner s;
+    public parser(scanner s){ this.s=s; }
 :}
 
 // define how to connect to the scanner!
@@ -18,11 +19,12 @@ scan with {:
 :};
 
 // Terminals (tokens returned by the scanner). 
-terminal            PLUS, MINUS, TIMES, DIV, LPAREN, RPAREN, AT, DOT;
+terminal            PLUS, MINUS, TIMES, DIV, LPAREN, RPAREN, AT, DOT, EQ;
 terminal Integer    NUMBER;        // our scanner provides numbers
 terminal String     IDENTIFIER;
 // Non terminals 
 non terminal CupExpr    expr;      // used to store evaluated subexpressions
+non terminal CupFormula formula;
 
 // Precedences 
 precedence left PLUS, MINUS;
@@ -33,6 +35,8 @@ precedence left DOT;
 
 
 // The grammar rules
+formula ::= IDENTIFIER:e1 EQ expr:e2         {: RESULT = CupFormula.valueOf(e1,e2);  :}
+;
 expr ::= expr:e1 PLUS expr:e2      	        {:  RESULT = CupExpr.plus(e1,e2);       :}
 	| expr:e1 MINUS expr:e2        	        {:  RESULT = CupExpr.minus(e1,e2);       :}
 	| expr:e1 TIMES expr:e2        	        {:  RESULT = CupExpr.times(e1,e2);       :}
@@ -41,5 +45,4 @@ expr ::= expr:e1 PLUS expr:e2      	        {:  RESULT = CupExpr.plus(e1,e2);   
 	| LPAREN expr:e RPAREN	                {:  RESULT = CupExpr.paren(e);           :}
 	| NUMBER:n	                            {:  RESULT = CupExpr.number(n);           :}
 	| IDENTIFIER:tx DOT IDENTIFIER:id       {:  RESULT = CupExpr.metric(tx,id);          :}
-	
 ;
