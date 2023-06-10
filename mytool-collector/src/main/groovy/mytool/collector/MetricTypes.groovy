@@ -6,8 +6,15 @@ import mytool.parser.formula.CupFormula
 import mytool.parser.formula.FormulaParser
 import mytool.util.IoUtil
 
+import javax.swing.text.html.Option
+
 @CompileStatic
 class MetricTypes {
+
+    static class Options {
+        boolean isLeaf
+        BigDecimal defaultValue
+    }
 
     static Map<String, MetricType> aliasMap = [:]
 
@@ -17,14 +24,19 @@ class MetricTypes {
 
     static Map<String, CupFormula> formulaMap = [:]
 
-    static Map<String, BigDecimal> defaultValues = [:]//
+    static Map<String, Options> optionsMap = [:]
+
     static {
         loadFormulas()
         loadMetrics()
     }
 
+    static Options getOptions(String metric) {
+        return optionsMap.get(metric)
+    }
+
     static BigDecimal getDefaultValue(String metric) {
-        return defaultValues.get(metric)
+        return optionsMap.get(metric)?.defaultValue
     }
 
     private static void loadMetrics() {
@@ -54,16 +66,18 @@ class MetricTypes {
                     props = metricRow[j] as Map
                 }
             }
-
-            MetricType metricType = add(reportType, name, alias as String[])
-
+            Options options = new Options()
             if (props) {
                 String defaultValueS = props.get("defaultValue")
                 if (defaultValueS) {
                     BigDecimal decimal = defaultValueS as BigDecimal
-                    defaultValues.put(metricType as String, decimal)
+
                 }
+                //
+                options.isLeaf = props.get("isLeaf") as boolean
             }
+            add(reportType, name, options, alias as String[])
+
         }
     }
 
@@ -76,7 +90,7 @@ class MetricTypes {
         }
     }
 
-    private static MetricType add(ReportType reportType, String name, String... alias) {
+    private static MetricType add(ReportType reportType, String name, Options options, String... alias) {
         MetricType metricType = MetricType.valueOf(reportType, name)
         Map<String, MetricType> map2 = metricTypes.get(reportType)
         if (!map2) {
@@ -95,6 +109,7 @@ class MetricTypes {
         }
 
         reverseAliasMap.put(metricType, alias as Set<String>)
+        optionsMap.put(metricType as String, options)
         return metricType
     }
 

@@ -1,75 +1,97 @@
 {
-  "enabled": {
-    "metrics": [
-      "净利润1",
-      "总资产1",
-      "总负债1",
-      "ROE1",
-      "有息负债率",
-      "TEST"
-    ],
-    "reports": [
-      "1"
-    ]
-  },
+  "enabled": [
+    "201",
+    "202",
+    "203"
+  ],
   "default": {
     "style": "width: 500px;"
   },
   "charts": [
     {
+      "id": "101",
       "type": "line",
       "provider": "metric",
       "metric": "净利润"
     },
     {
+      "id": "102",
       "type": "line",
       "provider": "metric",
       "metric": "总资产"
     },
     {
+      "id": "103",
       "type": "line",
       "provider": "metric",
       "metric": "总负债"
     },
     {
+      "id": "104",
       "type": "line",
       "provider": "metric",
       "metric": "ROE"
     },
     {
+      "id": "105",
       "type": "line",
       "provider": "metric",
       "metric": "无息流动负债"
     },
     {
+      "id": "106",
       "type": "line",
       "provider": "metric",
       "metric": "租赁负债"
     },
     {
+      "id": "107",
       "type": "line",
       "provider": "metric",
       "metric": "有息非流动负债"
     },
     {
+      "id": "108",
       "type": "line",
       "provider": "metric",
       "metric": "无息非流动负债"
     },
     {
+      "id": "109",
       "type": "line",
       "provider": "metric",
       "metric": "TEST"
     },
     {
+      "id": "110",
       "type": "line",
       "provider": "metric",
       "metric": "有息负债率"
     },
     {
+      "id": "201",
       "type": "line",
       "provider": "report",
       "report": "1",
+      "style": "width: 1000px; height: 1000px"
+    },
+    {
+      "id": "202",
+      "type": "line",
+      "provider": "report",
+      "report": "1",
+      "remove-low-lines": true,
+      "stacked": true,
+      "style": "width: 1000px; height: 1000px"
+    },
+    {
+      "id": "203",
+      "type": "line",
+      "provider": "report",
+      "report": "1",
+      "remove-low-lines": true,
+      "percentage": true,
+      "stacked": true,
       "style": "width: 1000px; height: 1000px"
     }
   ]

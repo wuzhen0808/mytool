@@ -1,0 +1,40 @@
+{
+  type: 'line',
+  data: data,
+  options: {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: (ctx)
+        =>
+        'Chart.js Line Chart - stacked='
+        +
+        ctx.chart.options.scales.y.stacked
+      },
+      tooltip: {
+        mode: 'index'
+      }
+    },
+    interaction: {
+      mode: 'nearest',
+      axis: 'x',
+      intersect: false
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Month'
+        }
+      },
+      y: {
+        stacked: true,
+        title: {
+          display: true,
+          text: 'Value'
+        }
+      }
+    }
+  }
+}

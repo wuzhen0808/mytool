@@ -2,12 +2,13 @@ package mytool.backend.service
 
 import groovy.transform.CompileStatic
 import mytool.backend.ChartData
+import mytool.backend.ChartModel
 
 @CompileStatic
 interface ChartService {
 
-    ChartData getChartData(String corpId, String metric)
+    ChartData getChartDataById(String corpId, String chartId)
 
-    ChartData getChartDataByReport(String corpId, String report)
-    
+    ChartData getChartData(String corpId, ChartModel chartModel)
+
 }

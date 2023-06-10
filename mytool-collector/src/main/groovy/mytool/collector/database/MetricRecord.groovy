@@ -36,6 +36,9 @@ class MetricRecord {
         }
         return map
     }
+    static Date[] collectDates(MetricRecord[] records) {
+        return collectDates(records as List<MetricRecord>)
+    }
 
     static Date[] collectDates(List<MetricRecord> records) {
         return (records.collect { it.date } as Set<Date> as Date[]).sort()
@@ -45,6 +48,10 @@ class MetricRecord {
         Date[] dates = collectDates(records)
         Map<String, Map<String, Map<Date, MetricRecord>>> map = groupByCorpIdAndKeyAndDate(records)
         return groupValueByCorpIdAndKey(map, dates)
+    }
+
+    static Map<String, Map<String, BigDecimal[]>> groupValueByCorpIdAndKey(MetricRecord[] records, Date[] dates) {
+        return groupValueByCorpIdAndKey(records as List<MetricRecord>, dates)
     }
 
     static Map<String, Map<String, BigDecimal[]>> groupValueByCorpIdAndKey(List<MetricRecord> records, Date[] dates) {

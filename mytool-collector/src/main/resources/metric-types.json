@@ -3,17 +3,50 @@
     [
       "1",
       "total_assets",
-      "总资产"
+      "总资产",
+      {
+        "isLeaf": false
+      }
+    ],
+    [
+      "1",
+      "total_current_assets",
+      "流动资产合计",
+      {
+        "isLeaf": false
+      }
+    ],
+    [
+      "1",
+      "total_current_liab",
+      "总流动负债",
+      {
+        "isLeaf": false
+      }
     ],
     [
       "1",
       "total_liab",
-      "总负债"
+      "总负债",
+      {
+        "isLeaf": false
+      }
+    ],
+    [
+      "1",
+      "total_liab_and_holders_equity",
+      "总负债和股东权益",
+      {
+        "isLeaf": false
+      }
     ],
     [
       "1",
       "total_holders_equity",
-      "净资产"
+      "净资产",
+      {
+        "isLeaf": false
+      }
     ],
     [
       "2",
@@ -53,7 +86,34 @@
     [
       "1",
       "total_noncurrent_assets",
-      "非流动负债合计"
+      "非流动资产合计",
+      {
+        "isLeaf": false
+      }
+    ],
+    [
+      "1",
+      "total_noncurrent_liab",
+      "非流动负债合计",
+      {
+        "isLeaf": false
+      }
+    ],
+    [
+      "1",
+      "bp_and_ap",
+      "应付票据及应付账款",
+      {
+        "isLeaf": false
+      }
+    ],
+    [
+      "1",
+      "total_quity_atsopc",
+      "归属于上市股东的净资产",
+      {
+        "isLeaf": false
+      }
     ],
     [
       "1",

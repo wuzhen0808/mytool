@@ -17,7 +17,7 @@ layout 'ui/layout.tpl',
                     canvas(id: "$canvasId"){}
                 }
                 script {
-                    yieldUnescaped "loadChart('/v1/chart/chart?corpId=$corpId&provider=${chart.provider}&metric=${chart.metric}&report=${chart.report}','$canvasId')"
+                    yieldUnescaped "loadChart('/v1/chart/chart?corpId=$corpId&chartId=${chart.id}','$canvasId')"
                 }
             }
         }

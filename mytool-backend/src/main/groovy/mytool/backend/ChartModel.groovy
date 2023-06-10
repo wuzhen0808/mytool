@@ -12,6 +12,9 @@ class ChartModel {
     String metric
     String report
     boolean enabled
+    boolean stacked
+    boolean removeLowLines
+    boolean percentage
     String style
 
 
@@ -19,23 +22,27 @@ class ChartModel {
     static Map<String, ChartModel> chartModelMap
 
     static {
-        Map json = (new JsonSlurper().parse(IoUtil.getResourceAsReader(ChartModel, "conf/corp-charts.json"))) as Map
-        def enabled = json["enabled"] as Map
-        Set<String> enabledMetrics = enabled["metrics"] as Set<String>
-        Set<String> enabledReports = enabled["reports"] as Set<String>
+        Map json = (new JsonSlurper().parse(IoUtil.getResourceAsReader(ChartModel, "conf/chart-models.json"))) as Map
 
+        Set<String> enabledIds = json["enabled"] as Set<String>
 
         chartModels = (json["charts"] as List<Map>)
                 .collect({
-                    ChartModel chart = new ChartModel(id: UUID.randomUUID().toString())
 
+                    ChartModel chart = new ChartModel()
+                    chart.id = it["id"] as String
                     chart.provider = it['provider'] as String
                     chart.metric = it["metric"] as String
                     chart.report = it["report"] as String
-                    if (chart.provider == "metric") {
-                        chart.enabled = enabledMetrics.contains(chart.metric)
-                    } else if (chart.provider == "report") {
-                        chart.enabled = enabledReports.contains(chart.report)
+                    chart.enabled = enabledIds.contains(chart.id)
+                    if (it["stacked"] as Boolean) {
+                        chart.stacked = true
+                    }
+                    if (it["removeLowLines"] as Boolean) {
+                        chart.removeLowLines = true
+                    }
+                    if (it["percentage"] as Boolean) {
+                        chart.percentage = true
                     }
 
                     chart.type = it['type'] as String
@@ -44,7 +51,7 @@ class ChartModel {
                     return chart
                 })
         chartModelMap = chartModels.collectEntries {
-            [it.metric, it]
+            [it.id, it]
         }
     }
 

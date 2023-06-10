@@ -23,18 +23,8 @@ class ChartRestController {
 
     @GetMapping("chart")
     ChartData chart(@RequestParam(name = "corpId", required = true) String corpId,
-                    @RequestParam(name = "provider", required = true) String provider,
-                    @RequestParam(name = "metric", required = false) String metric,
-                    @RequestParam(name = "report", required = false) String report) {
-
-        switch (provider) {
-            case "metric":
-                assert metric, "metric is null"
-                return chartService.getChartData(corpId, metric)
-            case "report":
-                assert report, "report is null"
-                return chartService.getChartDataByReport(corpId, report)
-        }
+                    @RequestParam(name = "chartId", required = true) String chartId) {
+        return chartService.getChartDataById(corpId, chartId)
     }
 
 

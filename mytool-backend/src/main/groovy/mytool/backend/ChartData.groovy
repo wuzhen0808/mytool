@@ -1,42 +1,32 @@
 package mytool.backend
 
 import groovy.transform.CompileStatic
-import mytool.collector.database.MetricRecord
-
-import java.text.SimpleDateFormat
 
 @CompileStatic
 class ChartData {
     static class Builder {
         String type
-        Data data
-        Options options
+        Data data = new Data()
+        Options options = new Options()
+        boolean fill
 
         Builder type(String type) {
             this.type = type
             return this
         }
 
-        Builder data(MetricRecord[] report) {
-            return data(report as List<MetricRecord>)
+        Builder labels(List<String> labels) {
+            data.labels = labels as List<String>
+            return this
         }
 
-        Builder data(List<MetricRecord> report) {
-
-            Date[] dates = MetricRecord.collectDates(report)
-            data = new Data()
-            data.labels = dates.collect({ new SimpleDateFormat("yyyyMMdd").format(it) })
+        Builder data(Map<String, BigDecimal[]> map) {
             data.datasets = []
-            Map<String, Map<String, BigDecimal[]>> map = MetricRecord.groupValueByCorpIdAndKey(report, dates)
-
             map.each {
-                String corpId = it.key
-                it.value.each {
-                    DataSet ds = new DataSet()
-                    ds.label = "${corpId}:${it.key}"
-                    ds.data = it.value as List<BigDecimal>
-                    data.datasets.add(ds)
-                }
+                DataSet ds = new DataSet()
+                ds.label = it.key
+                ds.data = it.value as List<BigDecimal>
+                data.datasets.add(ds)
             }
             return this
         }
@@ -51,8 +41,36 @@ class ChartData {
             return this
         }
 
+        Builder fill(boolean fill) {
+            this.fill = fill
+            return this
+        }
+
+        Builder stacked(boolean stacked) {
+            getScaleY(true).stacked = stacked
+            return this
+        }
+
+        Scale getScaleY(boolean build) {
+            Scales scales = getScales(true)
+            if (scales.y == null && build) {
+                scales.y = new Scale()
+            }
+            return scales.y
+        }
+
+        Scales getScales(boolean build) {
+            if (this.options.scales == null && build) {
+                this.options.scales = new Scales()
+            }
+            return this.options.scales
+        }
+
         ChartData build() {
             ChartData chartData = new ChartData(type: type, data: data, options: options)
+            chartData.data.datasets.each {
+                it.fill = this.fill
+            }
             return chartData
         }
     }
@@ -60,7 +78,8 @@ class ChartData {
     static class DataSet {
         String label
         List<BigDecimal> data
-        int borderWidth = 1
+        Integer borderWidth = 1
+        Boolean fill
     }
 
     static class Data {
@@ -73,12 +92,21 @@ class ChartData {
     }
 
     static class Scales {
+        Scale x
         Scale y
     }
 
     static class Scale {
-        boolean beginAtZero
+        Boolean beginAtZero
+        Boolean stacked
+        Title title = new Title()
     }
+
+    static class Title {
+        Boolean display
+        String text
+    }
+
     String type
     Data data
     Options options
