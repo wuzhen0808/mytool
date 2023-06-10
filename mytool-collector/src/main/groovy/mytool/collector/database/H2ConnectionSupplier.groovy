@@ -8,20 +8,20 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 import java.sql.Connection
-import java.sql.SQLException
+import java.util.function.Supplier
 
 @CompileStatic
-public class H2ConnectionPoolWrapper implements ConnectionProvider {
-    private static final Logger LOG = LoggerFactory.getLogger(H2ConnectionPoolWrapper.class);
+class H2ConnectionSupplier implements Supplier<Connection> {
+    private static final Logger LOG = LoggerFactory.getLogger(H2ConnectionSupplier.class);
 
     private JdbcConnectionPool pool;
 
-    public H2ConnectionPoolWrapper(JdbcConnectionPool pool) {
+    public H2ConnectionSupplier(JdbcConnectionPool pool) {
         this.pool = pool;
     }
 
     @Override
-    public Connection openConnection() throws SQLException {
+    Connection get() {
 
         Connection c = this.pool.getConnection();
         if (c.getAutoCommit()) {
@@ -34,16 +34,10 @@ public class H2ConnectionPoolWrapper implements ConnectionProvider {
         return c;
     }
 
-    public static ConnectionProvider newInstance(String dbUrl, String string, String string2) {
+    static Supplier<Connection> newInstance(String dbUrl, String string, String string2) {
         JdbcConnectionPool pool = JdbcConnectionPool.create(dbUrl, "sa", "sa");
         LOG.info("connection pool created");
-        return new H2ConnectionPoolWrapper(pool);
-    }
-
-    @Override
-    public void dispose() {
-        this.pool.dispose();
-        LOG.info("connection pool closed");//
+        return new H2ConnectionSupplier(pool);
     }
 
 }

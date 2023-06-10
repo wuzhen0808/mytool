@@ -38,7 +38,7 @@ class MetricTypes {
                 continue
             }
 
-            ReportType reportType = ReportType.valueOf(type as int)
+            ReportType reportType = ReportType.get(type as int)
             if (reportType == null) {
                 throw new RtException("no such type:${type}")
             }

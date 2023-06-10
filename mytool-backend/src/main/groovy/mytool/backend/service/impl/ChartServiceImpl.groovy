@@ -5,7 +5,9 @@ import mytool.backend.ChartData
 import mytool.backend.ChartModel
 import mytool.backend.service.ChartService
 import mytool.backend.service.DataService
+import mytool.collector.MetricType
 import mytool.collector.MetricsContext
+import mytool.collector.ReportType
 import mytool.collector.RtException
 import mytool.collector.database.MetricRecord
 import mytool.collector.metrics.DefaultMetricsContext
@@ -24,6 +26,8 @@ class ChartServiceImpl implements ChartService {
 
     MetricsContext metricsContext
 
+    Date[] dates = EnvUtil.newDateOfYearsLastDay(2022..2013);
+
     @PostConstruct
     void init() {
         metricsContext = new DefaultMetricsContext(dataService.getReportDataAccessor())
@@ -32,7 +36,6 @@ class ChartServiceImpl implements ChartService {
     @Override
     ChartData getChartData(String corpId, String metric) {
 
-        Date[] dates = EnvUtil.newDateOfYearsLastDay(2022..2013);
         ChartModel chartModel = ChartModel.getChartModelMap().get(metric)
         if (!chartModel) {
             throw new RtException("no such chart:${metric}")
@@ -42,6 +45,17 @@ class ChartServiceImpl implements ChartService {
         return new ChartData.Builder()
                 .type(chartModel.type)
                 .data(report)
+                .build()
+    }
+
+    @Override
+    ChartData getChartDataByReport(String corpId, String report) {
+        ReportType reportType = ReportType.get(report)
+        List<MetricRecord> records = dataService.getReportDataAccessor().queryReport(reportType, corpId, dates)
+
+        return new ChartData.Builder()
+                .type("line")
+                .data(records)
                 .build()
     }
 }

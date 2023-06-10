@@ -1,52 +1,76 @@
 {
-  "enabled": [
-    "净利润1",
-    "总资产1",
-    "总负债1",
-    "ROE1",
-    "有息负债率",
-    "TEST"
-  ],
+  "enabled": {
+    "metrics": [
+      "净利润1",
+      "总资产1",
+      "总负债1",
+      "ROE1",
+      "有息负债率",
+      "TEST"
+    ],
+    "reports": [
+      "1"
+    ]
+  },
+  "default": {
+    "style": "width: 500px;"
+  },
   "charts": [
     {
       "type": "line",
+      "provider": "metric",
       "metric": "净利润"
     },
     {
       "type": "line",
+      "provider": "metric",
       "metric": "总资产"
     },
     {
       "type": "line",
+      "provider": "metric",
       "metric": "总负债"
     },
     {
       "type": "line",
+      "provider": "metric",
       "metric": "ROE"
     },
     {
       "type": "line",
+      "provider": "metric",
       "metric": "无息流动负债"
     },
     {
       "type": "line",
+      "provider": "metric",
       "metric": "租赁负债"
     },
     {
       "type": "line",
+      "provider": "metric",
       "metric": "有息非流动负债"
     },
     {
       "type": "line",
+      "provider": "metric",
       "metric": "无息非流动负债"
     },
     {
       "type": "line",
+      "provider": "metric",
       "metric": "TEST"
     },
     {
       "type": "line",
+      "provider": "metric",
       "metric": "有息负债率"
+    },
+    {
+      "type": "line",
+      "provider": "report",
+      "report": "1",
+      "style": "width: 1000px; height: 1000px"
     }
   ]
 }

@@ -11,12 +11,13 @@ layout 'ui/layout.tpl',
 
         charts.each { chart ->
             if(chart.enabled) {
-                def canvasId = "myChart_${chart.metric}"
-                div(style: "width: 500px;") {
+                def canvasId = "myChart_${chart.id}"
+                def style = chart.style?:"width: 500px;"
+                div(style: "${style}") {
                     canvas(id: "$canvasId"){}
                 }
                 script {
-                    yieldUnescaped "loadChart('/v1/chart/chart?corpId=$corpId&metric=${chart.metric}','$canvasId')"
+                    yieldUnescaped "loadChart('/v1/chart/chart?corpId=$corpId&provider=${chart.provider}&metric=${chart.metric}&report=${chart.report}','$canvasId')"
                 }
             }
         }

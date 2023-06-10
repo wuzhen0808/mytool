@@ -14,7 +14,7 @@ class MetricType {
     static MetricType parse(String string) {
         String[] comps = string.split(":")
         if (comps.length == 2) {
-            return MetricType.valueOf(ReportType.valueOf(comps[0]), comps[1])
+            return MetricType.valueOf(ReportType.get(comps[0]), comps[1])
         } else {
             throw new RtException("cannot parse as metric type:${string}")
         }

@@ -5,7 +5,6 @@ import mytool.collector.MetricType
 import mytool.collector.MetricTypes
 import mytool.collector.ReportType
 import mytool.collector.RtException
-import mytool.util.jdbc.ConnectionProvider
 import mytool.util.jdbc.JdbcAccessTemplate
 import mytool.util.jdbc.ResultSetProcessor
 import org.slf4j.Logger
@@ -14,40 +13,31 @@ import org.slf4j.LoggerFactory
 import java.sql.Connection
 import java.sql.ResultSet
 import java.sql.SQLException
+import java.util.function.Supplier
 
 @CompileStatic
-class ReportDataAccessor extends JdbcAccessTemplate {
+class ReportDataAccessor {
 
     private static final Logger LOG = LoggerFactory.getLogger(ReportDataAccessor.class);
 
-    ConnectionProvider pool;
+    Supplier<Connection> pool;
 
-    private static Map<String, ReportDataAccessor> MAP = new HashMap<>();
+    ReportTypeAccessor reportTypeAccessor
 
-    private static List<DBUpgrader> upgraderList = new ArrayList<DBUpgrader>();
+    JdbcAccessTemplate template
 
-    static {
-        upgraderList.add(new DBUpgrader_001());
-        upgraderList.add(new DBUpgrader_002());
-        upgraderList.add(new DBUpgrader_003());
-    }
-    //the target data version to be upgraded to.
-    private DataVersion targetDataVersion = DataVersion.V_0_0_3;
-
-    private DataVersion dataVersion;
-
-    private AliasInfos aliasInfos = new AliasInfos();
-
-    ReportDataAccessor(ConnectionProvider pool) {
-        this.pool = pool;
+    ReportDataAccessor(Supplier<Connection> pool, JdbcAccessTemplate template, ReportTypeAccessor reportTypeAccessor) {
+        this.pool = pool
+        this.template = template
+        this.reportTypeAccessor = reportTypeAccessor
     }
 
     void mergeReport(final ReportType reportType, final String corpId, final Date reportDate, List<String> aliasList,
                      final List<BigDecimal> valueList) {
 
-        final List<Integer> columnIndexList = this.aliasInfos.getOrCreateColumnIndexByAliasList(this, reportType, aliasList);
+        final List<Integer> columnIndexList = this.reportTypeAccessor.getOrCreateColumnIndexByAliasList(reportType, aliasList);
 
-        this.execute(new JdbcOperation<Object>() {
+        this.template.execute(this.pool, new JdbcAccessTemplate.JdbcOperation<Object>() {
 
             @Override
             Object execute(Connection con, JdbcAccessTemplate t) {
@@ -84,9 +74,24 @@ class ReportDataAccessor extends JdbcAccessTemplate {
 
     }
 
+    List<MetricRecord> queryReport(final ReportType reportType, final String corpId, final Date[] reportDateList) {
+        List<String> aliases = this.reportTypeAccessor.getMetricNames(reportType)
+        return queryReport(reportType, corpId, reportDateList, aliases)
+    }
     List<MetricRecord> queryReport(final ReportType reportType, final String corpId, final Date[] reportDateList, final List<String> aliasList) {
-        final List<Integer> columnIndexList = this.aliasInfos.getColumnIndexByAliasList(reportType, aliasList);
-        return this.execute(new JdbcOperation<List<MetricRecord>>() {
+        //fill default values
+        def report = doQueryReport(reportType, corpId, reportDateList, aliasList)
+        report.each {
+            resolveDefaultValue(it)
+        }
+        return report
+    }
+
+    private List<MetricRecord> doQueryReport(final ReportType reportType, final String corpId, final Date[] reportDateList, final List<String> metrics) {
+
+        final List<Integer> columnIndexList = this.reportTypeAccessor.getColumnIndexByAliasList(reportType, metrics);
+
+        return this.template.execute(pool, new JdbcAccessTemplate.JdbcOperation<List<MetricRecord>>() {
 
             @Override
             List<MetricRecord> execute(Connection con, JdbcAccessTemplate t) {
@@ -97,11 +102,11 @@ class ReportDataAccessor extends JdbcAccessTemplate {
                     sql.append(",")
                     Integer cIdx = columnIndexList.get(i);
                     if (cIdx == null) {
-                        String alias = aliasList.get(i)
+                        String alias = metrics.get(i)
                         throw new RtException("no index for the report metric:${alias}")
                     }
                     sql.append(Tables.getReportColumn(cIdx))
-                    sql.append(" as ").append(aliasList.get(i))
+                    sql.append(" as ").append(metrics.get(i))
                 }
 
                 sql.append(" from ");
@@ -135,7 +140,7 @@ class ReportDataAccessor extends JdbcAccessTemplate {
                         while (rs.next()) {
                             String corpIdI = rs.getString("corpId")
                             Date dateI = rs.getDate("reportDate")
-                            aliasList.each {
+                            metrics.each {
                                 BigDecimal value = rs.getBigDecimal(it)
                                 MetricType metricType = MetricType.valueOf(reportType, it)
                                 MetricRecord record = new MetricRecord(corpId: corpId, date: dateI, key: metricType as String, value: value)
@@ -150,139 +155,7 @@ class ReportDataAccessor extends JdbcAccessTemplate {
         }, false);
     }
 
-    boolean isReportExist(int reportType, String corpId, Date reportDate) {
-        return false;
-    }
-
-    void initialize() {
-
-        final String schema = "test";
-
-        this.execute(new JdbcOperation<Object>() {
-
-            @Override
-            Object execute(Connection con, JdbcAccessTemplate t) {
-                final List<String> schemaList = new ArrayList<String>();
-                t.executeQuery(con, "show schemas", new ResultSetProcessor<Object>() {
-
-                    @Override
-                    Object process(ResultSet rs) throws SQLException {
-                        while (rs.next()) {
-                            String name = rs.getString(1);
-                            schemaList.add(name);
-                            // System.out.println(rs.getString(1));
-                        }
-                        return null;
-                    }
-                });
-
-                if (!schemaList.contains(schema.toUpperCase())) {
-                    t.executeUpdate(con, "create schema " + schema);
-                }
-                if (!isTableExists(con, t, Tables.TN_PROPERTY)) {
-                    // create property table
-                    {
-
-                        String sql = "create table " + Tables.TN_PROPERTY + "(category varchar,key varchar,value varchar,";
-                        sql += "primary key(category,key))";
-                        t.executeUpdate(con, sql);
-
-                    }
-                    {
-                        String sql = "insert into " + Tables.TN_PROPERTY + "(category,key,value)values(?,?,?)";
-                        t.executeUpdate(con, sql,
-                                new Object[]{"core", "data-version", DataVersion.V_UNKNOW.toString()});
-                    }
-
-                }
-
-                upgrade(con, t);
-
-                aliasInfos.initialize(con, t);
-                return null;
-            }
-        }, true);
-
-    }
-
-    public <T> T execute(JdbcOperation<T> op, boolean transaction) {
-
-        try {
-            Connection con = pool.openConnection();
-            try {
-
-                if (transaction) {
-
-                    boolean oldAuto = con.getAutoCommit();
-                    con.setAutoCommit(false);
-                    try {
-                        return op.execute(con, this);
-                    } catch (Exception e) {
-                        con.rollback();
-                        throw RtException.toRtException(e);
-                    } finally {
-                        con.commit();
-                        con.setAutoCommit(oldAuto);
-                    }
-
-                } else {
-                    return op.execute(con, this);
-                }
-            } finally {
-                con.close();
-            }
-        } catch (SQLException e) {
-            throw RtException.toRtException(e);
-        }
-    }
-
-    private void upgrade(Connection con, JdbcAccessTemplate t) {
-        this.dataVersion = resolveDataVersion(con, t);
-
-        LOG.info("dataVersion:" + dataVersion + ",targetVersion:" + this.targetDataVersion);
-        while (true) {
-            if (this.dataVersion == this.targetDataVersion) {
-                // upgrade complete
-                break;
-            }
-
-            DataVersion pre = this.dataVersion;
-            DataVersion dv = this.tryUpgrade(con, t);
-            if (dv == null) {
-                LOG.warn("cannot upgrade from:" + pre + " to target:" + this.targetDataVersion);
-                break;
-            }
-            LOG.info("successfuly upgrade from:" + pre + " to target:" + dv);
-        }
-
-    }
-
-    private DataVersion tryUpgrade(Connection con, JdbcAccessTemplate t) {
-        DataVersion rt = null;
-        for (DBUpgrader up : this.upgraderList) {
-            if (this.dataVersion == up.getSourceVersion()) {
-                up.upgrade(con, t);//
-                rt = up.getTargetVersion();
-            }
-        }
-        if (rt != null) {
-            this.dataVersion = rt;
-        }
-        return rt;
-    }
-
-    private DataVersion resolveDataVersion(Connection con, JdbcAccessTemplate t) {
-        String sql = "select category,key,value from " + Tables.TN_PROPERTY + " t where t.category=? and t.key=?";
-        List<Object[]> ll = t.executeQuery(con, sql, new Object[]{"core", "data-version"});
-        if (ll.isEmpty()) {
-            throw new RtException("bad data base.");
-        } else {
-            Object[] row = ll.get(0);
-            return DataVersion.valueOf((String) row[2]);
-        }
-    }
-
-    private boolean isTableExists(Connection con, JdbcAccessTemplate t, String tableName) {
+    boolean isTableExists(Connection con, JdbcAccessTemplate t, String tableName) {
         // table_schema
         String sql = "select * from information_schema.tables where table_name=?";
         List<Object[]> ll = t.executeQuery(con, sql, tableName.toUpperCase());
@@ -306,16 +179,13 @@ class ReportDataAccessor extends JdbcAccessTemplate {
         return rt
     }
 
-    List<MetricRecord> getReport(ReportType reportType, String corpId, Date[] dates, String... aliasList) {
-        return getReport(reportType, corpId, dates, aliasList as List<String>)
+    List<MetricRecord> getReport(ReportType reportType, String corpId, Date[] dates, String... metrics) {
+        return getReport(reportType, corpId, dates, metrics as List<String>)
     }
 
-    List<MetricRecord> getReport(ReportType reportType, String corpId, Date[] dates, List<String> aliases) {
-        List<MetricRecord> list = this.queryReport(reportType, corpId, dates, aliases)
-        //fill default values
-        list.each {
-            resolveDefaultValue(it)
-        }
+    List<MetricRecord> getReport(ReportType reportType, String corpId, Date[] dates, List<String> metrics) {
+        List<MetricRecord> list = this.queryReport(reportType, corpId, dates, metrics)
+
         return list
     }
 
@@ -328,5 +198,9 @@ class ReportDataAccessor extends JdbcAccessTemplate {
             decimal = 0
         }
         record.setValue(decimal)
+    }
+
+    List<String> getAllMetricsByReport(ReportType reportType) {
+
     }
 }

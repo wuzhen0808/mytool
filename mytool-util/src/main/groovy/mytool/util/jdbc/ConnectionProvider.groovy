@@ -1,10 +1,9 @@
 package mytool.util.jdbc;
 
 import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.SQLException
+import java.util.function.Supplier;
 
-public interface ConnectionProvider {
-	public Connection openConnection() throws SQLException;
+interface ConnectionProvider extends Supplier<Connection>{
 
-	public void dispose();
 }

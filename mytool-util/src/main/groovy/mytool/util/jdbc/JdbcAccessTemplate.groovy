@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory
 import java.sql.Connection
 import java.sql.PreparedStatement
 import java.sql.SQLException
+import java.util.function.Supplier
 
 @CompileStatic
 class JdbcAccessTemplate {
@@ -81,8 +82,52 @@ class JdbcAccessTemplate {
 
     }
 
+    public <T> T execute(Supplier<Connection> pool, JdbcOperation<T> op, boolean transaction) {
+
+        try {
+            Connection con = pool.get()
+            try {
+
+                if (transaction) {
+
+                    boolean oldAuto = con.getAutoCommit();
+                    con.setAutoCommit(false);
+                    try {
+                        return op.execute(con, this);
+                    } catch (Exception e) {
+                        con.rollback();
+                        throw new RuntimeException(e)
+                    } finally {
+                        con.commit();
+                        con.setAutoCommit(oldAuto);
+                    }
+
+                } else {
+                    return op.execute(con, this);
+                }
+            } finally {
+                con.close();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e)
+        }
+    }
+
     List<Object[]> executeQuery(Connection con, String sql) {
         return this.executeQuery(con, sql, new ObjectArrayListResultSetProcessor());
+    }
+
+    List<Object[]> executeQuery(Supplier<Connection> pool, String sql) {
+        return execute(pool, { Connection con, JdbcAccessTemplate t ->
+            return t.executeQuery(con, sql)
+        }, false)
+    }
+
+    List<Object[]> executeQuery(Supplier<Connection> pool, String sql, Object arg) {
+        return execute(pool, { Connection con, JdbcAccessTemplate t ->
+            return t.executeQuery(con, sql, arg)
+
+        }, false)
     }
 
     List<Object[]> executeQuery(Connection con, String sql, Object arg) {
@@ -103,6 +148,12 @@ class JdbcAccessTemplate {
 
     public <T> T executeQuery(Connection con, String sql, List<Object> objects, ResultSetProcessor<T> rsp) {
         return this.executeQuery(con, sql, objects.toArray(), rsp);
+    }
+
+    public <T> T executeQuery(Supplier<Connection> pool, String sql, Object[] objects, ResultSetProcessor<T> rsp) {
+        return execute(pool, { Connection con, JdbcAccessTemplate it ->
+            it.executeQuery(con, sql, objects, rsp)
+        }, false)
     }
 
     public <T> T executeQuery(Connection con, String sql, Object[] objects, ResultSetProcessor<T> rsp) {
