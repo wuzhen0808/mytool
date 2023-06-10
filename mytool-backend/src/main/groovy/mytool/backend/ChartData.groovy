@@ -60,7 +60,7 @@ class ChartData {
     static class DataSet {
         String label
         List<BigDecimal> data
-        int borderWidth
+        int borderWidth = 1
     }
 
     static class Data {

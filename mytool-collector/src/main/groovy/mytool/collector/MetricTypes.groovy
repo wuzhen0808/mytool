@@ -71,7 +71,7 @@ class MetricTypes {
         Map map = new JsonSlurper().parse(IoUtil.getResourceAsReader(MetricType, "formulas.json")) as Map
         (map["formulas"] as List).each {
             String formulaS = it
-            CupFormula formula = FormulaParser.parse(formulaS)
+            CupFormula formula = FormulaParser.parseOne(formulaS)
             formulaMap.put(formula.left, formula)
         }
     }

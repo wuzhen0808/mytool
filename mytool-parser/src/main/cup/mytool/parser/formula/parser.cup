@@ -19,30 +19,51 @@ scan with {:
 :};
 
 // Terminals (tokens returned by the scanner). 
-terminal            PLUS, MINUS, TIMES, DIV, LPAREN, RPAREN, AT, DOT, EQ;
-terminal Integer    NUMBER;        // our scanner provides numbers
-terminal String     IDENTIFIER;
-// Non terminals 
+terminal            PLUS, MINUS, TIMES, DIV, LPAREN, RPAREN, DOT, EQ, COM;
+terminal Number    NUMBER;        // our scanner provides numbers
+terminal String     ID;
+// Non terminals
 non terminal CupExpr    expr;      // used to store evaluated subexpressions
 non terminal CupFormula formula;
+non terminal CupFormula.List formula_list;
+non terminal CupExpr higher;
+non terminal CupExpr term;
+non terminal CupExpr metric;
+non terminal CupExpr decimal;        // our scanner provides numbers
 
 // Precedences 
-precedence left PLUS, MINUS;
+precedence left PLUS;
+precedence left MINUS;
 precedence left TIMES;
 precedence left DIV;
-precedence left AT;
 precedence left DOT;
 
 
 // The grammar rules
-formula ::= IDENTIFIER:e1 EQ expr:e2         {: RESULT = CupFormula.valueOf(e1,e2);  :}
+formula_list    ::= formula_list:e1 COM formula:e2  {: RESULT = CupFormula.list(e1, e2); :}
+                    | formula:e1                {: RESULT = CupFormula.list(e1); :}
 ;
-expr ::= expr:e1 PLUS expr:e2      	        {:  RESULT = CupExpr.plus(e1,e2);       :}
-	| expr:e1 MINUS expr:e2        	        {:  RESULT = CupExpr.minus(e1,e2);       :}
-	| expr:e1 TIMES expr:e2        	        {:  RESULT = CupExpr.times(e1,e2);       :}
-	| expr:e1 DIV expr:e2          	        {:  RESULT = CupExpr.div(e1,e2);        :}
-	| MINUS expr:e                 	        {:  RESULT = CupExpr.minus(e);              :}
-	| LPAREN expr:e RPAREN	                {:  RESULT = CupExpr.paren(e);           :}
-	| NUMBER:n	                            {:  RESULT = CupExpr.number(n);           :}
-	| IDENTIFIER:tx DOT IDENTIFIER:id       {:  RESULT = CupExpr.metric(tx,id);          :}
+
+formula         ::= ID:e1 EQ expr:e2            {: RESULT = CupFormula.valueOf(e1,e2);  :}
 ;
+
+expr            ::= expr:e1 PLUS higher:e2      {: RESULT = CupExpr.plus(e1, e2);  :}
+                    | expr:e1 MINUS higher:e2   {: RESULT = CupExpr.minus(e1, e2);  :}
+                    | higher:e1                 {: RESULT = e1;  :}
+;
+higher          ::= higher:e1 TIMES term:e2     {: RESULT = CupExpr.times(e1, e2);  :}
+                    | higher:e1 DIV term:e2     {: RESULT = CupExpr.divide(e1, e2);  :}
+                    | term:e1                   {: RESULT = e1;  :}
+;
+term            ::= LPAREN expr:e1 RPAREN       {: RESULT = e1;  :}
+                    | NUMBER:e1                 {: RESULT = CupExpr.number(e1);  :}
+                    | decimal:e1                {: RESULT = e1;  :}
+                    | metric:e1                 {: RESULT = e1;  :}
+;
+decimal         ::= NUMBER:e1 DOT NUMBER:e2     {: RESULT = CupExpr.decimal((e1 + "." + e2));  :}
+                    | DOT NUMBER:e1             {: RESULT = CupExpr.decimal(("." + e1));  :}
+;
+metric          ::= ID:e1 DOT ID:e2             {: RESULT = CupExpr.metric(e1, e2);  :}
+                    | ID:e1                     {: RESULT = CupExpr.metric(e1);  :}
+;
+

@@ -12,7 +12,7 @@ layout 'ui/layout.tpl',
         charts.each { chart ->
             if(chart.enabled) {
                 def canvasId = "myChart_${chart.metric}"
-                div(style: "width: 1000px;") {
+                div(style: "width: 500px;") {
                     canvas(id: "$canvasId"){}
                 }
                 script {

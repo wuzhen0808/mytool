@@ -5,6 +5,7 @@ plugins {
 }
 dependencies {
     implementation 'org.codehaus.groovy:groovy-all:3.0.15'
+    implementation project(":mytool-util")
 
     testImplementation('org.spockframework:spock-core:2.0-groovy-3.0') {
         exclude group: 'org.codehaus.groovy'
