@@ -13,6 +13,9 @@ layout 'ui/layout.tpl',
             if(chart.enabled) {
                 def canvasId = "myChart_${chart.id}"
                 def style = chart.style?:"width: 500px;"
+                div {
+                    yieldUnescaped "Chart:${chart.name}"
+                }
                 div(style: "${style}") {
                     canvas(id: "$canvasId"){}
                 }

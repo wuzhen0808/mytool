@@ -2,10 +2,12 @@
   "enabled": [
     "201",
     "202",
-    "203"
+    "203",
+    "204",
+    "205"
   ],
   "default": {
-    "style": "width: 500px;"
+    "style": "width: 1000px; border:1px solid black;"
   },
   "charts": [
     {
@@ -70,10 +72,10 @@
     },
     {
       "id": "201",
+      "name": "资产负债表",
       "type": "line",
       "provider": "report",
-      "report": "1",
-      "style": "width: 1000px; height: 1000px"
+      "report": "1"
     },
     {
       "id": "202",
@@ -82,25 +84,68 @@
       "provider": "report",
       "report": "1",
       "metrics": {
-        "tag": "资产"
+        "tags": [
+          "资产"
+        ],
+        "notTags": [
+          "合计"
+        ]
       },
-      "remove-low-lines": true,
-      "stacked": true,
-      "style": "width: 1000px; height: 1000px"
+      "removeLowLines": 0,
+      "stacked": true
     },
     {
       "id": "203",
+      "name": "资产结构(百分比)",
+      "type": "line",
+      "provider": "report",
+      "report": "1",
+      "metrics": {
+        "tags": [
+          "资产"
+        ],
+        "notTags": [
+          "合计"
+        ]
+      },
+      "removeLowLines": 0,
+      "percentage": true,
+      "stacked": true
+    },
+    {
+      "id": "204",
       "name": "负债结构",
       "type": "line",
       "provider": "report",
       "report": "1",
       "metrics": {
-        "tag": "负债"
+        "tags": [
+          "负债"
+        ],
+        "notTags": [
+          "合计"
+        ]
       },
-      "remove-low-lines": true,
+      "removeLowLines": 0.001,
+      "stacked": true
+    },
+    {
+      "id": "205",
+      "name": "负债结构(百分比)",
+      "type": "line",
+      "provider": "report",
+      "report": "1",
+      "metrics": {
+        "tags": [
+          "负债"
+        ],
+        "notTags": [
+          "合计"
+        ]
+      },
+      "removeLowLines": 0.001,
       "percentage": true,
-      "stacked": true,
-      "style": "width: 1000px; height: 1000px"
+      "stacked": true
     }
   ]
 }

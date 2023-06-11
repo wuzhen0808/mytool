@@ -9,11 +9,22 @@ class ChartData {
         Data data = new Data()
         Options options = new Options()
         boolean fill
+        String legendPosition = "right"
 
         Builder type(String type) {
             this.type = type
             return this
         }
+
+        Builder legendRight() {
+            return this.legendPosition("right")
+        }
+
+        Builder legendPosition(String position) {
+            this.legendPosition = position
+            return this
+        }
+
 
         Builder labels(List<String> labels) {
             data.labels = labels as List<String>
@@ -71,6 +82,15 @@ class ChartData {
             chartData.data.datasets.each {
                 it.fill = this.fill
             }
+
+            if (this.legendPosition) {
+                LegendPlugin plugin = options.plugins.get("legend") as LegendPlugin
+                if (!plugin) {
+                    plugin = new LegendPlugin()
+                    options.plugins.put("legend", plugin)
+                }
+                plugin.position = this.legendPosition
+            }
             return chartData
         }
     }
@@ -89,6 +109,15 @@ class ChartData {
 
     static class Options {
         Scales scales
+        Map<String, Plugin> plugins = [:]
+    }
+
+    static class Plugin {
+
+    }
+
+    static class LegendPlugin extends Plugin {
+        String position
     }
 
     static class Scales {
@@ -96,10 +125,10 @@ class ChartData {
         Scale y
     }
 
-    static class Scale {
-        Boolean beginAtZero
-        Boolean stacked
-        Title title = new Title()
+    static class Scale extends HashMap<String, Object> {
+        Scale() {
+            this.title = new Title()
+        }
     }
 
     static class Title {

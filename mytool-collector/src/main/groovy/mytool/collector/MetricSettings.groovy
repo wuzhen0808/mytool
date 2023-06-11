@@ -6,13 +6,12 @@ import mytool.parser.formula.CupFormula
 @CompileStatic
 interface MetricSettings {
 
-    static class Options {
-        boolean isLeaf
+    static class Attributes {
         BigDecimal defaultValue
         Set<String> tags
     }
 
-    Options getOptions(String metric)
+    Attributes getAttributes(String metric)
 
     BigDecimal getDefaultValue(String metric)
 
@@ -21,5 +20,7 @@ interface MetricSettings {
     MetricType getMetricByAlias(String alias, boolean force)
 
     Set<String> getAliases(String alias)
+
+    String getFirstAlias(String metric)
 
 }

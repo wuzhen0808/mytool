@@ -8,37 +8,47 @@ import mytool.collector.ReportType
 import mytool.collector.RtException
 import mytool.parser.formula.CupFormula
 import mytool.parser.formula.FormulaParser
+import mytool.parser.formula.MetricResolver
 import mytool.util.IoUtil
 import org.springframework.stereotype.Component
+
+import javax.annotation.PostConstruct
 
 @CompileStatic
 @Component
 class MetricSettingsImpl implements MetricSettings {
+    static class MetricSetting {
+        MetricType metricType
+        String[] aliases
+        Attributes attributes
+    }
 
+    Map<String, MetricSetting> aliasMap = [:]
 
-    Map<String, MetricType> aliasMap = [:]
+    Map<String, Set<String>> reverseAliasMap = [:]
 
-    Map<MetricType, Set<String>> reverseAliasMap = [:]
-
-    Map<ReportType, Map<String, MetricType>> metricTypes = [:]
+    Map<String, MetricSetting> metricMap = [:]
 
     Map<String, CupFormula> formulaMap = [:]
 
-    Map<String, Options> optionsMap = [:]
-
-    MetricSettingsImpl() {
+    @PostConstruct
+    void init() {
         loadFormulas()
         loadMetrics()
     }
 
+    MetricSetting get(String metric) {
+        return metricMap.get(metric)
+    }
+
     @Override
-    Options getOptions(String metric) {
-        return optionsMap.get(metric)
+    Attributes getAttributes(String metric) {
+        return get(metric)?.attributes
     }
 
     @Override
     BigDecimal getDefaultValue(String metric) {
-        return optionsMap.get(metric)?.defaultValue
+        return getAttributes(metric)?.defaultValue
     }
 
     @Override
@@ -48,7 +58,7 @@ class MetricSettingsImpl implements MetricSettings {
 
     @Override
     MetricType getMetricByAlias(String alias, boolean force) {
-        MetricType metricType = aliasMap.get(alias)
+        MetricType metricType = aliasMap.get(alias)?.metricType
         if (force && !metricType) {
             throw new RtException("no metric type with alias:${alias}")
         }
@@ -62,6 +72,11 @@ class MetricSettingsImpl implements MetricSettings {
             return reverseAliasMap.get(metricType)
         }
         return null
+    }
+
+    @Override
+    String getFirstAlias(String metric) {
+        return get(metric)?.aliases ?[0]
     }
 
     void loadMetrics() {
@@ -91,15 +106,14 @@ class MetricSettingsImpl implements MetricSettings {
                     props = metricRow[j] as Map
                 }
             }
-            Options options = new Options()
+            Attributes options = new Attributes()
             if (props) {
                 String defaultValueS = props.get("defaultValue")
                 if (defaultValueS) {
                     BigDecimal decimal = defaultValueS as BigDecimal
 
                 }
-                //
-                options.isLeaf = props.get("isLeaf") as boolean
+                //tags
                 options.tags = props.get("tags") as Set<String>
             }
             add(reportType, name, options, alias as String[])
@@ -116,26 +130,22 @@ class MetricSettingsImpl implements MetricSettings {
         }
     }
 
-    private MetricType add(ReportType reportType, String name, Options options, String... alias) {
+    private void add(ReportType reportType, String name, Attributes attributes, String... alias) {
         MetricType metricType = MetricType.valueOf(reportType, name)
-        Map<String, MetricType> map2 = metricTypes.get(reportType)
-        if (!map2) {
-            map2 = [:]
-            metricTypes.put(reportType, map2)
-        }
 
-        if (map2.put(name, metricType)) {
+        String metric = metricType as String
+        MetricSetting metricSetting = new MetricSetting(metricType: metricType, attributes: attributes, aliases: alias)
+
+        if (metricMap.put(metric, metricSetting)) {
             throw new RtException("duplicated metric type:${name}")
         }
 
         alias.each {
-            if (aliasMap.put(it, metricType)) {
+            if (aliasMap.put(it, metricSetting)) {
                 throw new RtException("duplicated metric alas:${it}")
             }
         }
 
-        reverseAliasMap.put(metricType, alias as Set<String>)
-        optionsMap.put(metricType as String, options)
-        return metricType
+        reverseAliasMap.put(metric, alias as Set<String>)
     }
 }

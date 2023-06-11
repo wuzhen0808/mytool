@@ -5,9 +5,247 @@
       "total_assets",
       "总资产",
       {
-        "isLeaf": false,
+        "tags": [
+          "资产",
+          "合计"
+        ]
+      }
+    ],
+    [
+      "1",
+      "productive_biological_assets",
+      "生产性生物资产",
+      {
         "tags": [
           "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "intangible_assets",
+      "非物质资产",
+      {
+        "tags": [
+          "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "invest_property",
+      "投资资产",
+      {
+        "tags": [
+          "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "inventory",
+      "存货",
+      {
+        "tags": [
+          "资产","流动"
+        ]
+      }
+    ],
+    [
+      "1",
+      "ar_and_br",
+      "应收票据和应收账款",
+      {
+        "tags": [
+          "资产","流动","合计"
+        ]
+      }
+    ],
+    [
+      "1",
+      "construction_in_process_sum",
+      "在建工程合计",
+      {
+        "tags": [
+          "资产",
+          "合计"
+        ]
+      }
+    ],
+    [
+      "1",
+      "construction_in_process",
+      "在建工程",
+      {
+        "tags": [
+          "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "contractual_assets",
+      "合同资产",
+      {
+        "tags": [
+          "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "bills_receivable",
+      "应收票据",
+      {
+        "tags": [
+          "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "accounts_receivable",
+      "应收账款",
+      {
+        "tags": [
+          "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "currency_funds",
+      "货币资金",
+      {
+        "tags": [
+          "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "othr_receivables",
+      "其他应收款",
+      {
+        "tags": [
+          "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "othr_current_assets",
+      "其他流动资产",
+      {
+        "tags": [
+          "资产",
+          "流动"
+        ]
+      }
+    ],
+    [
+      "1",
+      "goodwill",
+      "商誉",
+      {
+        "tags": [
+          "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "to_sale_asset",
+      "持有待售资产",
+      {
+        "tags": [
+          "资产",
+          "流动"
+        ]
+      }
+    ],
+    [
+      "1",
+      "othr_noncurrent_assets",
+      "其他非流动资产",
+      {
+        "tags": [
+          "资产",
+          "非流动"
+        ]
+      }
+    ],
+    [
+      "1",
+      "tradable_fnncl_assets",
+      "交易性金融资产",
+      {
+        "tags": [
+          "资产",
+          "流动"
+        ]
+      }
+    ],
+    [
+      "1",
+      "saleable_finacial_assets",
+      "可销售金融资产",
+      {
+        "tags": [
+          "资产",
+          "流动"
+        ]
+      }
+    ],[
+      "1",
+      "other_illiquid_fnncl_assets",
+      "其他非流动金融资产",
+      {
+        "tags": [
+          "资产",
+          "非流动"
+        ]
+      }
+    ],[
+      "1",
+      "fixed_assets",
+      "固定资产",
+      {
+        "tags": [
+          "资产",
+          "非流动"
+        ]
+      }
+    ],
+    [
+      "1",
+      "othr_compre_income",
+      "其他综合收益",
+      {
+        "tags": [
+          "权益"
+        ]
+      }
+    ],
+    [
+      "1",
+      "interest_receivable",
+      "应收利息",
+      {
+        "parent": "othr_receivables",
+        "tags": [
+          "资产","分计"
+        ]
+      }
+    ],
+    [
+      "1",
+      "dividend_receivable",
+      "应收股利",
+      {
+        "parent": "othr_receivables",
+        "tags": [
+          "资产","分计"
         ]
       }
     ],
@@ -16,9 +254,9 @@
       "total_current_assets",
       "流动资产合计",
       {
-        "isLeaf": false,
         "tags": [
-          "资产"
+          "资产",
+          "合计"
         ]
       }
     ],
@@ -28,7 +266,8 @@
       "长期股权投资",
       {
         "tags": [
-          "资产"
+          "资产",
+          "合计"
         ]
       }
     ],
@@ -38,7 +277,8 @@
       "递延所得税资产",
       {
         "tags": [
-          "资产"
+          "资产",
+          "合计"
         ]
       }
     ],
@@ -47,9 +287,9 @@
       "total_current_liab",
       "总流动负债",
       {
-        "isLeaf": false,
         "tags": [
-          "负债"
+          "负债",
+          "合计"
         ]
       }
     ],
@@ -58,7 +298,6 @@
       "st_loan",
       "短期借款",
       {
-        "isLeaf": false,
         "tags": [
           "负债"
         ]
@@ -69,7 +308,6 @@
       "noncurrent_liab_due_in1y",
       "一年内到期的长期借款",
       {
-        "isLeaf": false,
         "tags": [
           "负债"
         ]
@@ -80,9 +318,9 @@
       "total_liab",
       "总负债",
       {
-        "isLeaf": false,
         "tags": [
-          "负债"
+          "负债",
+          "合计"
         ]
       }
     ],
@@ -91,9 +329,9 @@
       "total_liab_and_holders_equity",
       "总负债和股东权益",
       {
-        "isLeaf": false,
         "tags": [
-          "权益"
+          "权益",
+          "合计"
         ]
       }
     ],
@@ -102,9 +340,9 @@
       "minority_equity",
       "少数股东权益",
       {
-        "isLeaf": false,
         "tags": [
-          "权益"
+          "权益",
+          "合计"
         ]
       }
     ],
@@ -113,9 +351,9 @@
       "total_holders_equity",
       "净资产",
       {
-        "isLeaf": false,
         "tags": [
-          "权益"
+          "权益",
+          "合计"
         ]
       }
     ],
@@ -124,9 +362,9 @@
       "capital_reserve",
       "资本公积",
       {
-        "isLeaf": false,
         "tags": [
-          "权益"
+          "权益",
+          "叶子"
         ]
       }
     ],
@@ -136,7 +374,8 @@
       "净利润",
       {
         "tags": [
-          "利润"
+          "利润",
+          "叶子"
         ]
       }
     ],
@@ -205,9 +444,9 @@
       "total_noncurrent_assets",
       "非流动资产合计",
       {
-        "isLeaf": false,
         "tags": [
-          "资产"
+          "资产",
+          "合计"
         ]
       }
     ],
@@ -216,9 +455,9 @@
       "total_noncurrent_liab",
       "非流动负债合计",
       {
-        "isLeaf": false,
         "tags": [
-          "负债"
+          "负债",
+          "合计"
         ]
       }
     ],
@@ -227,9 +466,9 @@
       "bp_and_ap",
       "应付票据及应付账款",
       {
-        "isLeaf": false,
         "tags": [
-          "负债"
+          "负债",
+          "合计"
         ]
       }
     ],
@@ -238,8 +477,16 @@
       "total_quity_atsopc",
       "归属于上市股东的净资产",
       {
-        "isLeaf": false
-      },
+        "tags": [
+          "权益",
+          "合计"
+        ]
+      }
+    ],
+    [
+      "1",
+      "treasury_stock",
+      "库存股",
       {
         "tags": [
           "权益"
@@ -249,7 +496,12 @@
     [
       "1",
       "lt_loan",
-      "长期借款"
+      "长期借款",
+      {
+        "tags": [
+          "负债"
+        ]
+      }
     ],
     [
       "1",
@@ -275,14 +527,40 @@
       "预收款项",
       {
         "tags": [
-          "负债"
+          "负债","流动"
+        ]
+      }
+    ],
+
+    [
+      "1",
+      "other_eq_ins_invest",
+      "其他权益工具投资",
+      {
+        "tags": [
+          "资产","非流动"
         ]
       }
     ],
     [
       "1",
       "contract_liabilities",
-      "合同负债"
+      "合同负债",
+      {
+        "tags": [
+          "负债"
+        ]
+      }
+    ],
+    [
+      "1",
+      "earned_surplus",
+      "盈余公积",
+      {
+        "tags": [
+          "权益"
+        ]
+      }
     ],
     [
       "",

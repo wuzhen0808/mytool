@@ -3,6 +3,7 @@ package mytool.backend.service.impl
 import groovy.transform.CompileStatic
 import mytool.backend.ChartData
 import mytool.backend.ChartModel
+import mytool.backend.service.ChartModels
 import mytool.backend.service.ChartService
 import mytool.backend.service.DataService
 import mytool.collector.MetricSettings
@@ -30,6 +31,8 @@ class ChartServiceImpl implements ChartService {
     @Autowired
     MetricSettings metricSettings
 
+    @Autowired
+    ChartModels chartModels
     MetricsContext metricsContext
 
     Date[] dates = EnvUtil.newDateOfYearsLastDay(2022..2013);
@@ -42,7 +45,7 @@ class ChartServiceImpl implements ChartService {
     @Override
     ChartData getChartDataById(String corpId, String chartId) {
 
-        ChartModel chartModel = ChartModel.getChartModelMap().get(chartId)
+        ChartModel chartModel = chartModels.getChartModelMap().get(chartId)
         if (!chartModel) {
             throw new RtException("no such chart:${chartId}")
         }
@@ -54,15 +57,23 @@ class ChartServiceImpl implements ChartService {
         ChartData chartData
         switch (chartModel.provider) {
             case "metric":
-                return getChartDataByMetric(corpId, chartModel)
+                chartData = getChartDataByMetric(corpId, chartModel)
+                break
             case "report":
-                return getChartDataByReport(corpId, chartModel)
+                chartData = getChartDataByReport(corpId, chartModel)
+                break
             default:
                 throw new RuntimeException("not supported:${chartModel.provider}")
         }
         return chartData
     }
 
+    /**
+     * 通过指定一个指标名称，构造一个柱状图
+     * @param corpId
+     * @param chartModel
+     * @return
+     */
     ChartData getChartDataByMetric(String corpId, ChartModel chartModel) {
 
         MetricRecord[] records = metricsContext.resolveMetrics(chartModel.metric, corpId, dates)
@@ -70,7 +81,7 @@ class ChartServiceImpl implements ChartService {
 
         List<String> lablels = (dates.collect({ new SimpleDateFormat("yyyyMMdd").format(it) }))
         Map<String, BigDecimal[]> map = buildData(corpId, dates, records)
-
+        map = translateMetricNameToAlias(map)
         return new ChartData.Builder()
                 .type("bar")
                 .labels(lablels)
@@ -78,6 +89,12 @@ class ChartServiceImpl implements ChartService {
                 .build()
     }
 
+    /**
+     * 通过查询一个报表中某些指标，构造一个包含多个指标序列的线图
+     * @param corpId
+     * @param chartModel
+     * @return
+     */
     ChartData getChartDataByReport(String corpId, ChartModel chartModel) {
         ReportType reportType = ReportType.get("1")
         List<MetricRecord> records = dataService.getReportDataAccessor().queryReport(reportType, corpId, dates)
@@ -88,33 +105,61 @@ class ChartServiceImpl implements ChartService {
 
 
         Map<String, BigDecimal[]> mapPercentage = buildPercentage(map)
-        Set<String> remainKeySet = getMetricsAnyHigherThan(mapPercentage, 0.01 as BigDecimal)
 
         if (chartModel.percentage) {
+            //显示百分比，而不是原始数据
             map = mapPercentage
         }
 
-        map.removeAll { k, v ->
-            !remainKeySet.contains(k)
-        }
-
-        //remove non-leaf
-        map.removeAll { k, v ->
-            MetricSettings.Options options = metricSettings.getOptions(k)
-            if (options && !options.isLeaf) {
-                return true
+        if (chartModel.removeLowLines != null) {
+            //移除数值太低的某些序列，保留较大的那些序列
+            Set<String> remainKeySet = getMetricsAnyHigherThan(map, chartModel.removeLowLines)
+            map.removeAll { k, v ->
+                !remainKeySet.contains(k)
             }
-            return false
         }
 
+        //根据标签过滤
+        map.removeAll { k, v ->
+            return !isTagMatch(k, chartModel.metrics?.tags, chartModel.metrics?.notTags)
+        }
 
+        map = translateMetricNameToAlias(map)
         return new ChartData.Builder()
                 .type("line")
                 .labels(lablels)
-                .stacked(true)
-                .fill(true)
+                .stacked(chartModel.stacked)
+                .fill(chartModel.fill)
                 .data(map)
                 .build()
+    }
+
+    Map<String, BigDecimal[]> translateMetricNameToAlias(Map<String, BigDecimal[]> map) {
+        return map.collectEntries {
+            String alias = metricSettings.getFirstAlias(it.key)
+            [alias ?: it.key, it.value]
+        }
+    }
+
+    boolean isTagMatch(String metric, Set<String> chartTags, Set<String> chartNotTags) {
+        MetricSettings.Attributes attributes = metricSettings.getAttributes(metric)
+        Set<String> metricsTags = attributes?.tags
+
+        if (chartTags != null) {
+            if (metricsTags == null || !metricsTags.containsAll(chartTags)) {
+                return false
+            }
+        }
+        if (chartNotTags != null) {
+            if (metricsTags != null) {
+                for (String tag : metricsTags) {
+                    if (chartNotTags.contains(tag)) {
+                        return false
+                    }
+                }
+            }
+        }
+        return true
     }
 
     Map<String, BigDecimal[]> buildData(String corpId, Date[] dates, MetricRecord[] records) {
