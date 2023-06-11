@@ -3,9 +3,8 @@ package mytool.collector.metrics
 import groovy.transform.CompileStatic
 import mytool.collector.MetricProvider
 import mytool.collector.MetricsContext
-import mytool.collector.ReportType
-import mytool.collector.database.ReportDataAccessor
 import mytool.collector.database.MetricRecord
+import mytool.collector.database.ReportDataAccessor
 
 @CompileStatic
 class DefaultMetricsContext extends MetricsContext {
@@ -13,6 +12,7 @@ class DefaultMetricsContext extends MetricsContext {
     private Map<String, MetricProvider> providerMap = [:]
     private MetricProvider defaultProvider
     ReportDataAccessor reportDataAccessor
+
     DefaultMetricsContext(ReportDataAccessor reportDataAccessor) {
         this.reportDataAccessor = reportDataAccessor
         this.defaultProvider = new DefaultMetricProvider(reportDataAccessor: reportDataAccessor)
@@ -31,8 +31,4 @@ class DefaultMetricsContext extends MetricsContext {
 
     }
 
-    @Override
-    List<String> getAllMetricsByReport(ReportType reportType) {
-        return reportDataAccessor.getAllMetricsByReport(reportType)
-    }
 }

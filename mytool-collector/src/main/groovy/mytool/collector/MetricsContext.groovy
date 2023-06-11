@@ -8,8 +8,6 @@ abstract class MetricsContext {
 
     abstract MetricRecord[] resolveMetrics(String metric, String corpId, Date[] dates)
 
-    abstract List<String> getAllMetricsByReport(ReportType reportType)
-
     BigDecimal[] resolveMetricsValue(String metric, String corpId, Date[] dates) {
         resolveMetrics(metric, corpId, dates).collect({
             it.value

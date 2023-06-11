@@ -5,15 +5,14 @@ import mytool.backend.ChartData
 import mytool.backend.ChartModel
 import mytool.backend.service.ChartService
 import mytool.backend.service.DataService
+import mytool.collector.MetricSettings
 import mytool.collector.MetricType
-import mytool.collector.MetricTypes
 import mytool.collector.MetricsContext
 import mytool.collector.ReportType
 import mytool.collector.RtException
 import mytool.collector.database.MetricRecord
 import mytool.collector.metrics.DefaultMetricsContext
 import mytool.collector.util.EnvUtil
-import mytool.parser.formula.BigDecimalCalculator
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
@@ -27,6 +26,9 @@ class ChartServiceImpl implements ChartService {
 
     @Autowired
     DataService dataService
+
+    @Autowired
+    MetricSettings metricSettings
 
     MetricsContext metricsContext
 
@@ -98,7 +100,7 @@ class ChartServiceImpl implements ChartService {
 
         //remove non-leaf
         map.removeAll { k, v ->
-            MetricTypes.Options options = MetricTypes.getOptions(k)
+            MetricSettings.Options options = metricSettings.getOptions(k)
             if (options && !options.isLeaf) {
                 return true
             }

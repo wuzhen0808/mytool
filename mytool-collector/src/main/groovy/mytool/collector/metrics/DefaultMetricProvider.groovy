@@ -14,6 +14,7 @@ class DefaultMetricProvider extends MetricProvider {
     private ReportDataAccessor reportDataAccessor
     private FormulaEvaluator<BigDecimal> formulaEvaluator
     private MetricResolver<BigDecimal> resolver
+    private MetricSettings metricTypeResolver
 
     DefaultMetricProvider() {
         formulaEvaluator = new FormulaEvaluator<>()
@@ -34,17 +35,6 @@ class DefaultMetricProvider extends MetricProvider {
         return doCalculate(metricsContext, null, metric, corpId, dates)
     }
 
-    CupFormula resolveFormula(String alias) {
-        Set<String> aliases = MetricTypes.getAliases(alias)
-        for (String aliasI : aliases) {
-            CupFormula formula = MetricTypes.formulaMap.get(aliasI)
-            if (formula) {
-                return formula
-            }
-        }
-        return null
-    }
-
     BigDecimal[] doCalculate(MetricsContext metricsContext, MetricType metricType, String metric, String corpId, Date[] dates) {
 
         if (metricType) {
@@ -52,13 +42,13 @@ class DefaultMetricProvider extends MetricProvider {
         }
 
         //find metric type by alias
-        MetricType metricType1 = MetricTypes.getMetricByAlias(metric, false)
+        MetricType metricType1 = metricTypeResolver.getMetricByAlias(metric, false)
         if (metricType1) {
             return reportDataAccessor.getReportValues(metricType1.reportType, corpId, dates, metricType1.name)
         }
 
         //find formula
-        CupFormula formula = MetricTypes.formulaMap.get(metric)
+        CupFormula formula = metricTypeResolver.getFormula(metric)
         if (!formula) {
             throw new RtException("cannot resolve metric report type or formula by alias:${metric}")
         }

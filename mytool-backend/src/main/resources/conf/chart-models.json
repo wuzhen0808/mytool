@@ -77,18 +77,26 @@
     },
     {
       "id": "202",
+      "name": "资产结构",
       "type": "line",
       "provider": "report",
       "report": "1",
+      "metrics": {
+        "tag": "资产"
+      },
       "remove-low-lines": true,
       "stacked": true,
       "style": "width: 1000px; height: 1000px"
     },
     {
       "id": "203",
+      "name": "负债结构",
       "type": "line",
       "provider": "report",
       "report": "1",
+      "metrics": {
+        "tag": "负债"
+      },
       "remove-low-lines": true,
       "percentage": true,
       "stacked": true,

@@ -1,45 +1,70 @@
-package mytool.collector
+package mytool.collector.impl
 
 import groovy.json.JsonSlurper
 import groovy.transform.CompileStatic
+import mytool.collector.MetricSettings
+import mytool.collector.MetricType
+import mytool.collector.ReportType
+import mytool.collector.RtException
 import mytool.parser.formula.CupFormula
 import mytool.parser.formula.FormulaParser
 import mytool.util.IoUtil
-
-import javax.swing.text.html.Option
+import org.springframework.stereotype.Component
 
 @CompileStatic
-class MetricTypes {
+@Component
+class MetricSettingsImpl implements MetricSettings {
 
-    static class Options {
-        boolean isLeaf
-        BigDecimal defaultValue
-    }
 
-    static Map<String, MetricType> aliasMap = [:]
+    Map<String, MetricType> aliasMap = [:]
 
-    static Map<MetricType, Set<String>> reverseAliasMap = [:]
+    Map<MetricType, Set<String>> reverseAliasMap = [:]
 
-    static Map<ReportType, Map<String, MetricType>> metricTypes = [:]
+    Map<ReportType, Map<String, MetricType>> metricTypes = [:]
 
-    static Map<String, CupFormula> formulaMap = [:]
+    Map<String, CupFormula> formulaMap = [:]
 
-    static Map<String, Options> optionsMap = [:]
+    Map<String, Options> optionsMap = [:]
 
-    static {
+    MetricSettingsImpl() {
         loadFormulas()
         loadMetrics()
     }
 
-    static Options getOptions(String metric) {
+    @Override
+    Options getOptions(String metric) {
         return optionsMap.get(metric)
     }
 
-    static BigDecimal getDefaultValue(String metric) {
+    @Override
+    BigDecimal getDefaultValue(String metric) {
         return optionsMap.get(metric)?.defaultValue
     }
 
-    private static void loadMetrics() {
+    @Override
+    CupFormula getFormula(String metric) {
+        return formulaMap.get(metric)
+    }
+
+    @Override
+    MetricType getMetricByAlias(String alias, boolean force) {
+        MetricType metricType = aliasMap.get(alias)
+        if (force && !metricType) {
+            throw new RtException("no metric type with alias:${alias}")
+        }
+        return metricType
+    }
+
+    @Override
+    Set<String> getAliases(String alias) {
+        MetricType metricType = getMetricByAlias(alias, false)
+        if (metricType) {
+            return reverseAliasMap.get(metricType)
+        }
+        return null
+    }
+
+    void loadMetrics() {
         Map map = new JsonSlurper().parse(IoUtil.getResourceAsReader(MetricType, "metric-types.json")) as Map
 
         List metrics = map["metrics"] as List
@@ -75,13 +100,14 @@ class MetricTypes {
                 }
                 //
                 options.isLeaf = props.get("isLeaf") as boolean
+                options.tags = props.get("tags") as Set<String>
             }
             add(reportType, name, options, alias as String[])
 
         }
     }
 
-    private static void loadFormulas() {
+    void loadFormulas() {
         Map map = new JsonSlurper().parse(IoUtil.getResourceAsReader(MetricType, "formulas.json")) as Map
         (map["formulas"] as List).each {
             String formulaS = it
@@ -90,7 +116,7 @@ class MetricTypes {
         }
     }
 
-    private static MetricType add(ReportType reportType, String name, Options options, String... alias) {
+    private MetricType add(ReportType reportType, String name, Options options, String... alias) {
         MetricType metricType = MetricType.valueOf(reportType, name)
         Map<String, MetricType> map2 = metricTypes.get(reportType)
         if (!map2) {
@@ -112,21 +138,4 @@ class MetricTypes {
         optionsMap.put(metricType as String, options)
         return metricType
     }
-
-    static MetricType getMetricByAlias(String alias, boolean force) {
-        MetricType metricType = aliasMap.get(alias)
-        if (force && !metricType) {
-            throw new RtException("no metric type with alias:${alias}")
-        }
-        return metricType
-    }
-
-    static Set<String> getAliases(String alias) {
-        MetricType metricType = getMetricByAlias(alias, false)
-        if (metricType) {
-            return reverseAliasMap.get(metricType)
-        }
-        return null
-    }
-
 }

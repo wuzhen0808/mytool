@@ -2,7 +2,6 @@ package mytool.collector.database
 
 
 import groovy.transform.CompileStatic
-import mytool.util.jdbc.ConnectionProvider
 import org.h2.jdbcx.JdbcConnectionPool
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

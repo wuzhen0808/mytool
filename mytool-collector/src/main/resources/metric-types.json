@@ -5,7 +5,10 @@
       "total_assets",
       "总资产",
       {
-        "isLeaf": false
+        "isLeaf": false,
+        "tags": [
+          "资产"
+        ]
       }
     ],
     [
@@ -13,7 +16,30 @@
       "total_current_assets",
       "流动资产合计",
       {
-        "isLeaf": false
+        "isLeaf": false,
+        "tags": [
+          "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "lt_equity_invest",
+      "长期股权投资",
+      {
+        "tags": [
+          "资产"
+        ]
+      }
+    ],
+    [
+      "1",
+      "dt_assets",
+      "递延所得税资产",
+      {
+        "tags": [
+          "资产"
+        ]
       }
     ],
     [
@@ -21,7 +47,32 @@
       "total_current_liab",
       "总流动负债",
       {
-        "isLeaf": false
+        "isLeaf": false,
+        "tags": [
+          "负债"
+        ]
+      }
+    ],
+    [
+      "1",
+      "st_loan",
+      "短期借款",
+      {
+        "isLeaf": false,
+        "tags": [
+          "负债"
+        ]
+      }
+    ],
+    [
+      "1",
+      "noncurrent_liab_due_in1y",
+      "一年内到期的长期借款",
+      {
+        "isLeaf": false,
+        "tags": [
+          "负债"
+        ]
       }
     ],
     [
@@ -29,7 +80,10 @@
       "total_liab",
       "总负债",
       {
-        "isLeaf": false
+        "isLeaf": false,
+        "tags": [
+          "负债"
+        ]
       }
     ],
     [
@@ -37,7 +91,21 @@
       "total_liab_and_holders_equity",
       "总负债和股东权益",
       {
-        "isLeaf": false
+        "isLeaf": false,
+        "tags": [
+          "权益"
+        ]
+      }
+    ],
+    [
+      "1",
+      "minority_equity",
+      "少数股东权益",
+      {
+        "isLeaf": false,
+        "tags": [
+          "权益"
+        ]
       }
     ],
     [
@@ -45,50 +113,102 @@
       "total_holders_equity",
       "净资产",
       {
-        "isLeaf": false
+        "isLeaf": false,
+        "tags": [
+          "权益"
+        ]
+      }
+    ],
+    [
+      "1",
+      "capital_reserve",
+      "资本公积",
+      {
+        "isLeaf": false,
+        "tags": [
+          "权益"
+        ]
       }
     ],
     [
       "2",
       "net_profit",
-      "净利润"
+      "净利润",
+      {
+        "tags": [
+          "利润"
+        ]
+      }
     ],
     [
       "1",
       "payroll_payable",
-      "应付职工薪酬"
+      "应付职工薪酬",
+      {
+        "tags": [
+          "负债"
+        ]
+      }
     ],
     [
       "1",
       "tax_payable",
-      "应交税费"
+      "应交税费",
+      {
+        "tags": [
+          "负债"
+        ]
+      }
     ],
     [
       "1",
       "bill_payable",
-      "应付票据"
+      "应付票据",
+      {
+        "tags": [
+          "负债"
+        ]
+      }
     ],
     [
       "1",
       "accounts_payable",
-      "应付账款"
+      "应付账款",
+      {
+        "tags": [
+          "负债"
+        ]
+      }
     ],
     [
       "1",
       "othr_current_liab",
-      "其他流动负债"
+      "其他流动负债",
+      {
+        "tags": [
+          "负债"
+        ]
+      }
     ],
     [
       "1",
       "othr_payables",
-      "其他应付款"
+      "其他应付款",
+      {
+        "tags": [
+          "负债"
+        ]
+      }
     ],
     [
       "1",
       "total_noncurrent_assets",
       "非流动资产合计",
       {
-        "isLeaf": false
+        "isLeaf": false,
+        "tags": [
+          "资产"
+        ]
       }
     ],
     [
@@ -96,7 +216,10 @@
       "total_noncurrent_liab",
       "非流动负债合计",
       {
-        "isLeaf": false
+        "isLeaf": false,
+        "tags": [
+          "负债"
+        ]
       }
     ],
     [
@@ -104,7 +227,10 @@
       "bp_and_ap",
       "应付票据及应付账款",
       {
-        "isLeaf": false
+        "isLeaf": false,
+        "tags": [
+          "负债"
+        ]
       }
     ],
     [
@@ -113,6 +239,11 @@
       "归属于上市股东的净资产",
       {
         "isLeaf": false
+      },
+      {
+        "tags": [
+          "权益"
+        ]
       }
     ],
     [
@@ -123,7 +254,12 @@
     [
       "1",
       "bond_payable",
-      "应付债券"
+      "应付债券",
+      {
+        "tags": [
+          "负债"
+        ]
+      }
     ],
     [
       "1",
@@ -136,7 +272,12 @@
     [
       "1",
       "pre_receivable",
-      "预收款项"
+      "预收款项",
+      {
+        "tags": [
+          "负债"
+        ]
+      }
     ],
     [
       "1",

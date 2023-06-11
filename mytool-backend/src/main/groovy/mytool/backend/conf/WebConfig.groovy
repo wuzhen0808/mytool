@@ -1,4 +1,4 @@
-package mytool.backend
+package mytool.backend.conf
 
 import groovy.transform.CompileStatic
 import org.springframework.context.annotation.Configuration

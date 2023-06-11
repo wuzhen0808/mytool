@@ -8,7 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
-@ComponentScan("mytool.backend")
+@ComponentScan("mytool.backend.conf")
+@ComponentScan("mytool.backend.controller")
+@ComponentScan("mytool.backend.service.impl")
+@ComponentScan("mytool.collector.impl")
 class MyToolApp {
     static void main(String[] args) {
         SpringApplication.run(MyToolApp.class, args)

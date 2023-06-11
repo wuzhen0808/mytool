@@ -9,12 +9,10 @@ import mytool.collector.database.DBUpgrader_001
 import mytool.collector.database.DBUpgrader_002
 import mytool.collector.database.DBUpgrader_003
 import mytool.collector.database.DataVersion
-import mytool.collector.database.H2ConnectionSupplier
 import mytool.collector.database.ReportDataAccessor
 import mytool.collector.database.ReportTypeAccessor
 import mytool.collector.database.Tables
-import mytool.collector.util.EnvUtil
-import mytool.util.jdbc.ConnectionProvider
+import mytool.util.jdbc.ConnectionSupplier
 import mytool.util.jdbc.JdbcAccessTemplate
 import mytool.util.jdbc.ResultSetProcessor
 import org.slf4j.Logger
@@ -36,7 +34,11 @@ class DataServiceImpl implements DataService {
 
     @Autowired
     ConfigService configService
+
+    @Autowired
     ReportTypeAccessor reportTypeAccessor
+
+    @Autowired
     ReportDataAccessor reportDataAccessor
 
     private static List<DBUpgrader> upgraderList = new ArrayList<DBUpgrader>();
@@ -51,19 +53,14 @@ class DataServiceImpl implements DataService {
 
     private DataVersion dataVersion;
 
+    @Autowired
     private JdbcAccessTemplate template
-    Supplier<Connection> pool
+
+    @Autowired
+    private ConnectionSupplier pool
 
     @PostConstruct
     void init() {
-        File dbHome = configService.getDataFolder()
-        String dbName = EnvUtil.getDbName()
-        String dbUrl = "jdbc:h2:" + dbHome.getAbsolutePath().replace('\\', '/') + "/" + dbName;
-        LOG.info("dbUrl:" + dbUrl);
-        pool = H2ConnectionSupplier.newInstance(dbUrl, "sa", "sa");
-        template = new JdbcAccessTemplate()
-        reportTypeAccessor = new ReportTypeAccessor(pool, template)
-        reportDataAccessor = new ReportDataAccessor(pool, template, reportTypeAccessor);
         doInit()
     }
 
