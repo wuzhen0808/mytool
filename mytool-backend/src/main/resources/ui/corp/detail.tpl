@@ -7,7 +7,7 @@ layout 'ui/layout.tpl',
         title("$title")
     },
     bodyContents: contents {
-        h2 ("CorpId: $corpId")
+        h2 ("$corpName($corpId)")
 
         charts.each { chart ->
             if(chart.enabled) {

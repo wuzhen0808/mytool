@@ -178,14 +178,14 @@
           "成本结构"
         ]
       },
-      "removeLowLines": 0.001,
+      "removeLowLines": null,
       "percentage": false,
       "percentageBy": "total_revenue",
       "stacked": true
     },
     {
       "id": "303",
-      "name": "损益结构(百分比)",
+      "name": "成本结构(百分比)",
       "type": "line",
       "provider": "report",
       "report": "2",
@@ -194,7 +194,7 @@
           "成本结构"
         ]
       },
-      "removeLowLines": 0.001,
+      "removeLowLines": null,
       "percentage": true,
       "percentageBy": "total_revenue",
       "stacked": true
