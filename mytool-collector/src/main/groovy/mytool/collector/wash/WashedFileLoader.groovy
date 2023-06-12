@@ -84,6 +84,8 @@ class WashedFileLoader {
 
     private boolean interrupted;
 
+    Set<String> corpIds
+
     WashedFileLoader() {
 
         processMap.put("zcfzb", new DefaultWashedFileHandler(ReportType.ZCFZB))
@@ -99,15 +101,44 @@ class WashedFileLoader {
         processMap.put("cash_flow", new DefaultWashedFileHandler(ReportType.XJLLB))
     }
 
+    WashedFileLoader corpIds(Collection<String> corpIds) {
+        if (corpIds == null) {
+            this.corpIds = null
+        } else {
+            if (this.corpIds == null) {
+                this.corpIds = []
+            }
+            this.corpIds.addAll(corpIds)
+        }
+        return this
+    }
+
+    boolean isAcceptFile(File file, String[] fnames) {
+        if (fnames.length != 3) {
+            return false
+        }
+        String corpId = fnames[0]
+        if (this.corpIds != null) {
+            if (!this.corpIds.contains(corpId)) {
+                return false
+            }
+        }
+        return true
+
+    }
+
     void load(File dir, WashedFileLoadContext xContext) {
 
         if (dir.isFile()) {
             File f = dir;
             String fname = f.getName();
             String[] fnames = fname.split("\\.");
+            if (!isAcceptFile(f, fnames)) {
+                return
+            }
 
-            if (fnames[fnames.length - 1].equals("csv")) {
-                String ftype = fnames[fnames.length - 2];
+            if (fnames[2].equals("csv")) {
+                String ftype = fnames[1];
                 WashedFileHandler fp = processMap.get(ftype);
                 if (fp == null) {
                     LOG.warn("no processor found for file:" + f.getAbsolutePath() + ",type:" + ftype);

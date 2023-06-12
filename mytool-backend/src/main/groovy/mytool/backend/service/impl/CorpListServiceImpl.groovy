@@ -12,9 +12,9 @@ import java.nio.charset.Charset
 @CompileStatic
 class CorpListServiceImpl implements CorpListService {
 
-    private static String shCsv = "d:\\openstock\\sse\\sse.corplist.csv"
+    private static String shCsv = "d:\\openstock\\corp-ids\\sse.corplist.csv"
 
-    private static String szCsv = "d:\\openstock\\szse\\szse.corplist.csv"
+    private static String szCsv = "d:\\openstock\\corp-ids\\szse.corplist.csv"
     static class CorpInfo {
         String id
         String name
@@ -53,7 +53,7 @@ class CorpListServiceImpl implements CorpListService {
     void addShenzhen() {
         Charset cs = Charset.forName("UTF-8")
         Reader fr = new InputStreamReader(new FileInputStream(szCsv), cs)
-        List<String[]> corpL = CsvUtil.loadColumnsFromCsvFile(fr, ["A股代码", "A股简称"] as String[], '\t' as char)
+        List<String[]> corpL = CsvUtil.loadColumnsFromCsvFile(fr, ["A股代码", "A股简称"] as String[], ',' as char)
         addAll(corpL)
     }
 

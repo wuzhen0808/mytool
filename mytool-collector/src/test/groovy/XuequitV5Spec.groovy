@@ -31,7 +31,7 @@ class XuequitV5Spec extends Specification {
         XQV5DataWasher w = new XQV5DataWasher(folder, Charset.forName("UTF-8"), folder2);
         w.types(XQV5DataCollector.balance, XQV5DataCollector.income, XQV5DataCollector.cash_flow)
         w.refresh(true)
-        w.code("600927")
+        w.corpIds("600927")
         w.run()
         expect:
         1 == 1

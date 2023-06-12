@@ -4,5 +4,5 @@ interface ConfigService {
 
     File getDataFolder(String ... childPath)
 
-    String getXueQiuToken()
+    String getXueQiuCookies()
 }

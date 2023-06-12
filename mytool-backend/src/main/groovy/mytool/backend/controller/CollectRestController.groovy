@@ -3,6 +3,7 @@ package mytool.backend.controller
 import groovy.transform.CompileStatic
 import mytool.backend.service.ConfigService
 import mytool.backend.service.CorpListService
+import mytool.backend.service.DataCollectService
 import mytool.backend.service.DataService
 import mytool.backend.service.TaskService
 import mytool.collector.database.ReportDataAccessor
@@ -12,6 +13,7 @@ import mytool.collector.xueqiu.v5.XQV5DataWasher
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 import java.nio.charset.Charset
@@ -37,6 +39,9 @@ class CollectRestController {
     @Autowired
     DataService dataService
 
+    @Autowired
+    DataCollectService dataCollectService
+
     @GetMapping("taskInfos")
     List<TaskService.TaskInfo> taskInfoList() {
         return taskService.taskInfoList()
@@ -49,15 +54,7 @@ class CollectRestController {
 
     @GetMapping("collect")
     TaskService.TaskInfo collect() {
-        File folder = configService.getDataFolder("xueqiuv5", "raw")
-        XQV5DataCollector dc = new XQV5DataCollector(folder)
-        dc.cookie(configService.getXueQiuToken())
-        dc.types(XQV5DataCollector.balance, XQV5DataCollector.income, XQV5DataCollector.cash_flow)
-        dc.pauseInterval(1 * 1000)
-        List<String> corpCodeL = this.corpListService.corpList()
-        dc.corpCodes(corpCodeL)
-        return taskService.addTask("collect", dc)
-
+        return dataCollectService.collectAll(null)
     }
 
     @GetMapping("wash")
@@ -78,6 +75,10 @@ class CollectRestController {
         return taskService.addTask("load", {
             new WashedFileLoader().load(folder, flc);
         })
+    }
+    @GetMapping("refresh")
+    void refresh(@RequestParam(name = "corpId", required = true) String corpId) {
+        dataCollectService.refresh(corpId)
     }
 
 

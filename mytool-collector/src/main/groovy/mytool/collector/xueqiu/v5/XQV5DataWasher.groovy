@@ -22,6 +22,7 @@ class XQV5DataWasher extends AbstractDataWasher {
 
     @Override
     protected boolean isAcceptFile(File file) {
+
         return file.getName().endsWith(".json")
     }
 

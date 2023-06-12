@@ -1,13 +1,10 @@
-package mytool.collector;
+package mytool.collector
 
-import au.com.bytecode.opencsv.CSVWriter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import au.com.bytecode.opencsv.CSVWriter
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
-import java.io.*;
-import java.nio.charset.Charset;
-import java.util.HashSet;
-import java.util.Set;
+import java.nio.charset.Charset
 
 /**
  * Convert original file format to the target format acceptable.
@@ -31,20 +28,18 @@ public abstract class AbstractDataWasher implements Interruptable, Runnable {
 
     Set<String> codeSet;
 
-    public AbstractDataWasher(File sourceDir, Charset sourceCharSet, File targetDir) {
+    AbstractDataWasher(File sourceDir, Charset sourceCharSet, File targetDir) {
         this.sourceDir = sourceDir;
         this.targetDir = targetDir;
         this.sourceCharSet = sourceCharSet;
     }
 
-    public AbstractDataWasher code(String... code) {
-        if (code.length != 0) {
-            if (codeSet == null) {
-                codeSet = new HashSet<>();
-            }
-            for (String codeI : code) {
-                codeSet.add(codeI);
-            }
+    AbstractDataWasher corpIds(Collection<String> corpIds) {
+        if (corpIds == null) {
+            this.codeSet == null
+        } else {
+            codeSet = []
+            codeSet.addAll(corpIds);
         }
         return this;
     }
@@ -168,7 +163,7 @@ public abstract class AbstractDataWasher implements Interruptable, Runnable {
 
         Reader fr = new InputStreamReader(new FileInputStream(file), this.sourceCharSet);
 
-        CSVWriter w = new CSVWriter(new OutputStreamWriter(new FileOutputStream(output), Charset.forName("UTF-8")), ',',
+        CSVWriter w = new CSVWriter(new OutputStreamWriter(new FileOutputStream(output), Charset.forName("UTF-8")), ',' as char,
                 CSVWriter.NO_QUOTE_CHARACTER);
         try {
             this.process(file, type, code, fr, w);

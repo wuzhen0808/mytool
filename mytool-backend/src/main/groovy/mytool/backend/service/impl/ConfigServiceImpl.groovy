@@ -1,13 +1,22 @@
 package mytool.backend.service.impl
 
+import groovy.json.JsonSlurper
 import mytool.backend.service.ConfigService
 import org.springframework.stereotype.Component
+
+import javax.annotation.PostConstruct
 
 @Component
 class ConfigServiceImpl implements ConfigService {
 
     private String dataFolderPath = "d:\\openstock"
+    private String confFilePath = "d:\\openstock\\conf"
+    private Map conf
 
+    @PostConstruct
+    void init(){
+        conf = new JsonSlurper().parse(new File(confFilePath))
+    }
     @Override
     File getDataFolder(String... childPath) {
 
@@ -19,7 +28,7 @@ class ConfigServiceImpl implements ConfigService {
     }
 
     @Override
-    String getXueQiuToken() {
-        return "xq_a_token=0f82d04ce8d5080cc888fa50c97b841494e931dd;"
+    String getXueQiuCookies() {
+        return conf['xueqiu.cookies'] as String
     }
 }
