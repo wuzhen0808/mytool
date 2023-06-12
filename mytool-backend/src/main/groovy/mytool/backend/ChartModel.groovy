@@ -21,6 +21,7 @@ class ChartModel {
     boolean fill
     BigDecimal removeLowLines
     boolean percentage
+    String percentageBy
     String style
 
 

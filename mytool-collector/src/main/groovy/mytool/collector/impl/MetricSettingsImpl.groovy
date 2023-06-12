@@ -80,9 +80,20 @@ class MetricSettingsImpl implements MetricSettings {
     }
 
     void loadMetrics() {
-        Map map = new JsonSlurper().parse(IoUtil.getResourceAsReader(MetricType, "metric-types.json")) as Map
+        doLoadMetrics("metric-types.json")
+    }
 
-        List metrics = map["metrics"] as List
+    void doLoadMetrics(String resource) {
+        Map map = new JsonSlurper().parse(IoUtil.getResourceAsReader(MetricType, resource)) as Map
+        def includes = map.includes as List<String>
+
+        if (includes) {
+            includes.each {
+                doLoadMetrics(it)
+            }
+        }
+
+        List metrics = map.metrics as List
         for (int i = 0; i < metrics.size(); i++) {
             Object[] metricRow = metrics.get(i) as Object[]
             String type = metricRow[0] as String
@@ -142,7 +153,7 @@ class MetricSettingsImpl implements MetricSettings {
 
         alias.each {
             if (aliasMap.put(it, metricSetting)) {
-                throw new RtException("duplicated metric alas:${it}")
+                throw new RtException("duplicated metric alas:${it}, type:${metricSetting.metricType}")
             }
         }
 

@@ -1,10 +1,13 @@
 {
   "enabled": [
-    "201",
-    "202",
-    "203",
-    "204",
-    "205"
+    "201x",
+    "202x",
+    "203x",
+    "204x",
+    "205x",
+    "301",
+    "302",
+    "303"
   ],
   "default": {
     "style": "width: 1000px; border:1px solid black;"
@@ -110,6 +113,7 @@
       },
       "removeLowLines": 0,
       "percentage": true,
+      "percentageBy": "total_assets",
       "stacked": true
     },
     {
@@ -145,6 +149,54 @@
       },
       "removeLowLines": 0.001,
       "percentage": true,
+      "percentageBy": "total_assets",
+      "stacked": true
+    },
+    {
+      "id": "301",
+      "name": "损益表",
+      "type": "line",
+      "provider": "report",
+      "report": "2",
+      "metrics": {
+        "notTags": [
+          "合计"
+        ]
+      },
+      "removeLowLines": 0.001,
+      "percentage": false,
+      "stacked": false
+    },
+    {
+      "id": "302",
+      "name": "成本结构",
+      "type": "line",
+      "provider": "report",
+      "report": "2",
+      "metrics": {
+        "tags": [
+          "成本结构"
+        ]
+      },
+      "removeLowLines": 0.001,
+      "percentage": false,
+      "percentageBy": "total_revenue",
+      "stacked": true
+    },
+    {
+      "id": "303",
+      "name": "损益结构(百分比)",
+      "type": "line",
+      "provider": "report",
+      "report": "2",
+      "metrics": {
+        "tags": [
+          "成本结构"
+        ]
+      },
+      "removeLowLines": 0.001,
+      "percentage": true,
+      "percentageBy": "total_revenue",
       "stacked": true
     }
   ]

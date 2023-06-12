@@ -96,17 +96,16 @@ class ChartServiceImpl implements ChartService {
      * @return
      */
     ChartData getChartDataByReport(String corpId, ChartModel chartModel) {
-        ReportType reportType = ReportType.get("1")
+        ReportType reportType = ReportType.get(chartModel.report)
         List<MetricRecord> records = dataService.getReportDataAccessor().queryReport(reportType, corpId, dates)
         Date[] dates = MetricRecord.collectDates(records)
 
         List<String> lablels = (dates.collect({ new SimpleDateFormat("yyyyMMdd").format(it) }))
         Map<String, BigDecimal[]> map = buildData(corpId, dates, records as MetricRecord[])
 
-
-        Map<String, BigDecimal[]> mapPercentage = buildPercentage(map)
-
         if (chartModel.percentage) {
+            def percentageBy = MetricType.valueOf(reportType, chartModel.percentageBy)
+            Map<String, BigDecimal[]> mapPercentage = buildPercentage(map, percentageBy)
             //显示百分比，而不是原始数据
             map = mapPercentage
         }
@@ -167,10 +166,10 @@ class ChartServiceImpl implements ChartService {
         return map.get(corpId) as Map<String, BigDecimal[]>
     }
 
-    Map<String, BigDecimal[]> buildPercentage(Map<String, BigDecimal[]> map) {
-        BigDecimal[] baseValue = map.get(MetricType.valueOf(ReportType.ZCFZB, "total_assets") as String)
+    Map<String, BigDecimal[]> buildPercentage(Map<String, BigDecimal[]> map, MetricType totalMetric) {
+        BigDecimal[] baseValue = map.get(totalMetric as String)
         if (baseValue == null) {
-            throw new RtException("no baseValue found")
+            throw new RtException("no base value found with total metric:${totalMetric}")
         }
 
         map.collectEntries {

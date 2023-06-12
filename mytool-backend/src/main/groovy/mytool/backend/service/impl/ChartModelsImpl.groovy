@@ -26,7 +26,7 @@ class ChartModelsImpl implements ChartModels {
         Map defaultChart = json.default as Map
 
         chartModels = (json.charts as List<Map>)
-                .collect({Map it ->
+                .collect({ Map it ->
                     Map it2 = [:]
                     it2.putAll(defaultChart)
                     it2.putAll(it)
@@ -56,6 +56,7 @@ class ChartModelsImpl implements ChartModels {
                     if (it2.percentage as Boolean) {
                         chart.percentage = true
                     }
+                    chart.percentageBy = it2.percentageBy as String
 
                     chart.type = it2.type as String
                     chart.style = it2.style as String
