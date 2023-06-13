@@ -4,14 +4,23 @@ layout 'ui/layout.tpl',
         script(src: "/js/lib/jquery.min.js"){}
         script(src: "/js/lib/chart.js"){}
         script(src: "/js/my-lib.js"){}
-        title('${title}')
+        title("${title}")
     },
     bodyContents: contents {
         h2 ('My Tool')
-        recentCorps.each {
-            div() {
-                a(href: "/ui/corp/detail?corpId=${it.id}", target: "_blank", "${it.name}"){
+        input(type: "text", id:"myInput") {
 
+        }
+        button(onClick: "openCorpDetail('myInput')"){
+            yieldUnescaped '跳转到详情'
+        }
+        br(){
+            yieldUnescaped "浏览历史:"
+        }
+        recentCorps.each {corp ->
+            div() {
+                a(href: "/ui/corp/detail?corpId=${corp.id}", target: "_blank"){
+                    yieldUnescaped "${corp.name}(${corp.id})"
                 }
             }
 

@@ -8,6 +8,6 @@ interface RecentCorpService {
 
     List<CorpInfo> getRecentCorps()
 
-    void addRecent(CorpInfo corpInfo)
+    void addRecent(String corpId, String corpName)
 
 }

@@ -15,8 +15,8 @@ class DBUpgrader_004 extends DBUpgrader {
         //create recent corp
         {
             String sql = "create table " + Tables.TN_RECENT_CORP + "("
-            sql += "corpId varchar,"//
             sql += "userId varchar,"//
+            sql += "corpId varchar,"//
             sql += "touched datetime,"//
             sql += "corpName varchar,"//
             sql += "primary key(userId,corpId))"

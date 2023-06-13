@@ -14,6 +14,7 @@ import org.springframework.context.annotation.ComponentScan
 @ComponentScan("mytool.collector.impl")
 class MyToolApp {
     static void main(String[] args) {
+        System.setProperty("file.encoding", "utf8")
         SpringApplication.run(MyToolApp.class, args)
     }
 

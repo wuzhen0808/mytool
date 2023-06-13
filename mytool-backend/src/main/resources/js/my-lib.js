@@ -7,3 +7,8 @@ function loadChart(url, canvasId){
         }
     });
 }
+
+function openCorpDetail(corpIdInputId) {
+    const input = document.getElementById(corpIdInputId)
+    window.open('/ui/corp/detail?corpId='+input.value, '_blank')
+}
