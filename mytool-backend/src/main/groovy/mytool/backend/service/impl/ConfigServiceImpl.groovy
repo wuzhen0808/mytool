@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct
 class ConfigServiceImpl implements ConfigService {
 
     private String dataFolderPath = "d:\\openstock"
-    private String confFilePath = "d:\\openstock\\conf"
+    private String confFilePath = "d:\\openstock\\conf\\mytool.json"
     private Map conf
 
     @PostConstruct

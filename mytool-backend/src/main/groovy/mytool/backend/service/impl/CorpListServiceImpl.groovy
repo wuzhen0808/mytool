@@ -1,6 +1,7 @@
 package mytool.backend.service.impl
 
 import groovy.transform.CompileStatic
+import mytool.backend.CorpInfo
 import mytool.backend.service.CorpListService
 import mytool.collector.util.CsvUtil
 import org.springframework.stereotype.Component
@@ -15,10 +16,6 @@ class CorpListServiceImpl implements CorpListService {
     private static String shCsv = "d:\\openstock\\corp-ids\\sse.corplist.csv"
 
     private static String szCsv = "d:\\openstock\\corp-ids\\szse.corplist.csv"
-    static class CorpInfo {
-        String id
-        String name
-    }
     Map<String, CorpInfo> corpInfoMap = [:]
     List<CorpInfo> corpInfoList = []
 

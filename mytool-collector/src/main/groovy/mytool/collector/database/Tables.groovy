@@ -8,6 +8,7 @@ class Tables {
     public static final String TN_PROPERTY = "property";
     public static final String TN_ALIAS_INFO = "alias_info";
     public static final String TN_CORP_INFO = "corp_info";
+    public static final String TN_RECENT_CORP = "recent_corp"
 
     public static final int REPORT_TABLE_COLUMNS = 1000;
     public static final int REPORT_TABLES = 100;

@@ -1,9 +1,7 @@
-package mytool.collector.database;
+package mytool.collector.database
 
 import groovy.transform.CompileStatic
-import mytool.util.jdbc.JdbcAccessTemplate;
-
-import java.sql.Connection;
+import org.springframework.jdbc.core.JdbcTemplate
 
 @CompileStatic
 public class DBUpgrader_003 extends DBUpgrader {
@@ -13,11 +11,11 @@ public class DBUpgrader_003 extends DBUpgrader {
     }
 
     @Override
-    public void doUpgrade(Connection con, JdbcAccessTemplate t) {
+    public void doUpgrade(JdbcTemplate t) {
         //create corpInfo
         {
             String sql = "drop table " + Tables.TN_CORP_INFO;
-            t.executeUpdate(con, sql);
+            t.update(sql);
         }
         {
             String sql = "create table " + Tables.TN_CORP_INFO + "("
@@ -31,7 +29,7 @@ public class DBUpgrader_003 extends DBUpgrader {
             sql += "webSite varchar,"//
             sql += "address varchar,"//
             sql += "primary key(corpId))";
-            t.executeUpdate(con, sql);
+            t.update(sql);
         }
 
 

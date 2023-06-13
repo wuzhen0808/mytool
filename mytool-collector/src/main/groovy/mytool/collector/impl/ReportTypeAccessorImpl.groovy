@@ -4,13 +4,12 @@ import groovy.transform.CompileStatic
 import mytool.collector.ReportType
 import mytool.collector.database.ReportTypeAccessor
 import mytool.collector.database.Tables
-import mytool.util.jdbc.ConnectionSupplier
-import mytool.util.jdbc.JdbcAccessTemplate
-import mytool.util.jdbc.ResultSetProcessor
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.dao.DataAccessException
+import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.jdbc.core.ResultSetExtractor
 import org.springframework.stereotype.Component
 
-import java.sql.Connection
 import java.sql.ResultSet
 import java.sql.SQLException
 
@@ -19,10 +18,7 @@ import java.sql.SQLException
 class ReportTypeAccessorImpl implements ReportTypeAccessor {
 
     @Autowired
-    JdbcAccessTemplate template
-
-    @Autowired
-    ConnectionSupplier pool
+    JdbcTemplate template
 
     List<String> getMetricNames(ReportType reportType) {
         def all = getAll()
@@ -38,7 +34,7 @@ class ReportTypeAccessorImpl implements ReportTypeAccessor {
         Map<Integer, Map<String, Integer>> reportTypes = [:]
 
         String sql = "select reportType,aliasName,columnIndex from " + Tables.TN_ALIAS_INFO + "";
-        template.executeQuery(pool, sql, [] as Object[], { ResultSet rs ->
+        template.query(sql, [] as Object[], { ResultSet rs ->
             while (rs.next()) {
                 Integer reportType = rs.getInt("reportType");
                 Map<String, Integer> tc = reportTypes.get(reportType);
@@ -51,7 +47,7 @@ class ReportTypeAccessorImpl implements ReportTypeAccessor {
                 tc.put(aliasName, columnIndex);
             }
             return null;
-        })
+        } as ResultSetExtractor<Void>)
         reportTypes
     }
 
@@ -74,25 +70,15 @@ class ReportTypeAccessorImpl implements ReportTypeAccessor {
                                                     List<String> aliasList) {
 
         List<Integer> rt = getColumnIndexByAliasList(reportType, aliasList)
-        boolean refresh
         for (int i = 0; i < rt.size(); i++) {
             Integer columnIndex = rt.get(i)
 
             if (columnIndex == null) {
                 String alias = aliasList.get(i)
-                columnIndex = template.execute(pool, new JdbcAccessTemplate.JdbcOperation<Integer>() {
 
-                    @Override
-                    public Integer execute(Connection con, JdbcAccessTemplate t) {
-
-                        int tmpIndex = getMaxColumIndex(con, t, reportType) + 1;
-
-                        String sql = "insert into " + Tables.TN_ALIAS_INFO + "(reportType,aliasName,columnIndex) values(?,?,?)";
-                        t.executeUpdate(con, sql, new Object[]{reportType.type, alias, tmpIndex});
-                        return tmpIndex;
-                    }
-                }, true);
-                refresh = true
+                int tmpIndex = getMaxColumIndex(reportType) + 1;
+                String sql = "insert into " + Tables.TN_ALIAS_INFO + "(reportType,aliasName,columnIndex) values(?,?,?)";
+                template.update(sql, new Object[]{reportType.type, alias, tmpIndex});
                 rt.set(i, columnIndex);
             }
         }
@@ -101,19 +87,18 @@ class ReportTypeAccessorImpl implements ReportTypeAccessor {
 
     }
 
-    protected int getMaxColumIndex(Connection con, JdbcAccessTemplate t, ReportType reportType) {
+    protected int getMaxColumIndex(ReportType reportType) {
         String sql = "select max(columnIndex) from " + Tables.TN_ALIAS_INFO + " where reportType=?";
 
-        return t.executeQuery(con, sql, reportType.type, new ResultSetProcessor<Integer>() {
-
+        return template.query(sql, [reportType.type] as Object[], new ResultSetExtractor<Integer>() {
             @Override
-            Integer process(ResultSet rs) throws SQLException {
+            Integer extractData(ResultSet rs) throws SQLException, DataAccessException {
                 while (rs.next()) {
                     return rs.getInt(1);
                 }
-                return null;
+                return 0
             }
-        });
+        })
 
     }
 

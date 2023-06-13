@@ -1,50 +1,46 @@
 package mytool.collector.database
 
-
 import groovy.transform.CompileStatic
-import mytool.util.jdbc.JdbcAccessTemplate
-
-import java.sql.Connection
+import org.springframework.jdbc.core.JdbcTemplate
 
 @CompileStatic
-public abstract class DBUpgrader {
+abstract class DBUpgrader {
 
-	protected DataVersion sourceVersion;
-	protected DataVersion targetVersion;
+    protected DataVersion sourceVersion;
+    protected DataVersion targetVersion;
 
-	public DBUpgrader(DataVersion source, DataVersion target) {
-		this.sourceVersion = source;
-		this.targetVersion = target;
-	}
+    public DBUpgrader(DataVersion source, DataVersion target) {
+        this.sourceVersion = source;
+        this.targetVersion = target;
+    }
 
-	public DataVersion getTargetVersion() {
-		return this.targetVersion;
-	}
+    public DataVersion getTargetVersion() {
+        return this.targetVersion;
+    }
 
-	public void upgrade(Connection con, JdbcAccessTemplate t) {
+    public void upgrade(JdbcTemplate t) {
 
-		doUpgrade(con, t);
-		doAfterUpgrade(con, t);
+        doUpgrade(t);
+        doAfterUpgrade(t);
 
-	}
+    }
 
-	/**
-	 * Upgrade version info .
-	 * 
-	 * @param con
-	 * @param t
-	 */
-	protected void doAfterUpgrade(Connection con, JdbcAccessTemplate t) {
+    /**
+     * Upgrade version info .
+     *
+     * @param con
+     * @param t
+     */
+    protected void doAfterUpgrade(JdbcTemplate t) {
+        String sql = "update " + Tables.TN_PROPERTY + " set value=? where category=? and key=?";
+        t.update(sql, new Object[]{this.targetVersion.toString(), "core", "data-version"});
 
-		String sql = "update " + Tables.TN_PROPERTY + " set value=? where category=? and key=?";
-		t.executeUpdate(con, sql, new Object[] { this.targetVersion.toString(), "core", "data-version" });
+    }
 
-	}
+    public abstract void doUpgrade(JdbcTemplate t);
 
-	public abstract void doUpgrade(Connection con, JdbcAccessTemplate t);
-
-	public DataVersion getSourceVersion() {
-		return sourceVersion;
-	}
+    public DataVersion getSourceVersion() {
+        return sourceVersion;
+    }
 
 }

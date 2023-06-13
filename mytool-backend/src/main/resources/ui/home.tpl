@@ -7,7 +7,14 @@ layout 'ui/layout.tpl',
         title('${title}')
     },
     bodyContents: contents {
-        h2 ('A Groovy View with Spring MVC')
-        div ("msg: $msg")
-        div ("time: $time")
+        h2 ('My Tool')
+        recentCorps.each {
+            div() {
+                a(href: "/ui/corp/detail?corpId=${it.id}", target: "_blank", "${it.name}"){
+
+                }
+            }
+
+        }
+
     }
